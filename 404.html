@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="bn">
+  <head>
+    <meta charset="utf-8" />
+    <title>কোড নোট</title>
+    <!-- GitHub Pages-এ রিফ্রেশ দিলে সার্ভার এই ফাইলটা দেখায়।
+         এটা পাথটাকে ?/ আকারে index.html-এ পাঠায়, index.html আবার আসল URL ফিরিয়ে আনে। (spa-github-pages ট্রিক) -->
+    <script>
+      var known = ['c', 'cpp', 'cheatsheet']
+      var l = window.location
+      // আগেই একবার পাঠানো হয়ে থাকলে আর লুপ নয় — হোমের লিংক দেখাও
+      if (l.search[1] === '/') {
+        document.write('<p style="font-family:sans-serif;padding:2rem">পেজটি পাওয়া যায়নি। <a href="' + l.pathname + '">হোমে যাও</a></p>')
+        throw new Error('stop')
+      }
+      var segs = l.pathname.split('/').filter(Boolean)
+      // প্রজেক্ট সাইটে প্রথম অংশ repo-নাম (১টা রাখতে হবে), নিজের ডোমেইনে ০টা
+      var keep = segs.length && known.indexOf(segs[0]) === -1 ? 1 : 0
+      var root = '/' + segs.slice(0, keep).join('/') + (keep ? '/' : '')
+      var rest = segs.slice(keep).join('/')
+      l.replace(
+        l.protocol + '//' + l.host + root + '?/' + rest.replace(/&/g, '~and~') +
+          (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') + l.hash
+      )
+    </script>
+  </head>
+  <body></body>
+</html>

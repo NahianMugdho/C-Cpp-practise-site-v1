@@ -1,6 +1,6 @@
 # কোড নোট — C ও C++ এক্সাম নোট
 
-React + React Router (HashRouter) + Vite। দুইটি ডক থেকে ৯০টি করে প্রোগ্রাম (C ও C++)।
+React + React Router v6 (`createBrowserRouter` + `RouterProvider`) + Vite। দুইটি ডক থেকে ৯০টি করে প্রোগ্রাম (C ও C++)।
 
 - **পড়ার মোড**: কোড, মনে রাখার কৌশল, আউটপুট; C ↔ C++ পাশাপাশি তুলনা
 - **প্র্যাক্টিস মোড**: নিজে কোড লিখে চালাও, আউটপুট মেলাও (মিললে ✓ চিহ্ন, ব্রাউজারে সেভ থাকে)
@@ -23,8 +23,22 @@ npm run dev      # ডেভেলপমেন্ট
 npm run build    # dist তৈরি
 ```
 
+## ফোল্ডার স্ট্রাকচার
+```
+src/
+├── routes/Router.jsx       # createBrowserRouter — সব রুট এখানে
+├── layouts/MainLayout.jsx  # হেডার + <Outlet /> + ফুটার
+├── pages/                  # Home, Lang, Read, Practice, Cheat
+├── components/Code.jsx     # CodeBlock, Terminal
+├── lib/                    # data, storage, compare, run, highlight
+├── data/notes.json         # ১৮০টি প্রোগ্রাম (C ও C++)
+└── main.jsx                # <RouterProvider router={router} />
+```
+
 ## নোট
-- রাউটার `HashRouter` — তাই URL হয় `.../#/cpp/read/2-4`; রিফ্রেশ দিলেও ৪০৪ আসে না।
+- URL সুন্দর: `.../cpp/read/2-4` (কোনো `#` নেই)।
+- GitHub Pages-এ রিফ্রেশে ৪০৪ আটকাতে `public/404.html` + `index.html`-এর ছোট স্ক্রিপ্ট আছে (spa-github-pages ট্রিক)। `Router.jsx` repo-নাম দেখে নিজে `basename` ঠিক করে — তাই repo-র নাম যা-ই হোক, কিছু বদলাতে হয় না।
+- Vercel/Firebase-এ দিলে `vercel.json`/`firebase.json`-এ rewrites দাও (গাইডে যেমন আছে); তখন `404.html` লাগে না।
 - প্র্যাক্টিসের "চালাও" বাটন অনলাইন কম্পাইলার (Compiler Explorer API) ব্যবহার করে — ইন্টারনেট লাগবে। না চললে "আউটপুট পেস্ট করে মেলাও" অংশ আছে।
-- নোটের সব প্রত্যাশিত আউটপুট gcc/g++ দিয়ে আসলে চালিয়ে যাচাই করা।
+- সব প্রত্যাশিত আউটপুট gcc/g++ দিয়ে আসলে চালিয়ে যাচাই করা।
 - নতুন প্রোগ্রাম যোগ/বদল করতে `src/data/notes.json` এডিট করো।

@@ -27,9 +27,12 @@ export default function Layout() {
           </button>
         </div>
       </header>
-      <main className="wrap main">
+      {/* <main className="wrap main">
         <Outlet />
-      </main>
+      </main> */}
+      <main className="wrap main">
+  <Outlet key={pathname} />
+</main>
       <footer className="foot">
         <div className="wrap">C ও C++ এক্সাম নোট · কোড পড়ো, নিজে লেখো, আউটপুট মেলাও</div>
       </footer>

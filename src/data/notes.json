@@ -1,0 +1,2521 @@
+{
+ "c": [
+  {
+   "id": "s1",
+   "no": "১",
+   "title": "বেসিক প্রোগ্রাম (Basic Programs)",
+   "items": [
+    {
+     "id": "1-1",
+     "no": "১.১",
+     "name": "Hello World",
+     "tip": "সব C প্রোগ্রামের কাঠামো (structure) এখান থেকেই শুরু — #include, main(), return 0;।",
+     "code": "#include <stdio.h>\nint main() {\n    printf(\"Hello World\\n\"); // স্ক্রিনে টেক্সট প্রিন্ট করে\n    return 0; // প্রোগ্রাম সফলভাবে শেষ হলো তা বোঝায়\n}",
+     "input": "",
+     "inputNote": "",
+     "output": "Hello World",
+     "flags": []
+    },
+    {
+     "id": "1-2",
+     "no": "১.২",
+     "name": "Add, Subtract, Multiply, Divide",
+     "tip": "দুইটা scanf দিয়ে ইনপুট নাও, তারপর ৪টা অপারেটর + - * / প্রয়োগ করো। ভাগের ক্ষেত্রে দ্বিতীয় সংখ্যা শূন্য কিনা চেক করা ভালো অভ্যাস।",
+     "code": "#include <stdio.h>\nint main() {\n    int a, b;\n    printf(\"দুইটি সংখ্যা দিন: \");\n    scanf(\"%d %d\", &a, &b);\n\n    printf(\"যোগফল = %d\\n\", a + b);\n    printf(\"বিয়োগফল = %d\\n\", a - b);\n    printf(\"গুণফল = %d\\n\", a * b);\n\n    if (b != 0) // শূন্য দিয়ে ভাগ করা যায় না\n        printf(\"ভাগফল = %.2f\\n\", (float)a / b);\n    else\n        printf(\"ভাগফল সংজ্ঞায়িত নয় (b=0)\\n\");\n    return 0;\n}",
+     "input": "10 3\n",
+     "inputNote": "10 3",
+     "output": "দুইটি সংখ্যা দিন: যোগফল = 13\nবিয়োগফল = 7\nগুণফল = 30\nভাগফল = 3.33",
+     "flags": []
+    },
+    {
+     "id": "1-3",
+     "no": "১.৩",
+     "name": "Swap two numbers (with/without third variable)",
+     "tip": "তৃতীয় ভ্যারিয়েবল ছাড়া swap করতে হলে যোগ-বিয়োগ অথবা XOR ব্যবহার করা যায়।",
+     "code": "#include <stdio.h>\nint main() {\n    int a = 5, b = 10, temp;\n\n    // ---- তৃতীয় ভ্যারিয়েবল দিয়ে ----\n    temp = a;\n    a = b;\n    b = temp;\n    printf(\"তৃতীয় ভ্যারিয়েবল দিয়ে: a=%d, b=%d\\n\", a, b);\n\n    // ---- তৃতীয় ভ্যারিয়েবল ছাড়া (যোগ-বিয়োগ পদ্ধতি) ----\n    a = 5; b = 10;\n    a = a + b; // a তে দুইজনের যোগফল\n    b = a - b; // b = আসল a\n    a = a - b; // a = আসল b\n    printf(\"ছাড়া (যোগ-বিয়োগ): a=%d, b=%d\\n\", a, b);\n\n    // ---- XOR পদ্ধতি ----\n    a = 5; b = 10;\n    a = a ^ b;\n    b = a ^ b;\n    a = a ^ b;\n    printf(\"XOR পদ্ধতি: a=%d, b=%d\\n\", a, b);\n    return 0;\n}",
+     "input": "",
+     "inputNote": "",
+     "output": "তৃতীয় ভ্যারিয়েবল দিয়ে: a=10, b=5\nছাড়া (যোগ-বিয়োগ): a=10, b=5\nXOR পদ্ধতি: a=10, b=5",
+     "flags": []
+    },
+    {
+     "id": "1-4",
+     "no": "১.৪",
+     "name": "Even/Odd",
+     "tip": "% (মডুলাস) দিয়ে ২ দিয়ে ভাগশেষ বের করো — শূন্য হলে জোড়, নাহলে বিজোড়।",
+     "code": "#include <stdio.h>\nint main() {\n    int n;\n    printf(\"সংখ্যা দিন: \");\n    scanf(\"%d\", &n);\n    if (n % 2 == 0)\n        printf(\"%d জোড় (Even)\\n\", n);\n    else\n        printf(\"%d বিজোড় (Odd)\\n\", n);\n    return 0;\n}",
+     "input": "7\n",
+     "inputNote": "7",
+     "output": "সংখ্যা দিন: 7 বিজোড় (Odd)",
+     "flags": []
+    },
+    {
+     "id": "1-5",
+     "no": "১.৫",
+     "name": "Positive/Negative/Zero",
+     "tip": "তিনটি শর্ত — >0, <0, ==0 — if-else if-else চেইন দিয়ে চেক করো।",
+     "code": "#include <stdio.h>\nint main() {\n    int n;\n    printf(\"সংখ্যা দিন: \");\n    scanf(\"%d\", &n);\n    if (n > 0)\n        printf(\"ধনাত্মক (Positive)\\n\");\n    else if (n < 0)\n        printf(\"ঋণাত্মক (Negative)\\n\");\n    else\n        printf(\"শূন্য (Zero)\\n\");\n    return 0;\n}",
+     "input": "-5\n",
+     "inputNote": "-5",
+     "output": "সংখ্যা দিন: ঋণাত্মক (Negative)",
+     "flags": []
+    },
+    {
+     "id": "1-6",
+     "no": "১.৬",
+     "name": "Largest of 2/3 numbers",
+     "tip": "nested if অথবা একসাথে তুলনা — a>=b && a>=c হলে a-ই সবচেয়ে বড়।",
+     "code": "#include <stdio.h>\nint main() {\n    int a, b, c;\n    printf(\"তিনটি সংখ্যা দিন: \");\n    scanf(\"%d %d %d\", &a, &b, &c);\n\n    if (a >= b && a >= c)\n        printf(\"সবচেয়ে বড়: %d\\n\", a);\n    else if (b >= a && b >= c)\n        printf(\"সবচেয়ে বড়: %d\\n\", b);\n    else\n        printf(\"সবচেয়ে বড়: %d\\n\", c);\n    return 0;\n}",
+     "input": "12 45 7\n",
+     "inputNote": "12 45 7",
+     "output": "তিনটি সংখ্যা দিন: সবচেয়ে বড়: 45",
+     "flags": []
+    },
+    {
+     "id": "1-7",
+     "no": "১.৭",
+     "name": "Leap Year",
+     "tip": "নিয়ম — (৪ দিয়ে বিভাজ্য এবং ১০০ দিয়ে বিভাজ্য নয়) অথবা (৪০০ দিয়ে বিভাজ্য)।",
+     "code": "#include <stdio.h>\nint main() {\n    int y;\n    printf(\"সাল দিন: \");\n    scanf(\"%d\", &y);\n    if ((y % 4 == 0 && y % 100 != 0) || (y % 400 == 0))\n        printf(\"%d অধিবর্ষ (Leap Year)\\n\", y);\n    else\n        printf(\"%d অধিবর্ষ নয়\\n\", y);\n    return 0;\n}",
+     "input": "2024\n",
+     "inputNote": "2024",
+     "output": "সাল দিন: 2024 অধিবর্ষ (Leap Year)",
+     "flags": []
+    },
+    {
+     "id": "1-8",
+     "no": "১.৮",
+     "name": "Vowel/Consonant",
+     "tip": "a,e,i,o,u (ছোট/বড় হাতের) — এই ৫টা অক্ষর হলে vowel, বাকি সব consonant।",
+     "code": "#include <stdio.h>\nint main() {\n    char ch;\n    printf(\"একটি অক্ষর দিন: \");\n    scanf(\"%c\", &ch);\n    if (ch=='a'||ch=='e'||ch=='i'||ch=='o'||ch=='u'||\n        ch=='A'||ch=='E'||ch=='I'||ch=='O'||ch=='U')\n        printf(\"স্বরবর্ণ (Vowel)\\n\");\n    else\n        printf(\"ব্যঞ্জনবর্ণ (Consonant)\\n\");\n    return 0;\n}",
+     "input": "e\n",
+     "inputNote": "e",
+     "output": "একটি অক্ষর দিন: স্বরবর্ণ (Vowel)",
+     "flags": []
+    },
+    {
+     "id": "1-9",
+     "no": "১.৯",
+     "name": "Grade Calculation",
+     "tip": "নাম্বার অনুযায়ী রেঞ্জ ধরে if-else if চেইন, সবচেয়ে বড় শর্ত আগে চেক করা ভালো।",
+     "code": "#include <stdio.h>\nint main() {\n    int marks;\n    printf(\"নম্বর দিন: \");\n    scanf(\"%d\", &marks);\n\n    if (marks >= 80) printf(\"গ্রেড: A+\\n\");\n    else if (marks >= 70) printf(\"গ্রেড: A\\n\");\n    else if (marks >= 60) printf(\"গ্রেড: A-\\n\");\n    else if (marks >= 50) printf(\"গ্রেড: B\\n\");\n    else if (marks >= 40) printf(\"গ্রেড: C\\n\");\n    else if (marks >= 33) printf(\"গ্রেড: D\\n\");\n    else printf(\"গ্রেড: F (ফেল)\\n\");\n    return 0;\n}",
+     "input": "75\n",
+     "inputNote": "75",
+     "output": "নম্বর দিন: গ্রেড: A",
+     "flags": []
+    }
+   ]
+  },
+  {
+   "id": "s2",
+   "no": "২",
+   "title": "লুপ প্রোগ্রাম (Loop Programs)",
+   "items": [
+    {
+     "id": "2-1",
+     "no": "২.১",
+     "name": "Sum of N numbers",
+     "tip": "for লুপে sum += i — ১ থেকে n পর্যন্ত যোগ করো।",
+     "code": "#include <stdio.h>\nint main() {\n    int n, sum = 0;\n    printf(\"n দিন: \");\n    scanf(\"%d\", &n);\n    for (int i = 1; i <= n; i++)\n        sum += i; // প্রতিবার i যোগ হচ্ছে\n    printf(\"যোগফল = %d\\n\", sum);\n    return 0;\n}",
+     "input": "5\n",
+     "inputNote": "5",
+     "output": "n দিন: যোগফল = 15",
+     "flags": []
+    },
+    {
+     "id": "2-2",
+     "no": "২.২",
+     "name": "Factorial",
+     "tip": "fact *= i, শুরুর মান ১ (গুণের identity)।",
+     "code": "#include <stdio.h>\nint main() {\n    int n;\n    long long fact = 1;\n    printf(\"n দিন: \");\n    scanf(\"%d\", &n);\n    for (int i = 1; i <= n; i++)\n        fact *= i;\n    printf(\"%d! = %lld\\n\", n, fact);\n    return 0;\n}",
+     "input": "5\n",
+     "inputNote": "5",
+     "output": "n দিন: 5! = 120",
+     "flags": []
+    },
+    {
+     "id": "2-3",
+     "no": "২.৩",
+     "name": "Fibonacci Series",
+     "tip": "প্রথম দুইটা 0,1 — পরেরটা আগের দুইটার যোগফল।",
+     "code": "#include <stdio.h>\nint main() {\n    int n, a = 0, b = 1, next;\n    printf(\"কতগুলো পদ চান: \");\n    scanf(\"%d\", &n);\n    for (int i = 0; i < n; i++) {\n        printf(\"%d \", a);\n        next = a + b;\n        a = b;\n        b = next;\n    }\n    printf(\"\\n\");\n    return 0;\n}",
+     "input": "8\n",
+     "inputNote": "8",
+     "output": "কতগুলো পদ চান: 0 1 1 2 3 5 8 13 ",
+     "flags": []
+    },
+    {
+     "id": "2-4",
+     "no": "২.৪",
+     "name": "Prime Number",
+     "tip": "2 থেকে sqrt(n) পর্যন্ত কোনো সংখ্যা দিয়ে ভাগ গেলে prime না। 1 এবং তার নিচের সংখ্যা prime না।",
+     "code": "#include <stdio.h>\n#include <math.h>\nint main() {\n    int n, isPrime = 1;\n    printf(\"সংখ্যা দিন: \");\n    scanf(\"%d\", &n);\n    if (n <= 1) isPrime = 0;\n    for (int i = 2; i <= sqrt(n); i++) {\n        if (n % i == 0) { isPrime = 0; break; }\n    }\n    printf(\"%d %s\\n\", n, isPrime ? \"মৌলিক সংখ্যা (Prime)\" : \"মৌলিক সংখ্যা নয়\");\n    return 0;\n}",
+     "input": "29\n",
+     "inputNote": "29",
+     "output": "সংখ্যা দিন: 29 মৌলিক সংখ্যা (Prime)",
+     "flags": []
+    },
+    {
+     "id": "2-5",
+     "no": "২.৫",
+     "name": "Prime numbers in a range",
+     "tip": "প্রতিটি সংখ্যার জন্য উপরের prime-চেক ফাংশন বারবার কল করো (nested loop / function)।",
+     "code": "#include <stdio.h>\nint isPrime(int n) {\n    if (n <= 1) return 0;\n    for (int i = 2; i * i <= n; i++)\n        if (n % i == 0) return 0;\n    return 1;\n}\nint main() {\n    int low, high;\n    printf(\"শুরু ও শেষ দিন: \");\n    scanf(\"%d %d\", &low, &high);\n    printf(\"মৌলিক সংখ্যাসমূহ: \");\n    for (int i = low; i <= high; i++)\n        if (isPrime(i)) printf(\"%d \", i);\n    printf(\"\\n\");\n    return 0;\n}",
+     "input": "10 30\n",
+     "inputNote": "10 30",
+     "output": "শুরু ও শেষ দিন: মৌলিক সংখ্যাসমূহ: 11 13 17 19 23 29 ",
+     "flags": []
+    },
+    {
+     "id": "2-6",
+     "no": "২.৬",
+     "name": "Perfect Number",
+     "tip": "যে সংখ্যা তার প্রকৃত ভাজকগুলোর (নিজেকে বাদে) যোগফলের সমান (যেমন 6 = 1+2+3)।",
+     "code": "#include <stdio.h>\nint main() {\n    int n, sum = 0;\n    printf(\"সংখ্যা দিন: \");\n    scanf(\"%d\", &n);\n    for (int i = 1; i < n; i++)\n        if (n % i == 0) sum += i;\n    if (sum == n)\n        printf(\"%d একটি পারফেক্ট নাম্বার\\n\", n);\n    else\n        printf(\"%d পারফেক্ট নাম্বার নয়\\n\", n);\n    return 0;\n}",
+     "input": "28\n",
+     "inputNote": "28",
+     "output": "সংখ্যা দিন: 28 একটি পারফেক্ট নাম্বার",
+     "flags": []
+    },
+    {
+     "id": "2-7",
+     "no": "২.৭",
+     "name": "Armstrong Number",
+     "tip": "প্রতিটি অংককে অংকসংখ্যার (digit count) পাওয়ারে তুলে যোগ করো, মূল সংখ্যার সমান হলে Armstrong।",
+     "code": "#include <stdio.h>\n#include <math.h>\nint main() {\n    int n, original, remainder, digits = 0;\n    double result = 0;\n    printf(\"সংখ্যা দিন: \");\n    scanf(\"%d\", &n);\n    original = n;\n\n    // অংক সংখ্যা বের করা\n    for (int temp = n; temp != 0; temp /= 10) digits++;\n\n    for (int temp = n; temp != 0; temp /= 10) {\n        remainder = temp % 10;\n        result += pow(remainder, digits);\n    }\n    if ((int)result == original)\n        printf(\"%d আর্মস্ট্রং সংখ্যা\\n\", original);\n    else\n        printf(\"%d আর্মস্ট্রং সংখ্যা নয়\\n\", original);\n    return 0;\n}",
+     "input": "153\n",
+     "inputNote": "153",
+     "output": "সংখ্যা দিন: 153 আর্মস্ট্রং সংখ্যা",
+     "flags": []
+    },
+    {
+     "id": "2-8",
+     "no": "২.৮",
+     "name": "Palindrome Number",
+     "tip": "সংখ্যাটি উল্টিয়ে (reverse) মূল সংখ্যার সাথে মিলিয়ে দেখো।",
+     "code": "#include <stdio.h>\nint main() {\n    int n, original, reversed = 0, remainder;\n    printf(\"সংখ্যা দিন: \");\n    scanf(\"%d\", &n);\n    original = n;\n    while (n != 0) {\n        remainder = n % 10;\n        reversed = reversed * 10 + remainder;\n        n /= 10;\n    }\n    if (original == reversed)\n        printf(\"%d প্যালিনড্রোম\\n\", original);\n    else\n        printf(\"%d প্যালিনড্রোম নয়\\n\", original);\n    return 0;\n}",
+     "input": "121\n",
+     "inputNote": "121",
+     "output": "সংখ্যা দিন: 121 প্যালিনড্রোম",
+     "flags": []
+    },
+    {
+     "id": "2-9",
+     "no": "২.৯",
+     "name": "Reverse Number",
+     "tip": "while লুপে শেষ অংক বের করে (n%10) নতুন সংখ্যায় বসাও, তারপর n কমাও (n/=10)।",
+     "code": "#include <stdio.h>\nint main() {\n    int n, reversed = 0;\n    printf(\"সংখ্যা দিন: \");\n    scanf(\"%d\", &n);\n    while (n != 0) {\n        reversed = reversed * 10 + n % 10;\n        n /= 10;\n    }\n    printf(\"উল্টানো সংখ্যা = %d\\n\", reversed);\n    return 0;\n}",
+     "input": "12345\n",
+     "inputNote": "12345",
+     "output": "সংখ্যা দিন: উল্টানো সংখ্যা = 54321",
+     "flags": []
+    },
+    {
+     "id": "2-10",
+     "no": "২.১০",
+     "name": "Sum of Digits",
+     "tip": "প্রতিবার n%10 যোগ করো এবং n/=10 করে ছোট করো।",
+     "code": "#include <stdio.h>\nint main() {\n    int n, sum = 0;\n    printf(\"সংখ্যা দিন: \");\n    scanf(\"%d\", &n);\n    while (n != 0) {\n        sum += n % 10;\n        n /= 10;\n    }\n    printf(\"অংকের যোগফল = %d\\n\", sum);\n    return 0;\n}",
+     "input": "12345\n",
+     "inputNote": "12345",
+     "output": "সংখ্যা দিন: অংকের যোগফল = 15",
+     "flags": []
+    },
+    {
+     "id": "2-11",
+     "no": "২.১১",
+     "name": "Count Digits",
+     "tip": "প্রতিবার n/=10 করে একটা কাউন্টার বাড়াও, n শূন্য না হওয়া পর্যন্ত।",
+     "code": "#include <stdio.h>\nint main() {\n    int n, count = 0;\n    printf(\"সংখ্যা দিন: \");\n    scanf(\"%d\", &n);\n    while (n != 0) {\n        n /= 10;\n        count++;\n    }\n    printf(\"অংকের সংখ্যা = %d\\n\", count);\n    return 0;\n}",
+     "input": "12345\n",
+     "inputNote": "12345",
+     "output": "সংখ্যা দিন: অংকের সংখ্যা = 5",
+     "flags": []
+    },
+    {
+     "id": "2-12",
+     "no": "২.১২",
+     "name": "GCD & LCM",
+     "tip": "ইউক্লিডের অ্যালগরিদম — while(b) { t=b; b=a%b; a=t; } দিয়ে GCD, তারপর LCM = (a*b)/GCD।",
+     "code": "#include <stdio.h>\nint main() {\n    int a, b, x, y, temp, gcd, lcm;\n    printf(\"দুইটি সংখ্যা দিন: \");\n    scanf(\"%d %d\", &a, &b);\n    x = a; y = b;\n    while (y != 0) { // ইউক্লিডের অ্যালগরিদম\n        temp = y;\n        y = x % y;\n        x = temp;\n    }\n    gcd = x;\n    lcm = (a * b) / gcd;\n    printf(\"GCD = %d\\n\", gcd);\n    printf(\"LCM = %d\\n\", lcm);\n    return 0;\n}",
+     "input": "48 18\n",
+     "inputNote": "48 18",
+     "output": "দুইটি সংখ্যা দিন: GCD = 6\nLCM = 144",
+     "flags": []
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "no": "৩",
+   "title": "প্যাটার্ন প্রোগ্রাম (Pattern Programs)",
+   "items": [
+    {
+     "id": "3-1",
+     "no": "৩.১",
+     "name": "Right Triangle (*)",
+     "tip": "বাইরের লুপ সারি (row), ভিতরের লুপ কলাম — সারি নাম্বার অনুযায়ী * প্রিন্ট করো।",
+     "code": "#include <stdio.h>\nint main() {\n    int n = 5;\n    for (int i = 1; i <= n; i++) {\n        for (int j = 1; j <= i; j++)\n            printf(\"* \");\n        printf(\"\\n\");\n    }\n    return 0;\n}",
+     "input": "",
+     "inputNote": "",
+     "output": "* \n* * \n* * * \n* * * * \n* * * * * ",
+     "flags": []
+    },
+    {
+     "id": "3-2",
+     "no": "৩.২",
+     "name": "Inverted Triangle",
+     "tip": "বাইরের লুপ n থেকে 1 পর্যন্ত কমতে থাকবে।",
+     "code": "#include <stdio.h>\nint main() {\n    int n = 5;\n    for (int i = n; i >= 1; i--) {\n        for (int j = 1; j <= i; j++)\n            printf(\"* \");\n        printf(\"\\n\");\n    }\n    return 0;\n}",
+     "input": "",
+     "inputNote": "",
+     "output": "* * * * * \n* * * * \n* * * \n* * \n* ",
+     "flags": []
+    },
+    {
+     "id": "3-3",
+     "no": "৩.৩",
+     "name": "Pyramid",
+     "tip": "প্রথমে স্পেস প্রিন্ট করো (n-i বার), তারপর স্টার প্রিন্ট করো (2*i-1 বার)।",
+     "code": "#include <stdio.h>\nint main() {\n    int n = 5;\n    for (int i = 1; i <= n; i++) {\n        for (int s = 1; s <= n - i; s++) printf(\" \");\n        for (int j = 1; j <= 2 * i - 1; j++) printf(\"*\");\n        printf(\"\\n\");\n    }\n    return 0;\n}",
+     "input": "",
+     "inputNote": "",
+     "output": "    *\n   ***\n  *****\n *******\n*********",
+     "flags": []
+    },
+    {
+     "id": "3-4",
+     "no": "৩.৪",
+     "name": "Floyd’s Triangle",
+     "tip": "একটি কাউন্টার (num) রাখো যেটা প্রতিটি প্রিন্টে ১ করে বাড়বে, সারি অনুযায়ী সংখ্যা বসবে।",
+     "code": "#include <stdio.h>\nint main() {\n    int n = 5, num = 1;\n    for (int i = 1; i <= n; i++) {\n        for (int j = 1; j <= i; j++)\n            printf(\"%d \", num++);\n        printf(\"\\n\");\n    }\n    return 0;\n}",
+     "input": "",
+     "inputNote": "",
+     "output": "1 \n2 3 \n4 5 6 \n7 8 9 10 \n11 12 13 14 15 ",
+     "flags": []
+    },
+    {
+     "id": "3-5",
+     "no": "৩.৫",
+     "name": "Pascal’s Triangle",
+     "tip": "প্রতিটি সংখ্যা = উপরের দুইটা সংখ্যার যোগফল। সূত্র: C(i,j) = i! / (j!*(i-j)!)",
+     "code": "#include <stdio.h>\nint main() {\n    int n = 5;\n    for (int i = 0; i < n; i++) {\n        int val = 1;\n        for (int s = 0; s < n - i - 1; s++) printf(\" \");\n        for (int j = 0; j <= i; j++) {\n            printf(\"%d \", val);\n            val = val * (i - j) / (j + 1); // পরের বাইনমিয়াল কোএফিশিয়েন্ট বের করা\n        }\n        printf(\"\\n\");\n    }\n    return 0;\n}",
+     "input": "",
+     "inputNote": "",
+     "output": "    1 \n   1 1 \n  1 2 1 \n 1 3 3 1 \n1 4 6 4 1 ",
+     "flags": []
+    },
+    {
+     "id": "3-6",
+     "no": "৩.৬",
+     "name": "Number Pattern",
+     "tip": "ভিতরের লুপে j নিজেই প্রিন্ট হয় (1,2,3…i)।",
+     "code": "#include <stdio.h>\nint main() {\n    int n = 5;\n    for (int i = 1; i <= n; i++) {\n        for (int j = 1; j <= i; j++)\n            printf(\"%d \", j);\n        printf(\"\\n\");\n    }\n    return 0;\n}",
+     "input": "",
+     "inputNote": "",
+     "output": "1 \n1 2 \n1 2 3 \n1 2 3 4 \n1 2 3 4 5 ",
+     "flags": []
+    },
+    {
+     "id": "3-7",
+     "no": "৩.৭",
+     "name": "Alphabet Pattern",
+     "tip": "'A' + j করলে অক্ষর পাওয়া যায় (ASCII এর সাহায্যে)।",
+     "code": "#include <stdio.h>\nint main() {\n    int n = 5;\n    for (int i = 0; i < n; i++) {\n        for (int j = 0; j <= i; j++)\n            printf(\"%c \", 'A' + j); // ASCII ভিত্তিতে অক্ষর\n        printf(\"\\n\");\n    }\n    return 0;\n}",
+     "input": "",
+     "inputNote": "",
+     "output": "A \nA B \nA B C \nA B C D \nA B C D E ",
+     "flags": []
+    }
+   ]
+  },
+  {
+   "id": "s4",
+   "no": "৪",
+   "title": "অ্যারে প্রোগ্রাম (Array Programs)",
+   "items": [
+    {
+     "id": "4-1",
+     "no": "৪.১",
+     "name": "Largest & Smallest Element",
+     "tip": "প্রথম এলিমেন্টকে max/min ধরে বাকি সবগুলোর সাথে তুলনা করো।",
+     "code": "#include <stdio.h>\nint main() {\n    int arr[] = {12, 45, 2, 41, 31, 10};\n    int n = sizeof(arr) / sizeof(arr[0]);\n    int max = arr[0], min = arr[0];\n    for (int i = 1; i < n; i++) {\n        if (arr[i] > max) max = arr[i];\n        if (arr[i] < min) min = arr[i];\n    }\n    printf(\"সবচেয়ে বড়: %d, সবচেয়ে ছোট: %d\\n\", max, min);\n    return 0;\n}",
+     "input": "",
+     "inputNote": "",
+     "output": "সবচেয়ে বড়: 45, সবচেয়ে ছোট: 2",
+     "flags": []
+    },
+    {
+     "id": "4-2",
+     "no": "৪.২",
+     "name": "Second Largest",
+     "tip": "একবারে max ও secondMax দুটোই আপডেট করো — max ভাঙলে পুরনো max হবে secondMax।",
+     "code": "#include <stdio.h>\nint main() {\n    int arr[] = {12, 45, 2, 41, 31, 10};\n    int n = sizeof(arr) / sizeof(arr[0]);\n    int max = arr[0], second = -1;\n    for (int i = 1; i < n; i++) {\n        if (arr[i] > max) {\n            second = max;\n            max = arr[i];\n        } else if (arr[i] > second && arr[i] != max) {\n            second = arr[i];\n        }\n    }\n    printf(\"দ্বিতীয় বৃহত্তম: %d\\n\", second);\n    return 0;\n}",
+     "input": "",
+     "inputNote": "",
+     "output": "দ্বিতীয় বৃহত্তম: 41",
+     "flags": []
+    },
+    {
+     "id": "4-3",
+     "no": "৪.৩",
+     "name": "Reverse Array",
+     "tip": "দুটি পয়েন্টার (start, end) দিয়ে swap করো, মাঝখানে গিয়ে থামবে।",
+     "code": "#include <stdio.h>\nint main() {\n    int arr[] = {1, 2, 3, 4, 5};\n    int n = sizeof(arr) / sizeof(arr[0]);\n    for (int i = 0, j = n - 1; i < j; i++, j--) {\n        int temp = arr[i];\n        arr[i] = arr[j];\n        arr[j] = temp;\n    }\n    for (int i = 0; i < n; i++) printf(\"%d \", arr[i]);\n    printf(\"\\n\");\n    return 0;\n}",
+     "input": "",
+     "inputNote": "",
+     "output": "5 4 3 2 1 ",
+     "flags": []
+    },
+    {
+     "id": "4-4",
+     "no": "৪.৪",
+     "name": "Array Sorting (Bubble Sort)",
+     "tip": "পাশাপাশি দুইটা এলিমেন্ট তুলনা করে বড়টাকে পিছনে ঠেলে দাও (বুদবুদের মতো ভাসে বড়টা)।",
+     "code": "#include <stdio.h>\nint main() {\n    int arr[] = {5, 2, 9, 1, 5, 6};\n    int n = sizeof(arr) / sizeof(arr[0]);\n    for (int i = 0; i < n - 1; i++)\n        for (int j = 0; j < n - i - 1; j++)\n            if (arr[j] > arr[j + 1]) {\n                int t = arr[j];\n                arr[j] = arr[j + 1];\n                arr[j + 1] = t;\n            }\n    for (int i = 0; i < n; i++) printf(\"%d \", arr[i]);\n    printf(\"\\n\");\n    return 0;\n}",
+     "input": "",
+     "inputNote": "",
+     "output": "1 2 5 5 6 9 ",
+     "flags": []
+    },
+    {
+     "id": "4-5",
+     "no": "৪.৫",
+     "name": "Selection Sort",
+     "tip": "প্রতি ধাপে বাকি অংশ থেকে সবচেয়ে ছোট এলিমেন্টের index খুঁজে current position-এর সাথে swap করো।",
+     "code": "#include <stdio.h>\nint main() {\n    int arr[] = {5, 2, 9, 1, 5, 6};\n    int n = sizeof(arr) / sizeof(arr[0]);\n    for (int i = 0; i < n - 1; i++) {\n        int minIdx = i;\n        for (int j = i + 1; j < n; j++)\n            if (arr[j] < arr[minIdx]) minIdx = j;\n        int t = arr[minIdx];\n        arr[minIdx] = arr[i];\n        arr[i] = t;\n    }\n    for (int i = 0; i < n; i++) printf(\"%d \", arr[i]);\n    printf(\"\\n\");\n    return 0;\n}",
+     "input": "",
+     "inputNote": "",
+     "output": "1 2 5 5 6 9 ",
+     "flags": []
+    },
+    {
+     "id": "4-6",
+     "no": "৪.৬",
+     "name": "Linear Search",
+     "tip": "শুরু থেকে শেষ পর্যন্ত প্রতিটি এলিমেন্ট এক এক করে চেক করো — সহজ কিন্তু ধীর (O(n))।",
+     "code": "#include <stdio.h>\nint main() {\n    int arr[] = {5, 2, 9, 1, 5, 6};\n    int n = sizeof(arr) / sizeof(arr[0]), key = 9, found = -1;\n    for (int i = 0; i < n; i++)\n        if (arr[i] == key) { found = i; break; }\n    if (found != -1) printf(\"%d পাওয়া গেছে index %d এ\\n\", key, found);\n    else printf(\"পাওয়া যায়নি\\n\");\n    return 0;\n}",
+     "input": "",
+     "inputNote": "",
+     "output": "9 পাওয়া গেছে index 2 এ",
+     "flags": []
+    },
+    {
+     "id": "4-7",
+     "no": "৪.৭",
+     "name": "Binary Search",
+     "tip": "অ্যারে sorted থাকতে হবে। মাঝের এলিমেন্টের সাথে তুলনা করে অর্ধেক অংশ বাদ দাও (O(log n))।",
+     "code": "#include <stdio.h>\nint main() {\n    int arr[] = {1, 3, 5, 7, 9, 11, 13};\n    int n = sizeof(arr) / sizeof(arr[0]), key = 7;\n    int low = 0, high = n - 1, found = -1;\n    while (low <= high) {\n        int mid = (low + high) / 2;\n        if (arr[mid] == key) { found = mid; break; }\n        else if (arr[mid] < key) low = mid + 1; // ডান দিকে খোঁজো\n        else high = mid - 1;                    // বাম দিকে খোঁজো\n    }\n    if (found != -1) printf(\"%d পাওয়া গেছে index %d এ\\n\", key, found);\n    else printf(\"পাওয়া যায়নি\\n\");\n    return 0;\n}",
+     "input": "",
+     "inputNote": "",
+     "output": "7 পাওয়া গেছে index 3 এ",
+     "flags": []
+    },
+    {
+     "id": "4-8",
+     "no": "৪.৮",
+     "name": "Merge Two Arrays",
+     "tip": "নতুন অ্যারেতে প্রথম অ্যারের সব উপাদান, তারপর দ্বিতীয় অ্যারের সব উপাদান কপি করো।",
+     "code": "#include <stdio.h>\nint main() {\n    int a[] = {1, 2, 3}, b[] = {4, 5, 6};\n    int n1 = 3, n2 = 3;\n    int merged[6], k = 0;\n    for (int i = 0; i < n1; i++) merged[k++] = a[i];\n    for (int i = 0; i < n2; i++) merged[k++] = b[i];\n    for (int i = 0; i < k; i++) printf(\"%d \", merged[i]);\n    printf(\"\\n\");\n    return 0;\n}",
+     "input": "",
+     "inputNote": "",
+     "output": "1 2 3 4 5 6 ",
+     "flags": []
+    },
+    {
+     "id": "4-9",
+     "no": "৪.৯",
+     "name": "Matrix Addition",
+     "tip": "একই position-এর (i,j) দুইটা এলিমেন্ট যোগ করো।",
+     "code": "#include <stdio.h>\nint main() {\n    int a[2][2] = {{1,2},{3,4}}, b[2][2] = {{5,6},{7,8}}, c[2][2];\n    for (int i = 0; i < 2; i++)\n        for (int j = 0; j < 2; j++)\n            c[i][j] = a[i][j] + b[i][j];\n    for (int i = 0; i < 2; i++) {\n        for (int j = 0; j < 2; j++) printf(\"%d \", c[i][j]);\n        printf(\"\\n\");\n    }\n    return 0;\n}",
+     "input": "",
+     "inputNote": "",
+     "output": "6 8 \n10 12 ",
+     "flags": []
+    },
+    {
+     "id": "4-10",
+     "no": "৪.১০",
+     "name": "Matrix Multiplication",
+     "tip": "তিনটা লুপ লাগবে (i,j,k) — প্রথম ম্যাট্রিক্সের row × দ্বিতীয় ম্যাট্রিক্সের column, ভিতরে sum যোগ হবে।",
+     "code": "#include <stdio.h>\nint main() {\n    int a[2][2] = {{1,2},{3,4}}, b[2][2] = {{5,6},{7,8}}, c[2][2] = {0};\n    for (int i = 0; i < 2; i++)\n        for (int j = 0; j < 2; j++)\n            for (int k = 0; k < 2; k++)\n                c[i][j] += a[i][k] * b[k][j];\n    for (int i = 0; i < 2; i++) {\n        for (int j = 0; j < 2; j++) printf(\"%d \", c[i][j]);\n        printf(\"\\n\");\n    }\n    return 0;\n}",
+     "input": "",
+     "inputNote": "",
+     "output": "19 22 \n43 50 ",
+     "flags": []
+    },
+    {
+     "id": "4-11",
+     "no": "৪.১১",
+     "name": "Matrix Transpose",
+     "tip": "row আর column অদল-বদল করো — transpose[j][i] = matrix[i][j]।",
+     "code": "#include <stdio.h>\nint main() {\n    int a[2][3] = {{1,2,3},{4,5,6}};\n    int t[3][2];\n    for (int i = 0; i < 2; i++)\n        for (int j = 0; j < 3; j++)\n            t[j][i] = a[i][j];\n    for (int i = 0; i < 3; i++) {\n        for (int j = 0; j < 2; j++) printf(\"%d \", t[i][j]);\n        printf(\"\\n\");\n    }\n    return 0;\n}",
+     "input": "",
+     "inputNote": "",
+     "output": "1 4 \n2 5 \n3 6 ",
+     "flags": []
+    }
+   ]
+  },
+  {
+   "id": "s5",
+   "no": "৫",
+   "title": "স্ট্রিং প্রোগ্রাম (String Programs)",
+   "items": [
+    {
+     "id": "5-1",
+     "no": "৫.১",
+     "name": "String Length (without strlen())",
+     "tip": "যতক্ষণ না নাল ক্যারেক্টার (\\0) পাওয়া যায়, ততক্ষণ কাউন্ট বাড়াও।",
+     "code": "#include <stdio.h>\nint main() {\n    char str[] = \"Bangladesh\";\n    int len = 0;\n    while (str[len] != '\\0') len++;\n    printf(\"দৈর্ঘ্য = %d\\n\", len);\n    return 0;\n}",
+     "input": "",
+     "inputNote": "",
+     "output": "দৈর্ঘ্য = 10",
+     "flags": []
+    },
+    {
+     "id": "5-2",
+     "no": "৫.২",
+     "name": "String Copy",
+     "tip": "প্রতিটি অক্ষর এক এক করে নতুন অ্যারেতে কপি করো, শেষে \\0 বসাও।",
+     "code": "#include <stdio.h>\nint main() {\n    char src[] = \"Hello\";\n    char dest[50];\n    int i;\n    for (i = 0; src[i] != '\\0'; i++)\n        dest[i] = src[i];\n    dest[i] = '\\0'; // স্ট্রিং শেষের চিহ্ন\n    printf(\"কপি করা স্ট্রিং: %s\\n\", dest);\n    return 0;\n}",
+     "input": "",
+     "inputNote": "",
+     "output": "কপি করা স্ট্রিং: Hello",
+     "flags": []
+    },
+    {
+     "id": "5-3",
+     "no": "৫.৩",
+     "name": "String Compare",
+     "tip": "প্রতিটি অক্ষর মিলিয়ে দেখো — কোথাও অমিল পেলে সাথে সাথে unequal ঘোষণা করো।",
+     "code": "#include <stdio.h>\nint main() {\n    char s1[] = \"abc\", s2[] = \"abd\";\n    int i = 0, isEqual = 1;\n    while (s1[i] != '\\0' && s2[i] != '\\0') {\n        if (s1[i] != s2[i]) { isEqual = 0; break; }\n        i++;\n    }\n    if (s1[i] != s2[i]) isEqual = 0; // দৈর্ঘ্য ভিন্ন হলে\n    printf(\"%s\\n\", isEqual ? \"স্ট্রিং সমান\" : \"স্ট্রিং ভিন্ন\");\n    return 0;\n}",
+     "input": "",
+     "inputNote": "",
+     "output": "স্ট্রিং ভিন্ন",
+     "flags": []
+    },
+    {
+     "id": "5-4",
+     "no": "৫.৪",
+     "name": "String Reverse",
+     "tip": "শুরু (start) ও শেষ (end) index থেকে অক্ষর swap করো, মাঝে গিয়ে থামো।",
+     "code": "#include <stdio.h>\n#include <string.h>\nint main() {\n    char str[] = \"Bangladesh\";\n    int len = strlen(str);\n    for (int i = 0, j = len - 1; i < j; i++, j--) {\n        char t = str[i];\n        str[i] = str[j];\n        str[j] = t;\n    }\n    printf(\"উল্টানো স্ট্রিং: %s\\n\", str);\n    return 0;\n}",
+     "input": "",
+     "inputNote": "",
+     "output": "উল্টানো স্ট্রিং: hsedalgnaB",
+     "flags": []
+    },
+    {
+     "id": "5-5",
+     "no": "৫.৫",
+     "name": "Palindrome String",
+     "tip": "স্ট্রিং উল্টিয়ে মূল স্ট্রিংয়ের সাথে মিলিয়ে দেখো, অথবা দুই প্রান্ত থেকে তুলনা করো।",
+     "code": "#include <stdio.h>\n#include <string.h>\nint main() {\n    char str[] = \"madam\";\n    int len = strlen(str), isPalindrome = 1;\n    for (int i = 0; i < len / 2; i++)\n        if (str[i] != str[len - 1 - i]) { isPalindrome = 0; break; }\n    printf(\"%s\\n\", isPalindrome ? \"প্যালিনড্রোম\" : \"প্যালিনড্রোম নয়\");\n    return 0;\n}",
+     "input": "",
+     "inputNote": "",
+     "output": "প্যালিনড্রোম",
+     "flags": []
+    },
+    {
+     "id": "5-6",
+     "no": "৫.৬",
+     "name": "Count Vowels/Consonants",
+     "tip": "প্রতিটি অক্ষর চেক করো — vowel হলে vowel কাউন্টার, letter হয়েও vowel না হলে consonant কাউন্টার বাড়াও।",
+     "code": "#include <stdio.h>\n#include <ctype.h>\nint main() {\n    char str[] = \"Bangladesh\";\n    int vowels = 0, consonants = 0;\n    for (int i = 0; str[i] != '\\0'; i++) {\n        char ch = tolower(str[i]);\n        if (ch=='a'||ch=='e'||ch=='i'||ch=='o'||ch=='u') vowels++;\n        else if (ch >= 'a' && ch <= 'z') consonants++;\n    }\n    printf(\"স্বরবর্ণ = %d, ব্যঞ্জনবর্ণ = %d\\n\", vowels, consonants);\n    return 0;\n}",
+     "input": "",
+     "inputNote": "",
+     "output": "স্বরবর্ণ = 3, ব্যঞ্জনবর্ণ = 7",
+     "flags": []
+    },
+    {
+     "id": "5-7",
+     "no": "৫.৭",
+     "name": "Count Words",
+     "tip": "স্পেস থেকে non-space এ ট্রানজিশন হলেই একটা নতুন শব্দ শুরু ধরে কাউন্ট বাড়াও।",
+     "code": "#include <stdio.h>\nint main() {\n    char str[] = \"I love Bangladesh\";\n    int count = 0, i = 0;\n    while (str[i] != '\\0') {\n        if (str[i] != ' ' && (i == 0 || str[i-1] == ' '))\n            count++; // নতুন শব্দ শুরু\n        i++;\n    }\n    printf(\"শব্দ সংখ্যা = %d\\n\", count);\n    return 0;\n}",
+     "input": "",
+     "inputNote": "",
+     "output": "শব্দ সংখ্যা = 3",
+     "flags": []
+    },
+    {
+     "id": "5-8",
+     "no": "৫.৮",
+     "name": "Character Frequency",
+     "tip": "২৬টা অক্ষরের জন্য একটা freq[26] অ্যারে রাখো, প্রতিটা অক্ষরের index এ কাউন্ট বাড়াও।",
+     "code": "#include <stdio.h>\n#include <ctype.h>\nint main() {\n    char str[] = \"programming\";\n    int freq[26] = {0};\n    for (int i = 0; str[i] != '\\0'; i++)\n        freq[tolower(str[i]) - 'a']++;\n    for (int i = 0; i < 26; i++)\n        if (freq[i] > 0)\n            printf(\"%c: %d বার\\n\", 'a' + i, freq[i]);\n    return 0;\n}",
+     "input": "",
+     "inputNote": "",
+     "output": "a: 1 বার\ng: 2 বার\ni: 1 বার\nm: 2 বার\nn: 1 বার\no: 1 বার\np: 1 বার\nr: 2 বার",
+     "flags": []
+    }
+   ]
+  },
+  {
+   "id": "s6",
+   "no": "৬",
+   "title": "ফাংশন প্রোগ্রাম (Function Programs)",
+   "items": [
+    {
+     "id": "6-1",
+     "no": "৬.১",
+     "name": "Recursive Factorial",
+     "tip": "বেস কেস n==0 বা 1 হলে return 1, নাহলে n * fact(n-1)।",
+     "code": "#include <stdio.h>\nlong long fact(int n) {\n    if (n <= 1) return 1; // বেস কেস\n    return n * fact(n - 1); // রিকার্সিভ কল\n}\nint main() {\n    int n = 5;\n    printf(\"%d! = %lld\\n\", n, fact(n));\n    return 0;\n}",
+     "input": "",
+     "inputNote": "",
+     "output": "5! = 120",
+     "flags": []
+    },
+    {
+     "id": "6-2",
+     "no": "৬.২",
+     "name": "Recursive Fibonacci",
+     "tip": "বেস কেস n==0 বা n==1, নাহলে fib(n-1) + fib(n-2)।",
+     "code": "#include <stdio.h>\nint fib(int n) {\n    if (n == 0) return 0;\n    if (n == 1) return 1;\n    return fib(n - 1) + fib(n - 2);\n}\nint main() {\n    int n = 8;\n    for (int i = 0; i < n; i++)\n        printf(\"%d \", fib(i));\n    printf(\"\\n\");\n    return 0;\n}",
+     "input": "",
+     "inputNote": "",
+     "output": "0 1 1 2 3 5 8 13 ",
+     "flags": []
+    },
+    {
+     "id": "6-3",
+     "no": "৬.৩",
+     "name": "Recursive GCD",
+     "tip": "ইউক্লিডের সূত্র রিকার্সিভভাবে — gcd(a,b) = gcd(b, a%b), b==0 হলে a ই উত্তর।",
+     "code": "#include <stdio.h>\nint gcd(int a, int b) {\n    if (b == 0) return a; // বেস কেস\n    return gcd(b, a % b);\n}\nint main() {\n    int a = 48, b = 18;\n    printf(\"GCD = %d\\n\", gcd(a, b));\n    return 0;\n}",
+     "input": "",
+     "inputNote": "",
+     "output": "GCD = 6",
+     "flags": []
+    },
+    {
+     "id": "6-4",
+     "no": "৬.৪",
+     "name": "Call by Value vs Call by Reference",
+     "tip": "Call by value → কপি পাস হয় (মূল ভ্যারিয়েবল বদলায় না)। Call by reference → address (pointer) পাস হয় (মূল ভ্যারিয়েবল বদলায়)।",
+     "code": "#include <stdio.h>\nvoid byValue(int x) {\n    x = x + 10; // শুধু কপি বদলায়\n}\nvoid byReference(int *x) {\n    *x = *x + 10; // মূল ভ্যারিয়েবল বদলায়\n}\nint main() {\n    int a = 5;\n    byValue(a);\n    printf(\"byValue এর পর a = %d (অপরিবর্তিত)\\n\", a);\n\n    byReference(&a);\n    printf(\"byReference এর পর a = %d (পরিবর্তিত)\\n\", a);\n    return 0;\n}",
+     "input": "",
+     "inputNote": "",
+     "output": "byValue এর পর a = 5 (অপরিবর্তিত)\nbyReference এর পর a = 15 (পরিবর্তিত)",
+     "flags": []
+    }
+   ]
+  },
+  {
+   "id": "s7",
+   "no": "৭",
+   "title": "পয়েন্টার প্রোগ্রাম (Pointer Programs)",
+   "items": [
+    {
+     "id": "7-1",
+     "no": "৭.১",
+     "name": "Pointer Basics",
+     "tip": "& মানে address নাও, * মানে সেই address এর মান নাও (dereference)।",
+     "code": "#include <stdio.h>\nint main() {\n    int a = 10;\n    int *p = &a; // p এখন a এর address ধারণ করছে\n    printf(\"a এর মান = %d\\n\", a);\n    printf(\"a এর address = %p\\n\", (void*)&a);\n    printf(\"p এর মান (address) = %p\\n\", (void*)p);\n    printf(\"*p (dereference) = %d\\n\", *p);\n    return 0;\n}",
+     "input": "",
+     "inputNote": "",
+     "output": "a এর মান = 10\na এর address = 0x7ffc547be53c\np এর মান (address) = 0x7ffc547be53c\n*p (dereference) = 10",
+     "flags": [
+      "address"
+     ]
+    },
+    {
+     "id": "7-2",
+     "no": "৭.২",
+     "name": "Swap using Pointers",
+     "tip": "ফাংশনে address পাঠাও (&a, &b), ফাংশনের ভিতরে * দিয়ে মূল মান বদলাও।",
+     "code": "#include <stdio.h>\nvoid swap(int *x, int *y) {\n    int temp = *x;\n    *x = *y;\n    *y = temp;\n}\nint main() {\n    int a = 5, b = 10;\n    swap(&a, &b);\n    printf(\"a=%d, b=%d\\n\", a, b);\n    return 0;\n}",
+     "input": "",
+     "inputNote": "",
+     "output": "a=10, b=5",
+     "flags": []
+    },
+    {
+     "id": "7-3",
+     "no": "৭.৩",
+     "name": "Array using Pointer",
+     "tip": "অ্যারের নাম নিজেই প্রথম এলিমেন্টের address — *(arr+i) মানে arr[i]।",
+     "code": "#include <stdio.h>\nint main() {\n    int arr[] = {10, 20, 30, 40};\n    int *p = arr; // অ্যারের নাম = প্রথম এলিমেন্টের address\n    for (int i = 0; i < 4; i++)\n        printf(\"%d \", *(p + i)); // pointer arithmetic\n    printf(\"\\n\");\n    return 0;\n}",
+     "input": "",
+     "inputNote": "",
+     "output": "10 20 30 40 ",
+     "flags": []
+    },
+    {
+     "id": "7-4",
+     "no": "৭.৪",
+     "name": "String using Pointer",
+     "tip": "char *p দিয়ে স্ট্রিং এর উপর দিয়ে হাঁটো, \\0 না পাওয়া পর্যন্ত p++ করো।",
+     "code": "#include <stdio.h>\nint main() {\n    char str[] = \"Hello\";\n    char *p = str;\n    while (*p != '\\0') {\n        printf(\"%c\", *p);\n        p++;\n    }\n    printf(\"\\n\");\n    return 0;\n}",
+     "input": "",
+     "inputNote": "",
+     "output": "Hello",
+     "flags": []
+    }
+   ]
+  },
+  {
+   "id": "s8",
+   "no": "৮",
+   "title": "স্ট্রাকচার ও ইউনিয়ন (Structure & Union)",
+   "items": [
+    {
+     "id": "8-1",
+     "no": "৮.১",
+     "name": "Student Information",
+     "tip": "struct দিয়ে ভিন্ন ভিন্ন টাইপের ডেটা একসাথে গ্রুপ করা যায় — . (dot) দিয়ে মেম্বার অ্যাক্সেস করো।",
+     "code": "#include <stdio.h>\nstruct Student {\n    char name[50];\n    int roll;\n    float gpa;\n};\nint main() {\n    struct Student s1 = {\"Mugdho\", 101, 3.85};\n    printf(\"নাম: %s, রোল: %d, GPA: %.2f\\n\", s1.name, s1.roll, s1.gpa);\n    return 0;\n}",
+     "input": "",
+     "inputNote": "",
+     "output": "নাম: Mugdho, রোল: 101, GPA: 3.85",
+     "flags": []
+    },
+    {
+     "id": "8-2",
+     "no": "৮.২",
+     "name": "Employee Record",
+     "tip": "একাধিক স্ট্রাকচার ভ্যারিয়েবল অ্যারে আকারে রাখা যায় — struct Employee emp[10]।",
+     "code": "#include <stdio.h>\nstruct Employee {\n    char name[50];\n    int id;\n    float salary;\n};\nint main() {\n    struct Employee e[2] = {\n        {\"Karim\", 1, 30000},\n        {\"Rahim\", 2, 35000}\n    };\n    for (int i = 0; i < 2; i++)\n        printf(\"ID: %d, নাম: %s, বেতন: %.2f\\n\", e[i].id, e[i].name, e[i].salary);\n    return 0;\n}",
+     "input": "",
+     "inputNote": "",
+     "output": "ID: 1, নাম: Karim, বেতন: 30000.00\nID: 2, নাম: Rahim, বেতন: 35000.00",
+     "flags": []
+    },
+    {
+     "id": "8-3",
+     "no": "৮.৩",
+     "name": "Nested Structure",
+     "tip": "একটা struct আরেকটা struct এর ভিতরে রাখা যায় — অ্যাক্সেস করতে . দুইবার লাগে।",
+     "code": "#include <stdio.h>\nstruct Date {\n    int day, month, year;\n};\nstruct Employee {\n    char name[50];\n    struct Date joiningDate; // নেস্টেড স্ট্রাকচার\n};\nint main() {\n    struct Employee e1 = {\"Karim\", {15, 8, 2023}};\n    printf(\"নাম: %s, যোগদান: %d/%d/%d\\n\",\n           e1.name, e1.joiningDate.day, e1.joiningDate.month, e1.joiningDate.year);\n    return 0;\n}",
+     "input": "",
+     "inputNote": "",
+     "output": "নাম: Karim, যোগদান: 15/8/2023",
+     "flags": []
+    },
+    {
+     "id": "8-4",
+     "no": "৮.৪",
+     "name": "Union Example",
+     "tip": "union এর সব মেম্বার একই memory ভাগাভাগি করে — একসাথে একটাই মেম্বারের মান ঠিক থাকে (struct এর মতো আলাদা মেমরি না)।",
+     "code": "#include <stdio.h>\nunion Data {\n    int i;\n    float f;\n    char str[20];\n};\nint main() {\n    union Data data;\n    data.i = 10;\n    printf(\"i = %d\\n\", data.i);\n\n    data.f = 3.14; // এখন data.i এর মান আর ঠিক থাকবে না, একই মেমরি শেয়ার করে\n    printf(\"f = %.2f\\n\", data.f);\n\n    printf(\"union এর আকার (sizeof) = %lu bytes (সবচেয়ে বড় মেম্বারের সমান)\\n\", sizeof(data));\n    return 0;\n}",
+     "input": "",
+     "inputNote": "",
+     "output": "i = 10\nf = 3.14\nunion এর আকার (sizeof) = 20 bytes (সবচেয়ে বড় মেম্বারের সমান)",
+     "flags": []
+    }
+   ]
+  },
+  {
+   "id": "s9",
+   "no": "৯",
+   "title": "ফাইল হ্যান্ডলিং (File Handling)",
+   "items": [
+    {
+     "id": "9-1",
+     "no": "৯.১",
+     "name": "Write to File",
+     "tip": "fopen(filename, \"w\") → লেখা → fclose()। “w” মানে write mode (আগের ডেটা মুছে যায়)।",
+     "code": "#include <stdio.h>\nint main() {\n    FILE *fp = fopen(\"data.txt\", \"w\");\n    if (fp == NULL) { printf(\"ফাইল খোলা যায়নি\\n\"); return 1; }\n    fprintf(fp, \"Hello, this is a test file.\\n\");\n    fclose(fp);\n    printf(\"ফাইলে লেখা হয়েছে\\n\");\n    return 0;\n}",
+     "input": "",
+     "inputNote": "",
+     "output": "ফাইলে লেখা হয়েছে",
+     "flags": []
+    },
+    {
+     "id": "9-2",
+     "no": "৯.২",
+     "name": "Read from File",
+     "tip": "fopen(filename, \"r\") → fgets() বা fscanf() দিয়ে পড়ো → fclose()।",
+     "code": "#include <stdio.h>\nint main() {\n    char buffer[100];\n    FILE *fp = fopen(\"data.txt\", \"r\");\n    if (fp == NULL) { printf(\"ফাইল খোলা যায়নি\\n\"); return 1; }\n    while (fgets(buffer, 100, fp) != NULL)\n        printf(\"%s\", buffer);\n    fclose(fp);\n    return 0;\n}",
+     "input": "",
+     "inputNote": "",
+     "output": "Hello, this is a test file.",
+     "flags": [
+      "needsFile"
+     ]
+    },
+    {
+     "id": "9-3",
+     "no": "৯.৩",
+     "name": "Append File",
+     "tip": "“a” মোড ব্যবহার করলে ফাইলের শেষে নতুন ডেটা যোগ হয় (আগেরটা মুছে যায় না)।",
+     "code": "#include <stdio.h>\nint main() {\n    FILE *fp = fopen(\"data.txt\", \"a\"); // append mode\n    if (fp == NULL) { printf(\"ফাইল খোলা যায়নি\\n\"); return 1; }\n    fprintf(fp, \"নতুন লাইন যোগ করা হলো।\\n\");\n    fclose(fp);\n    printf(\"ফাইলে যোগ করা হয়েছে\\n\");\n    return 0;\n}",
+     "input": "",
+     "inputNote": "",
+     "output": "ফাইলে যোগ করা হয়েছে",
+     "flags": []
+    },
+    {
+     "id": "9-4",
+     "no": "৯.৪",
+     "name": "Copy File",
+     "tip": "একটা ফাইল “r” মোডে খুলে অক্ষর বা লাইন পড়ো, আরেকটা “w” মোডে খুলে লিখে দাও।",
+     "code": "#include <stdio.h>\nint main() {\n    FILE *src = fopen(\"data.txt\", \"r\");\n    FILE *dest = fopen(\"copy.txt\", \"w\");\n    char ch;\n    if (src == NULL || dest == NULL) { printf(\"ফাইল খোলা যায়নি\\n\"); return 1; }\n    while ((ch = fgetc(src)) != EOF)\n        fputc(ch, dest);\n    fclose(src);\n    fclose(dest);\n    printf(\"ফাইল কপি সম্পন্ন\\n\");\n    return 0;\n}",
+     "input": "",
+     "inputNote": "",
+     "output": "ফাইল কপি সম্পন্ন",
+     "flags": [
+      "needsFile"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "s10",
+   "no": "১০",
+   "title": "ডাইনামিক মেমরি (Dynamic Memory)",
+   "items": [
+    {
+     "id": "10-1",
+     "no": "১০.১",
+     "name": "malloc()",
+     "tip": "malloc(n * size) — মেমরি বরাদ্দ করে কিন্তু initialize করে না (garbage value থাকতে পারে)।",
+     "code": "#include <stdio.h>\n#include <stdlib.h>\nint main() {\n    int n = 5;\n    int *arr = (int*) malloc(n * sizeof(int));\n    if (arr == NULL) { printf(\"মেমরি বরাদ্দ ব্যর্থ\\n\"); return 1; }\n    for (int i = 0; i < n; i++) arr[i] = i + 1;\n    for (int i = 0; i < n; i++) printf(\"%d \", arr[i]);\n    printf(\"\\n\");\n    free(arr);\n    return 0;\n}",
+     "input": "",
+     "inputNote": "",
+     "output": "1 2 3 4 5 ",
+     "flags": []
+    },
+    {
+     "id": "10-2",
+     "no": "১০.২",
+     "name": "calloc()",
+     "tip": "calloc(n, size) — মেমরি বরাদ্দ করে এবং সব শূন্য (0) দিয়ে initialize করে দেয়।",
+     "code": "#include <stdio.h>\n#include <stdlib.h>\nint main() {\n    int n = 5;\n    int *arr = (int*) calloc(n, sizeof(int)); // সব 0 দিয়ে শুরু হয়\n    if (arr == NULL) { printf(\"মেমরি বরাদ্দ ব্যর্থ\\n\"); return 1; }\n    for (int i = 0; i < n; i++) printf(\"%d \", arr[i]); // সব 0 দেখাবে\n    printf(\"\\n\");\n    free(arr);\n    return 0;\n}",
+     "input": "",
+     "inputNote": "",
+     "output": "0 0 0 0 0 ",
+     "flags": []
+    },
+    {
+     "id": "10-3",
+     "no": "১০.৩",
+     "name": "realloc()",
+     "tip": "আগের বরাদ্দকৃত মেমরির আকার পরিবর্তন করে (বাড়ায়/কমায়), পুরনো ডেটা রক্ষিত থাকে।",
+     "code": "#include <stdio.h>\n#include <stdlib.h>\nint main() {\n    int *arr = (int*) malloc(3 * sizeof(int));\n    arr[0]=1; arr[1]=2; arr[2]=3;\n\n    arr = (int*) realloc(arr, 5 * sizeof(int)); // আকার ৩ থেকে ৫ করা হলো\n    arr[3] = 4; arr[4] = 5;\n\n    for (int i = 0; i < 5; i++) printf(\"%d \", arr[i]);\n    printf(\"\\n\");\n    free(arr);\n    return 0;\n}",
+     "input": "",
+     "inputNote": "",
+     "output": "1 2 3 4 5 ",
+     "flags": []
+    },
+    {
+     "id": "10-4",
+     "no": "১০.৪",
+     "name": "free()",
+     "tip": "যে মেমরি malloc/calloc/realloc দিয়ে নেওয়া হয়েছে, ব্যবহার শেষে অবশ্যই free() করতে হয় — নাহলে memory leak হয়।",
+     "code": "#include <stdio.h>\n#include <stdlib.h>\nint main() {\n    int *p = (int*) malloc(sizeof(int));\n    *p = 100;\n    printf(\"মান = %d\\n\", *p);\n    free(p); // মেমরি ছেড়ে দেওয়া হলো\n    p = NULL; // dangling pointer এড়ানোর জন্য ভালো অভ্যাস\n    printf(\"মেমরি ফ্রি করা হয়েছে\\n\");\n    return 0;\n}",
+     "input": "",
+     "inputNote": "",
+     "output": "মান = 100\nমেমরি ফ্রি করা হয়েছে",
+     "flags": []
+    }
+   ]
+  },
+  {
+   "id": "s11",
+   "no": "১১",
+   "title": "ডেটা স্ট্রাকচার (C তে ইমপ্লিমেন্টেশন)",
+   "items": [
+    {
+     "id": "11-1",
+     "no": "১১.১",
+     "name": "Stack (Array)",
+     "tip": "LIFO (Last In First Out) — top ভ্যারিয়েবল দিয়ে শেষ এলিমেন্ট ট্র্যাক করো। push এ top++, pop এ top–।",
+     "code": "#include <stdio.h>\n#define MAX 5\nint stack[MAX], top = -1;\n\nvoid push(int val) {\n    if (top == MAX - 1) { printf(\"Stack Overflow\\n\"); return; }\n    stack[++top] = val;\n}\nint pop() {\n    if (top == -1) { printf(\"Stack Underflow\\n\"); return -1; }\n    return stack[top--];\n}\nint main() {\n    push(10); push(20); push(30);\n    printf(\"Pop: %d\\n\", pop());\n    printf(\"Pop: %d\\n\", pop());\n    return 0;\n}",
+     "input": "",
+     "inputNote": "",
+     "output": "Pop: 30\nPop: 20",
+     "flags": []
+    },
+    {
+     "id": "11-2",
+     "no": "১১.২",
+     "name": "Stack (Linked List)",
+     "tip": "নতুন নোড সবসময় head এর সামনে (top এ) যোগ হয় (push), head সরিয়ে remove হয় (pop)।",
+     "code": "#include <stdio.h>\n#include <stdlib.h>\nstruct Node {\n    int data;\n    struct Node *next;\n};\nstruct Node *top = NULL;\n\nvoid push(int val) {\n    struct Node *newNode = (struct Node*) malloc(sizeof(struct Node));\n    newNode->data = val;\n    newNode->next = top; // নতুন নোড আগেরটার আগে বসবে\n    top = newNode;\n}\nint pop() {\n    if (top == NULL) { printf(\"Stack Empty\\n\"); return -1; }\n    int val = top->data;\n    struct Node *temp = top;\n    top = top->next;\n    free(temp);\n    return val;\n}\nint main() {\n    push(10); push(20); push(30);\n    printf(\"Pop: %d\\n\", pop());\n    printf(\"Pop: %d\\n\", pop());\n    return 0;\n}",
+     "input": "",
+     "inputNote": "",
+     "output": "Pop: 30\nPop: 20",
+     "flags": []
+    },
+    {
+     "id": "11-3",
+     "no": "১১.৩",
+     "name": "Queue (Array)",
+     "tip": "FIFO (First In First Out) — front থেকে বের হয়, rear এ ঢুকে।",
+     "code": "#include <stdio.h>\n#define MAX 5\nint queue[MAX], front = -1, rear = -1;\n\nvoid enqueue(int val) {\n    if (rear == MAX - 1) { printf(\"Queue Full\\n\"); return; }\n    if (front == -1) front = 0;\n    queue[++rear] = val;\n}\nint dequeue() {\n    if (front == -1 || front > rear) { printf(\"Queue Empty\\n\"); return -1; }\n    return queue[front++];\n}\nint main() {\n    enqueue(10); enqueue(20); enqueue(30);\n    printf(\"Dequeue: %d\\n\", dequeue());\n    printf(\"Dequeue: %d\\n\", dequeue());\n    return 0;\n}",
+     "input": "",
+     "inputNote": "",
+     "output": "Dequeue: 10\nDequeue: 20",
+     "flags": []
+    },
+    {
+     "id": "11-4",
+     "no": "১১.৪",
+     "name": "Circular Queue",
+     "tip": "rear শেষে পৌঁছালে আবার 0 তে ফিরে যায় — (rear+1) % MAX সূত্র ব্যবহার করো।",
+     "code": "#include <stdio.h>\n#define MAX 5\nint cqueue[MAX], front = -1, rear = -1;\n\nvoid enqueue(int val) {\n    if ((rear + 1) % MAX == front) { printf(\"Queue Full\\n\"); return; }\n    if (front == -1) front = 0;\n    rear = (rear + 1) % MAX;\n    cqueue[rear] = val;\n}\nint dequeue() {\n    if (front == -1) { printf(\"Queue Empty\\n\"); return -1; }\n    int val = cqueue[front];\n    if (front == rear) front = rear = -1; // শেষ এলিমেন্ট\n    else front = (front + 1) % MAX;\n    return val;\n}\nint main() {\n    enqueue(1); enqueue(2); enqueue(3);\n    printf(\"Dequeue: %d\\n\", dequeue());\n    enqueue(4);\n    printf(\"Dequeue: %d\\n\", dequeue());\n    return 0;\n}",
+     "input": "",
+     "inputNote": "",
+     "output": "Dequeue: 1\nDequeue: 2",
+     "flags": []
+    },
+    {
+     "id": "11-5",
+     "no": "১১.৫",
+     "name": "Linked List",
+     "tip": "প্রতিটি নোডে data + next pointer থাকে। শেষে নতুন নোড যোগ করতে হলে শেষ নোড পর্যন্ত হাঁটতে হয়।",
+     "code": "#include <stdio.h>\n#include <stdlib.h>\nstruct Node {\n    int data;\n    struct Node *next;\n};\nstruct Node *head = NULL;\n\nvoid insert(int val) {\n    struct Node *newNode = (struct Node*) malloc(sizeof(struct Node));\n    newNode->data = val;\n    newNode->next = NULL;\n    if (head == NULL) { head = newNode; return; }\n    struct Node *temp = head;\n    while (temp->next != NULL) temp = temp->next; // শেষ পর্যন্ত যাওয়া\n    temp->next = newNode;\n}\nvoid display() {\n    struct Node *temp = head;\n    while (temp != NULL) {\n        printf(\"%d -> \", temp->data);\n        temp = temp->next;\n    }\n    printf(\"NULL\\n\");\n}\nint main() {\n    insert(10); insert(20); insert(30);\n    display();\n    return 0;\n}",
+     "input": "",
+     "inputNote": "",
+     "output": "10 -> 20 -> 30 -> NULL",
+     "flags": []
+    },
+    {
+     "id": "11-6",
+     "no": "১১.৬",
+     "name": "Doubly Linked List",
+     "tip": "প্রতিটি নোডে দুইটা pointer — prev (আগের নোড) ও next (পরের নোড), তাই দুই দিকেই যাওয়া যায়।",
+     "code": "#include <stdio.h>\n#include <stdlib.h>\nstruct Node {\n    int data;\n    struct Node *prev, *next;\n};\nstruct Node *head = NULL;\n\nvoid insert(int val) {\n    struct Node *newNode = (struct Node*) malloc(sizeof(struct Node));\n    newNode->data = val;\n    newNode->prev = NULL;\n    newNode->next = head;\n    if (head != NULL) head->prev = newNode;\n    head = newNode;\n}\nvoid display() {\n    struct Node *temp = head;\n    while (temp != NULL) {\n        printf(\"%d <-> \", temp->data);\n        temp = temp->next;\n    }\n    printf(\"NULL\\n\");\n}\nint main() {\n    insert(30); insert(20); insert(10);\n    display();\n    return 0;\n}",
+     "input": "",
+     "inputNote": "",
+     "output": "10 <-> 20 <-> 30 <-> NULL",
+     "flags": []
+    },
+    {
+     "id": "11-7",
+     "no": "১১.৭",
+     "name": "Circular Linked List",
+     "tip": "শেষ নোডের next হেড (head) কে নির্দেশ করে, তাই কোনো NULL থাকে না — চক্রাকারে ঘোরে।",
+     "code": "#include <stdio.h>\n#include <stdlib.h>\nstruct Node {\n    int data;\n    struct Node *next;\n};\nstruct Node *head = NULL;\n\nvoid insert(int val) {\n    struct Node *newNode = (struct Node*) malloc(sizeof(struct Node));\n    newNode->data = val;\n    if (head == NULL) {\n        head = newNode;\n        newNode->next = head; // নিজের দিকে নির্দেশ করে\n        return;\n    }\n    struct Node *temp = head;\n    while (temp->next != head) temp = temp->next;\n    temp->next = newNode;\n    newNode->next = head; // চক্র সম্পূর্ণ করা\n}\nvoid display() {\n    if (head == NULL) return;\n    struct Node *temp = head;\n    do {\n        printf(\"%d -> \", temp->data);\n        temp = temp->next;\n    } while (temp != head);\n    printf(\"(head)\\n\");\n}\nint main() {\n    insert(10); insert(20); insert(30);\n    display();\n    return 0;\n}",
+     "input": "",
+     "inputNote": "",
+     "output": "10 -> 20 -> 30 -> (head)",
+     "flags": []
+    },
+    {
+     "id": "11-8",
+     "no": "১১.৮",
+     "name": "Binary Search Tree (BST)",
+     "tip": "বামের সব নোড ছোট, ডানের সব নোড বড় — insert এ তুলনা করে বাম/ডানে যাও।",
+     "code": "#include <stdio.h>\n#include <stdlib.h>\nstruct Node {\n    int data;\n    struct Node *left, *right;\n};\nstruct Node* newNode(int val) {\n    struct Node* node = (struct Node*) malloc(sizeof(struct Node));\n    node->data = val;\n    node->left = node->right = NULL;\n    return node;\n}\nstruct Node* insert(struct Node* root, int val) {\n    if (root == NULL) return newNode(val);\n    if (val < root->data) root->left = insert(root->left, val);\n    else root->right = insert(root->right, val);\n    return root;\n}\nvoid inorder(struct Node* root) { // ছোট থেকে বড় ক্রমে প্রিন্ট করে\n    if (root == NULL) return;\n    inorder(root->left);\n    printf(\"%d \", root->data);\n    inorder(root->right);\n}\nint main() {\n    struct Node* root = NULL;\n    int vals[] = {50, 30, 70, 20, 40, 60, 80};\n    for (int i = 0; i < 7; i++) root = insert(root, vals[i]);\n    inorder(root);\n    printf(\"\\n\");\n    return 0;\n}",
+     "input": "",
+     "inputNote": "",
+     "output": "20 30 40 50 60 70 80 ",
+     "flags": []
+    },
+    {
+     "id": "11-9",
+     "no": "১১.৯",
+     "name": "Tree Traversal (Preorder, Inorder, Postorder)",
+     "tip": "- Preorder: রুট-বাম-ডান (Root → Left → Right) - Inorder: বাম-রুট-ডান (Left → Root → Right) - Postorder: বাম-ডান-রুট (Left → Right → Root)",
+     "code": "#include <stdio.h>\n#include <stdlib.h>\nstruct Node {\n    int data;\n    struct Node *left, *right;\n};\nstruct Node* newNode(int val) {\n    struct Node* n = (struct Node*) malloc(sizeof(struct Node));\n    n->data = val; n->left = n->right = NULL;\n    return n;\n}\nvoid preorder(struct Node* r) {\n    if (!r) return;\n    printf(\"%d \", r->data); // রুট আগে\n    preorder(r->left);\n    preorder(r->right);\n}\nvoid inorder(struct Node* r) {\n    if (!r) return;\n    inorder(r->left);\n    printf(\"%d \", r->data); // রুট মাঝে\n    inorder(r->right);\n}\nvoid postorder(struct Node* r) {\n    if (!r) return;\n    postorder(r->left);\n    postorder(r->right);\n    printf(\"%d \", r->data); // রুট শেষে\n}\nint main() {\n    struct Node* root = newNode(1);\n    root->left = newNode(2);\n    root->right = newNode(3);\n    root->left->left = newNode(4);\n    root->left->right = newNode(5);\n\n    printf(\"Preorder: \"); preorder(root); printf(\"\\n\");\n    printf(\"Inorder: \"); inorder(root); printf(\"\\n\");\n    printf(\"Postorder: \"); postorder(root); printf(\"\\n\");\n    return 0;\n}",
+     "input": "",
+     "inputNote": "",
+     "output": "Preorder: 1 2 4 5 3 \nInorder: 4 2 5 1 3 \nPostorder: 4 5 2 3 1 ",
+     "flags": []
+    },
+    {
+     "id": "11-10",
+     "no": "১১.১০",
+     "name": "BFS (Breadth First Search)",
+     "tip": "Queue ব্যবহার করে লেভেল বাই লেভেল ঘোরে — visited অ্যারে রাখতে হয় যাতে একই নোড দুইবার ভিজিট না হয়।",
+     "code": "#include <stdio.h>\n#define V 5\nint adj[V][V] = { // অ্যাডজেসেন্সি ম্যাট্রিক্স (গ্রাফ)\n    {0,1,1,0,0},\n    {1,0,0,1,0},\n    {1,0,0,0,1},\n    {0,1,0,0,1},\n    {0,0,1,1,0}\n};\nint visited[V] = {0};\nint queue[V], front = -1, rear = -1;\n\nvoid enqueue(int x){ queue[++rear] = x; }\nint dequeue(){ return queue[++front]; }\nint isEmpty(){ return front == rear; }\n\nvoid bfs(int start) {\n    enqueue(start);\n    visited[start] = 1;\n    while (!isEmpty()) {\n        int node = dequeue();\n        printf(\"%d \", node);\n        for (int i = 0; i < V; i++) {\n            if (adj[node][i] == 1 && !visited[i]) {\n                enqueue(i);\n                visited[i] = 1; // ভিজিট করা হয়ে গেছে চিহ্নিত করা\n            }\n        }\n    }\n}\nint main() {\n    printf(\"BFS: \");\n    bfs(0);\n    printf(\"\\n\");\n    return 0;\n}",
+     "input": "",
+     "inputNote": "",
+     "output": "BFS: 0 1 2 3 4 ",
+     "flags": []
+    },
+    {
+     "id": "11-11",
+     "no": "১১.১১",
+     "name": "DFS (Depth First Search)",
+     "tip": "রিকার্সন (বা stack) ব্যবহার করে একটা পথ ধরে যতদূর সম্ভব যাও, তারপর ফিরে এসে অন্য পথ ধরো।",
+     "code": "#include <stdio.h>\n#define V 5\nint adj[V][V] = {\n    {0,1,1,0,0},\n    {1,0,0,1,0},\n    {1,0,0,0,1},\n    {0,1,0,0,1},\n    {0,0,1,1,0}\n};\nint visited[V] = {0};\n\nvoid dfs(int node) {\n    visited[node] = 1;\n    printf(\"%d \", node);\n    for (int i = 0; i < V; i++)\n        if (adj[node][i] == 1 && !visited[i])\n            dfs(i); // রিকার্সিভভাবে গভীরে যাওয়া\n}\nint main() {\n    printf(\"DFS: \");\n    dfs(0);\n    printf(\"\\n\");\n    return 0;\n}",
+     "input": "",
+     "inputNote": "",
+     "output": "DFS: 0 1 3 4 2 ",
+     "flags": []
+    }
+   ]
+  },
+  {
+   "id": "s12",
+   "no": "১২",
+   "title": "পরীক্ষায় প্রায়ই আসা প্রোগ্রাম (Frequently Asked Exam Programs)",
+   "items": [
+    {
+     "id": "12-1",
+     "no": "১২.১",
+     "name": "Decimal to Binary",
+     "tip": "সংখ্যাটিকে বারবার ২ দিয়ে ভাগ করো, ভাগশেষগুলো উল্টো ক্রমে বসাও।",
+     "code": "#include <stdio.h>\nint main() {\n    int n, binary[32], i = 0;\n    printf(\"দশমিক সংখ্যা দিন: \");\n    scanf(\"%d\", &n);\n    if (n == 0) { printf(\"0\\n\"); return 0; }\n    while (n > 0) {\n        binary[i++] = n % 2;\n        n /= 2;\n    }\n    printf(\"বাইনারি = \");\n    for (int j = i - 1; j >= 0; j--) printf(\"%d\", binary[j]); // উল্টো ক্রমে প্রিন্ট\n    printf(\"\\n\");\n    return 0;\n}",
+     "input": "22\n",
+     "inputNote": "22",
+     "output": "দশমিক সংখ্যা দিন: বাইনারি = 10110",
+     "flags": []
+    },
+    {
+     "id": "12-2",
+     "no": "১২.২",
+     "name": "Binary to Decimal",
+     "tip": "প্রতিটি অংককে ২ এর পাওয়ারে গুণ করে যোগ করো (ডান থেকে বাম, পাওয়ার ০,১,২…)।",
+     "code": "#include <stdio.h>\n#include <math.h>\nint main() {\n    long long binary;\n    int decimal = 0, i = 0, rem;\n    printf(\"বাইনারি সংখ্যা দিন: \");\n    scanf(\"%lld\", &binary);\n    while (binary != 0) {\n        rem = binary % 10;\n        decimal += rem * pow(2, i);\n        binary /= 10;\n        i++;\n    }\n    printf(\"দশমিক = %d\\n\", decimal);\n    return 0;\n}",
+     "input": "10110\n",
+     "inputNote": "10110",
+     "output": "বাইনারি সংখ্যা দিন: দশমিক = 22",
+     "flags": []
+    },
+    {
+     "id": "12-3",
+     "no": "১২.৩",
+     "name": "Decimal to Octal/Hexadecimal",
+     "tip": "Octal এ ৮ দিয়ে ভাগ করো, ভাগশেষ নাও। Hex এ ১৬ দিয়ে ভাগ করো, ভাগশেষ ১০ এর বেশি হলে A-F ব্যবহার করো।",
+     "code": "#include <stdio.h>\nint main() {\n    int n;\n    printf(\"সংখ্যা দিন: \");\n    scanf(\"%d\", &n);\n    printf(\"অক্টাল (Octal) = \");\n    printf(\"%o\\n\", n); // built-in format specifier\n    printf(\"হেক্সাডেসিমাল (Hex) = \");\n    printf(\"%X\\n\", n);\n\n    // ম্যানুয়ালি হেক্সাডেসিমাল বের করা\n    int num = n, hex[32], i = 0;\n    char hexDigits[] = \"0123456789ABCDEF\";\n    if (num == 0) hex[i++] = 0;\n    while (num > 0) {\n        hex[i++] = num % 16;\n        num /= 16;\n    }\n    printf(\"ম্যানুয়াল হেক্স = \");\n    for (int j = i - 1; j >= 0; j--) printf(\"%c\", hexDigits[hex[j]]);\n    printf(\"\\n\");\n    return 0;\n}",
+     "input": "255\n",
+     "inputNote": "255",
+     "output": "সংখ্যা দিন: অক্টাল (Octal) = 377\nহেক্সাডেসিমাল (Hex) = FF\nম্যানুয়াল হেক্স = FF",
+     "flags": []
+    },
+    {
+     "id": "12-4",
+     "no": "১২.৪",
+     "name": "Power using Recursion",
+     "tip": "বেস কেস exp==0 হলে return 1, নাহলে base * power(base, exp-1)।",
+     "code": "#include <stdio.h>\nlong long power(int base, int exp) {\n    if (exp == 0) return 1; // বেস কেস\n    return base * power(base, exp - 1);\n}\nint main() {\n    printf(\"2^10 = %lld\\n\", power(2, 10));\n    return 0;\n}",
+     "input": "",
+     "inputNote": "",
+     "output": "2^10 = 1024",
+     "flags": []
+    },
+    {
+     "id": "12-5",
+     "no": "১২.৫",
+     "name": "Check Anagram",
+     "tip": "দুইটা স্ট্রিং sort করে ফেলো, sort করার পর একই হলে anagram (একই অক্ষর, ভিন্ন সাজানো)।",
+     "code": "#include <stdio.h>\n#include <string.h>\nvoid sortStr(char *str) {\n    int n = strlen(str);\n    for (int i = 0; i < n-1; i++)\n        for (int j = 0; j < n-i-1; j++)\n            if (str[j] > str[j+1]) {\n                char t = str[j]; str[j] = str[j+1]; str[j+1] = t;\n            }\n}\nint main() {\n    char s1[] = \"listen\", s2[] = \"silent\";\n    char a[50], b[50];\n    strcpy(a, s1); strcpy(b, s2);\n    sortStr(a); sortStr(b);\n    if (strcmp(a, b) == 0)\n        printf(\"অ্যানাগ্রাম (Anagram)\\n\");\n    else\n        printf(\"অ্যানাগ্রাম নয়\\n\");\n    return 0;\n}",
+     "input": "",
+     "inputNote": "",
+     "output": "অ্যানাগ্রাম (Anagram)",
+     "flags": []
+    },
+    {
+     "id": "12-6",
+     "no": "১২.৬",
+     "name": "Remove Duplicate from Array",
+     "tip": "আগে array sort করো, তারপর পাশাপাশি এলিমেন্ট ভিন্ন হলেই নতুন অ্যারেতে রাখো।",
+     "code": "#include <stdio.h>\nint main() {\n    int arr[] = {1, 2, 2, 3, 4, 4, 5};\n    int n = sizeof(arr) / sizeof(arr[0]);\n    // sort করা আছে ধরে নিলাম\n    int result[10], k = 0;\n    for (int i = 0; i < n; i++) {\n        if (i == 0 || arr[i] != arr[i - 1]) // আগেরটার থেকে ভিন্ন হলে\n            result[k++] = arr[i];\n    }\n    printf(\"ডুপ্লিকেট বাদে: \");\n    for (int i = 0; i < k; i++) printf(\"%d \", result[i]);\n    printf(\"\\n\");\n    return 0;\n}",
+     "input": "",
+     "inputNote": "",
+     "output": "ডুপ্লিকেট বাদে: 1 2 3 4 5 ",
+     "flags": []
+    },
+    {
+     "id": "12-7",
+     "no": "১২.৭",
+     "name": "Merge & Sort Arrays",
+     "tip": "দুইটা অ্যারে একসাথে মার্জ করে তারপর যেকোনো sorting algorithm (bubble/selection) প্রয়োগ করো।",
+     "code": "#include <stdio.h>\nint main() {\n    int a[] = {5, 1, 4}, b[] = {2, 6, 3};\n    int n1 = 3, n2 = 3;\n    int merged[6], k = 0;\n    for (int i = 0; i < n1; i++) merged[k++] = a[i];\n    for (int i = 0; i < n2; i++) merged[k++] = b[i];\n\n    for (int i = 0; i < k - 1; i++) // বাবল সর্ট\n        for (int j = 0; j < k - i - 1; j++)\n            if (merged[j] > merged[j+1]) {\n                int t = merged[j]; merged[j] = merged[j+1]; merged[j+1] = t;\n            }\n\n    for (int i = 0; i < k; i++) printf(\"%d \", merged[i]);\n    printf(\"\\n\");\n    return 0;\n}",
+     "input": "",
+     "inputNote": "",
+     "output": "1 2 3 4 5 6 ",
+     "flags": []
+    },
+    {
+     "id": "12-8",
+     "no": "১২.৮",
+     "name": "Frequency of Array Elements",
+     "tip": "প্রতিটি এলিমেন্টের জন্য visited চেক করো (আগে গোনা হয়ে থাকলে স্কিপ করো), নাহলে পুরো অ্যারেতে গুনে ফেলো।",
+     "code": "#include <stdio.h>\nint main() {\n    int arr[] = {1, 2, 2, 3, 1, 4, 2};\n    int n = sizeof(arr) / sizeof(arr[0]);\n    int visited[100] = {0};\n    for (int i = 0; i < n; i++) {\n        if (visited[i]) continue; // আগেই গোনা হয়ে গেছে\n        int count = 1;\n        for (int j = i + 1; j < n; j++) {\n            if (arr[i] == arr[j]) { count++; visited[j] = 1; }\n        }\n        printf(\"%d এর ফ্রিকোয়েন্সি = %d\\n\", arr[i], count);\n    }\n    return 0;\n}",
+     "input": "",
+     "inputNote": "",
+     "output": "1 এর ফ্রিকোয়েন্সি = 2\n2 এর ফ্রিকোয়েন্সি = 3\n3 এর ফ্রিকোয়েন্সি = 1\n4 এর ফ্রিকোয়েন্সি = 1",
+     "flags": []
+    },
+    {
+     "id": "12-9",
+     "no": "১২.৯",
+     "name": "Menu-driven Calculator",
+     "tip": "switch-case দিয়ে অপশন অনুযায়ী কাজ করো, লুপে রাখলে বারবার চালানো যায়।",
+     "code": "#include <stdio.h>\nint main() {\n    int choice;\n    float a, b;\n    do {\n        printf(\"\\n১.যোগ ২.বিয়োগ ৩.গুণ ৪.ভাগ ৫.প্রস্থান\\nপছন্দ দিন: \");\n        scanf(\"%d\", &choice);\n        if (choice == 5) break;\n        printf(\"দুইটি সংখ্যা দিন: \");\n        scanf(\"%f %f\", &a, &b);\n        switch (choice) {\n            case 1: printf(\"যোগফল = %.2f\\n\", a + b); break;\n            case 2: printf(\"বিয়োগফল = %.2f\\n\", a - b); break;\n            case 3: printf(\"গুণফল = %.2f\\n\", a * b); break;\n            case 4:\n                if (b != 0) printf(\"ভাগফল = %.2f\\n\", a / b);\n                else printf(\"শূন্য দিয়ে ভাগ করা যায় না\\n\");\n                break;\n            default: printf(\"ভুল অপশন\\n\");\n        }\n    } while (choice != 5);\n    return 0;\n}",
+     "input": "1\n10 3\n5\n",
+     "inputNote": "1  →  10 3  →  5",
+     "output": "\n১.যোগ ২.বিয়োগ ৩.গুণ ৪.ভাগ ৫.প্রস্থান\nপছন্দ দিন: দুইটি সংখ্যা দিন: যোগফল = 13.00\n\n১.যোগ ২.বিয়োগ ৩.গুণ ৪.ভাগ ৫.প্রস্থান\nপছন্দ দিন: ",
+     "flags": []
+    },
+    {
+     "id": "12-10",
+     "no": "১২.১০",
+     "name": "Simple Banking System",
+     "tip": "balance ভ্যারিয়েবলে টাকা জমা রাখো, deposit এ যোগ, withdraw এ বিয়োগ (balance যথেষ্ট আছে কিনা চেক করে)।",
+     "code": "#include <stdio.h>\nint main() {\n    float balance = 1000;\n    int choice;\n    float amount;\n    do {\n        printf(\"\\n১.জমা ২.উত্তোলন ৩.ব্যালেন্স দেখুন ৪.প্রস্থান\\nপছন্দ: \");\n        scanf(\"%d\", &choice);\n        switch (choice) {\n            case 1:\n                printf(\"জমার পরিমাণ: \");\n                scanf(\"%f\", &amount);\n                balance += amount;\n                printf(\"নতুন ব্যালেন্স = %.2f\\n\", balance);\n                break;\n            case 2:\n                printf(\"উত্তোলনের পরিমাণ: \");\n                scanf(\"%f\", &amount);\n                if (amount > balance) printf(\"অপর্যাপ্ত ব্যালেন্স!\\n\");\n                else { balance -= amount; printf(\"নতুন ব্যালেন্স = %.2f\\n\", balance); }\n                break;\n            case 3:\n                printf(\"বর্তমান ব্যালেন্স = %.2f\\n\", balance);\n                break;\n        }\n    } while (choice != 4);\n    return 0;\n}",
+     "input": "1\n500\n3\n4\n",
+     "inputNote": "1  →  500  →  3  →  4",
+     "output": "\n১.জমা ২.উত্তোলন ৩.ব্যালেন্স দেখুন ৪.প্রস্থান\nপছন্দ: জমার পরিমাণ: নতুন ব্যালেন্স = 1500.00\n\n১.জমা ২.উত্তোলন ৩.ব্যালেন্স দেখুন ৪.প্রস্থান\nপছন্দ: বর্তমান ব্যালেন্স = 1500.00\n\n১.জমা ২.উত্তোলন ৩.ব্যালেন্স দেখুন ৪.প্রস্থান\nপছন্দ: ",
+     "flags": []
+    },
+    {
+     "id": "12-11",
+     "no": "১২.১১",
+     "name": "Student Result Management",
+     "tip": "struct দিয়ে ছাত্রের তথ্য রাখো, নাম্বার থেকে গড় (average) ও গ্রেড বের করো।",
+     "code": "#include <stdio.h>\nstruct Student {\n    char name[50];\n    int marks[3];\n    float average;\n    char grade;\n};\nint main() {\n    struct Student s;\n    printf(\"নাম দিন: \");\n    scanf(\"%s\", s.name);\n    int total = 0;\n    for (int i = 0; i < 3; i++) {\n        printf(\"বিষয় %d এর নম্বর: \", i + 1);\n        scanf(\"%d\", &s.marks[i]);\n        total += s.marks[i];\n    }\n    s.average = total / 3.0;\n    if (s.average >= 80) s.grade = 'A';\n    else if (s.average >= 60) s.grade = 'B';\n    else if (s.average >= 40) s.grade = 'C';\n    else s.grade = 'F';\n\n    printf(\"\\nনাম: %s, গড়: %.2f, গ্রেড: %c\\n\", s.name, s.average, s.grade);\n    return 0;\n}",
+     "input": "Mugdho\n80 75 90\n",
+     "inputNote": "Mugdho  →  80 75 90",
+     "output": "নাম দিন: বিষয় 1 এর নম্বর: বিষয় 2 এর নম্বর: বিষয় 3 এর নম্বর: \nনাম: Mugdho, গড়: 81.67, গ্রেড: A",
+     "flags": []
+    },
+    {
+     "id": "12-12",
+     "no": "১২.১২",
+     "name": "Library Management (Mini Project)",
+     "tip": "struct দিয়ে বই এর তথ্য (id, নাম, স্ট্যাটাস) রাখো, menu-driven সিস্টেমে add/search/issue করো।",
+     "code": "#include <stdio.h>\n#include <string.h>\nstruct Book {\n    int id;\n    char title[50];\n    int isIssued; // 0 = আছে, 1 = ইস্যু হয়েছে\n};\nint main() {\n    struct Book books[10];\n    int count = 0, choice;\n    do {\n        printf(\"\\n১.বই যোগ ২.বই দেখুন ৩.বই ইস্যু ৪.প্রস্থান\\nপছন্দ: \");\n        scanf(\"%d\", &choice);\n        switch (choice) {\n            case 1:\n                printf(\"বই আইডি ও নাম দিন: \");\n                scanf(\"%d\", &books[count].id);\n                scanf(\"%s\", books[count].title);\n                books[count].isIssued = 0;\n                count++;\n                break;\n            case 2:\n                for (int i = 0; i < count; i++)\n                    printf(\"ID:%d, নাম:%s, স্ট্যাটাস: %s\\n\", books[i].id, books[i].title,\n                           books[i].isIssued ? \"ইস্যুকৃত\" : \"উপলব্ধ\");\n                break;\n            case 3: {\n                int id;\n                printf(\"ইস্যু করার বই এর আইডি দিন: \");\n                scanf(\"%d\", &id);\n                for (int i = 0; i < count; i++)\n                    if (books[i].id == id) { books[i].isIssued = 1; printf(\"ইস্যু সম্পন্ন\\n\"); }\n                break;\n            }\n        }\n    } while (choice != 4);\n    return 0;\n}",
+     "input": "1\n101 CProgramming\n2\n4\n",
+     "inputNote": "1  →  101 CProgramming  →  2  →  4",
+     "output": "\n১.বই যোগ ২.বই দেখুন ৩.বই ইস্যু ৪.প্রস্থান\nপছন্দ: বই আইডি ও নাম দিন: \n১.বই যোগ ২.বই দেখুন ৩.বই ইস্যু ৪.প্রস্থান\nপছন্দ: ID:101, নাম:CProgramming, স্ট্যাটাস: উপলব্ধ\n\n১.বই যোগ ২.বই দেখুন ৩.বই ইস্যু ৪.প্রস্থান\nপছন্দ: ",
+     "flags": []
+    }
+   ]
+  }
+ ],
+ "cpp": [
+  {
+   "id": "s1",
+   "no": "১",
+   "title": "বেসিক প্রোগ্রাম (Basic Programs)",
+   "items": [
+    {
+     "id": "1-1",
+     "no": "১.১",
+     "name": "Hello World",
+     "tip": "সব C++ প্রোগ্রামের কাঠামো (structure) এখান থেকেই শুরু — #include <iostream>, using namespace std;, main(), return 0;। C এ printf() ব্যবহার হতো, C++ এ cout ব্যবহার হয়।",
+     "code": "#include <iostream>\nusing namespace std;\nint main() {\n    cout << \"Hello World\" << endl; // স্ক্রিনে টেক্সট প্রিন্ট করে\n    return 0; // প্রোগ্রাম সফলভাবে শেষ হলো তা বোঝায়\n}",
+     "input": "",
+     "inputNote": "",
+     "output": "Hello World",
+     "flags": []
+    },
+    {
+     "id": "1-2",
+     "no": "১.২",
+     "name": "Add, Subtract, Multiply, Divide",
+     "tip": "দুইটা মান cin দিয়ে ইনপুট নাও, তারপর ৪টা অপারেটর + - * / প্রয়োগ করো। ভাগের ক্ষেত্রে দ্বিতীয় সংখ্যা শূন্য কিনা চেক করা ভালো অভ্যাস।",
+     "code": "#include <iostream>\nusing namespace std;\nint main() {\n    int a, b;\n    cout << \"দুইটি সংখ্যা দিন: \";\n    cin >> a >> b;\n\n    cout << \"যোগফল = \" << (a + b) << endl;\n    cout << \"বিয়োগফল = \" << (a - b) << endl;\n    cout << \"গুণফল = \" << (a * b) << endl;\n\n    if (b != 0) // শূন্য দিয়ে ভাগ করা যায় না\n        cout << \"ভাগফল = \" << (float)a / b << endl;\n    else\n        cout << \"ভাগফল সংজ্ঞায়িত নয় (b=0)\" << endl;\n    return 0;\n}",
+     "input": "10 3\n",
+     "inputNote": "10 3",
+     "output": "দুইটি সংখ্যা দিন: যোগফল = 13\nবিয়োগফল = 7\nগুণফল = 30\nভাগফল = 3.33333",
+     "flags": []
+    },
+    {
+     "id": "1-3",
+     "no": "১.৩",
+     "name": "Swap two numbers (with/without third variable)",
+     "tip": "তৃতীয় ভ্যারিয়েবল ছাড়া swap করতে হলে যোগ-বিয়োগ অথবা XOR ব্যবহার করা যায়।",
+     "code": "#include <iostream>\nusing namespace std;\nint main() {\n    int a = 5, b = 10, temp;\n\n    // ---- তৃতীয় ভ্যারিয়েবল দিয়ে ----\n    temp = a;\n    a = b;\n    b = temp;\n    cout << \"তৃতীয় ভ্যারিয়েবল দিয়ে: a=\" << a << \", b=\" << b << endl;\n\n    // ---- তৃতীয় ভ্যারিয়েবল ছাড়া (যোগ-বিয়োগ পদ্ধতি) ----\n    a = 5; b = 10;\n    a = a + b; // a তে দুইজনের যোগফল\n    b = a - b; // b = আসল a\n    a = a - b; // a = আসল b\n    cout << \"ছাড়া (যোগ-বিয়োগ): a=\" << a << \", b=\" << b << endl;\n\n    // ---- XOR পদ্ধতি ----\n    a = 5; b = 10;\n    a = a ^ b;\n    b = a ^ b;\n    a = a ^ b;\n    cout << \"XOR পদ্ধতি: a=\" << a << \", b=\" << b << endl;\n    return 0;\n}",
+     "input": "",
+     "inputNote": "",
+     "output": "তৃতীয় ভ্যারিয়েবল দিয়ে: a=10, b=5\nছাড়া (যোগ-বিয়োগ): a=10, b=5\nXOR পদ্ধতি: a=10, b=5",
+     "flags": []
+    },
+    {
+     "id": "1-4",
+     "no": "১.৪",
+     "name": "Even/Odd",
+     "tip": "% (মডুলাস) দিয়ে ২ দিয়ে ভাগশেষ বের করো — শূন্য হলে জোড়, নাহলে বিজোড়।",
+     "code": "#include <iostream>\nusing namespace std;\nint main() {\n    int n;\n    cout << \"সংখ্যা দিন: \";\n    cin >> n;\n    if (n % 2 == 0)\n        cout << n << \" জোড় (Even)\" << endl;\n    else\n        cout << n << \" বিজোড় (Odd)\" << endl;\n    return 0;\n}",
+     "input": "7\n",
+     "inputNote": "7",
+     "output": "সংখ্যা দিন: 7 বিজোড় (Odd)",
+     "flags": []
+    },
+    {
+     "id": "1-5",
+     "no": "১.৫",
+     "name": "Positive/Negative/Zero",
+     "tip": "তিনটি শর্ত — >0, <0, ==0 — if-else if-else চেইন দিয়ে চেক করো।",
+     "code": "#include <iostream>\nusing namespace std;\nint main() {\n    int n;\n    cout << \"সংখ্যা দিন: \";\n    cin >> n;\n    if (n > 0)\n        cout << \"ধনাত্মক (Positive)\" << endl;\n    else if (n < 0)\n        cout << \"ঋণাত্মক (Negative)\" << endl;\n    else\n        cout << \"শূন্য (Zero)\" << endl;\n    return 0;\n}",
+     "input": "-5\n",
+     "inputNote": "-5",
+     "output": "সংখ্যা দিন: ঋণাত্মক (Negative)",
+     "flags": []
+    },
+    {
+     "id": "1-6",
+     "no": "১.৬",
+     "name": "Largest of 2/3 numbers",
+     "tip": "nested if অথবা একসাথে তুলনা — a>=b && a>=c হলে a-ই সবচেয়ে বড়।",
+     "code": "#include <iostream>\nusing namespace std;\nint main() {\n    int a, b, c;\n    cout << \"তিনটি সংখ্যা দিন: \";\n    cin >> a >> b >> c;\n\n    if (a >= b && a >= c)\n        cout << \"সবচেয়ে বড়: \" << a << endl;\n    else if (b >= a && b >= c)\n        cout << \"সবচেয়ে বড়: \" << b << endl;\n    else\n        cout << \"সবচেয়ে বড়: \" << c << endl;\n    return 0;\n}",
+     "input": "12 45 7\n",
+     "inputNote": "12 45 7",
+     "output": "তিনটি সংখ্যা দিন: সবচেয়ে বড়: 45",
+     "flags": []
+    },
+    {
+     "id": "1-7",
+     "no": "১.৭",
+     "name": "Leap Year",
+     "tip": "নিয়ম — (৪ দিয়ে বিভাজ্য এবং ১০০ দিয়ে বিভাজ্য নয়) অথবা (৪০০ দিয়ে বিভাজ্য)।",
+     "code": "#include <iostream>\nusing namespace std;\nint main() {\n    int y;\n    cout << \"সাল দিন: \";\n    cin >> y;\n    if ((y % 4 == 0 && y % 100 != 0) || (y % 400 == 0))\n        cout << y << \" অধিবর্ষ (Leap Year)\" << endl;\n    else\n        cout << y << \" অধিবর্ষ নয়\" << endl;\n    return 0;\n}",
+     "input": "2024\n",
+     "inputNote": "2024",
+     "output": "সাল দিন: 2024 অধিবর্ষ (Leap Year)",
+     "flags": []
+    },
+    {
+     "id": "1-8",
+     "no": "১.৮",
+     "name": "Vowel/Consonant",
+     "tip": "a,e,i,o,u (ছোট/বড় হাতের) — এই ৫টা অক্ষর হলে vowel, বাকি সব consonant।",
+     "code": "#include <iostream>\nusing namespace std;\nint main() {\n    char ch;\n    cout << \"একটি অক্ষর দিন: \";\n    cin >> ch;\n    if (ch=='a'||ch=='e'||ch=='i'||ch=='o'||ch=='u'||\n        ch=='A'||ch=='E'||ch=='I'||ch=='O'||ch=='U')\n        cout << \"স্বরবর্ণ (Vowel)\" << endl;\n    else\n        cout << \"ব্যঞ্জনবর্ণ (Consonant)\" << endl;\n    return 0;\n}",
+     "input": "e\n",
+     "inputNote": "e",
+     "output": "একটি অক্ষর দিন: স্বরবর্ণ (Vowel)",
+     "flags": []
+    },
+    {
+     "id": "1-9",
+     "no": "১.৯",
+     "name": "Grade Calculation",
+     "tip": "নাম্বার অনুযায়ী রেঞ্জ ধরে if-else if চেইন, সবচেয়ে বড় শর্ত আগে চেক করা ভালো।",
+     "code": "#include <iostream>\nusing namespace std;\nint main() {\n    int marks;\n    cout << \"নম্বর দিন: \";\n    cin >> marks;\n\n    if (marks >= 80) cout << \"গ্রেড: A+\" << endl;\n    else if (marks >= 70) cout << \"গ্রেড: A\" << endl;\n    else if (marks >= 60) cout << \"গ্রেড: A-\" << endl;\n    else if (marks >= 50) cout << \"গ্রেড: B\" << endl;\n    else if (marks >= 40) cout << \"গ্রেড: C\" << endl;\n    else if (marks >= 33) cout << \"গ্রেড: D\" << endl;\n    else cout << \"গ্রেড: F (ফেল)\" << endl;\n    return 0;\n}",
+     "input": "75\n",
+     "inputNote": "75",
+     "output": "নম্বর দিন: গ্রেড: A",
+     "flags": []
+    }
+   ]
+  },
+  {
+   "id": "s2",
+   "no": "২",
+   "title": "লুপ প্রোগ্রাম (Loop Programs)",
+   "items": [
+    {
+     "id": "2-1",
+     "no": "২.১",
+     "name": "Sum of N numbers",
+     "tip": "for লুপে sum += i — ১ থেকে n পর্যন্ত যোগ করো।",
+     "code": "#include <iostream>\nusing namespace std;\nint main() {\n    int n, sum = 0;\n    cout << \"n দিন: \";\n    cin >> n;\n    for (int i = 1; i <= n; i++)\n        sum += i; // প্রতিবার i যোগ হচ্ছে\n    cout << \"যোগফল = \" << sum << endl;\n    return 0;\n}",
+     "input": "5\n",
+     "inputNote": "5",
+     "output": "n দিন: যোগফল = 15",
+     "flags": []
+    },
+    {
+     "id": "2-2",
+     "no": "২.২",
+     "name": "Factorial",
+     "tip": "fact *= i, শুরুর মান ১ (গুণের identity)।",
+     "code": "#include <iostream>\nusing namespace std;\nint main() {\n    int n;\n    long long fact = 1;\n    cout << \"n দিন: \";\n    cin >> n;\n    for (int i = 1; i <= n; i++)\n        fact *= i;\n    cout << n << \"! = \" << fact << endl;\n    return 0;\n}",
+     "input": "5\n",
+     "inputNote": "5",
+     "output": "n দিন: 5! = 120",
+     "flags": []
+    },
+    {
+     "id": "2-3",
+     "no": "২.৩",
+     "name": "Fibonacci Series",
+     "tip": "প্রথম দুইটা 0,1 — পরেরটা আগের দুইটার যোগফল।",
+     "code": "#include <iostream>\nusing namespace std;\nint main() {\n    int n, a = 0, b = 1, next;\n    cout << \"কতগুলো পদ চান: \";\n    cin >> n;\n    for (int i = 0; i < n; i++) {\n        cout << a << \" \";\n        next = a + b;\n        a = b;\n        b = next;\n    }\n    cout << endl;\n    return 0;\n}",
+     "input": "8\n",
+     "inputNote": "8",
+     "output": "কতগুলো পদ চান: 0 1 1 2 3 5 8 13 ",
+     "flags": []
+    },
+    {
+     "id": "2-4",
+     "no": "২.৪",
+     "name": "Prime Number",
+     "tip": "2 থেকে sqrt(n) পর্যন্ত কোনো সংখ্যা দিয়ে ভাগ গেলে prime না। 1 এবং তার নিচের সংখ্যা prime না। C++ এ true/false (bool) সরাসরি ব্যবহার করা যায়, C এ 1/0 লিখতে হতো।",
+     "code": "#include <iostream>\n#include <cmath>\nusing namespace std;\nint main() {\n    int n;\n    bool isPrime = true;\n    cout << \"সংখ্যা দিন: \";\n    cin >> n;\n    if (n <= 1) isPrime = false;\n    for (int i = 2; i <= sqrt(n); i++) {\n        if (n % i == 0) { isPrime = false; break; }\n    }\n    cout << n << \" \" << (isPrime ? \"মৌলিক সংখ্যা (Prime)\" : \"মৌলিক সংখ্যা নয়\") << endl;\n    return 0;\n}",
+     "input": "29\n",
+     "inputNote": "29",
+     "output": "সংখ্যা দিন: 29 মৌলিক সংখ্যা (Prime)",
+     "flags": []
+    },
+    {
+     "id": "2-5",
+     "no": "২.৫",
+     "name": "Prime numbers in a range",
+     "tip": "প্রতিটি সংখ্যার জন্য উপরের prime-চেক ফাংশন বারবার কল করো (nested loop / function)।",
+     "code": "#include <iostream>\nusing namespace std;\nbool isPrime(int n) {\n    if (n <= 1) return false;\n    for (int i = 2; i * i <= n; i++)\n        if (n % i == 0) return false;\n    return true;\n}\nint main() {\n    int low, high;\n    cout << \"শুরু ও শেষ দিন: \";\n    cin >> low >> high;\n    cout << \"মৌলিক সংখ্যাসমূহ: \";\n    for (int i = low; i <= high; i++)\n        if (isPrime(i)) cout << i << \" \";\n    cout << endl;\n    return 0;\n}",
+     "input": "10 30\n",
+     "inputNote": "10 30",
+     "output": "শুরু ও শেষ দিন: মৌলিক সংখ্যাসমূহ: 11 13 17 19 23 29 ",
+     "flags": []
+    },
+    {
+     "id": "2-6",
+     "no": "২.৬",
+     "name": "Perfect Number",
+     "tip": "যে সংখ্যা তার প্রকৃত ভাজকগুলোর (নিজেকে বাদে) যোগফলের সমান (যেমন 6 = 1+2+3)।",
+     "code": "#include <iostream>\nusing namespace std;\nint main() {\n    int n, sum = 0;\n    cout << \"সংখ্যা দিন: \";\n    cin >> n;\n    for (int i = 1; i < n; i++)\n        if (n % i == 0) sum += i;\n    if (sum == n)\n        cout << n << \" একটি পারফেক্ট নাম্বার\" << endl;\n    else\n        cout << n << \" পারফেক্ট নাম্বার নয়\" << endl;\n    return 0;\n}",
+     "input": "28\n",
+     "inputNote": "28",
+     "output": "সংখ্যা দিন: 28 একটি পারফেক্ট নাম্বার",
+     "flags": []
+    },
+    {
+     "id": "2-7",
+     "no": "২.৭",
+     "name": "Armstrong Number",
+     "tip": "প্রতিটি অংককে অংকসংখ্যার (digit count) পাওয়ারে তুলে যোগ করো, মূল সংখ্যার সমান হলে Armstrong।",
+     "code": "#include <iostream>\n#include <cmath>\nusing namespace std;\nint main() {\n    int n, original, remainder, digits = 0;\n    double result = 0;\n    cout << \"সংখ্যা দিন: \";\n    cin >> n;\n    original = n;\n\n    // অংক সংখ্যা বের করা\n    for (int temp = n; temp != 0; temp /= 10) digits++;\n\n    for (int temp = n; temp != 0; temp /= 10) {\n        remainder = temp % 10;\n        result += pow(remainder, digits);\n    }\n    if ((int)result == original)\n        cout << original << \" আর্মস্ট্রং সংখ্যা\" << endl;\n    else\n        cout << original << \" আর্মস্ট্রং সংখ্যা নয়\" << endl;\n    return 0;\n}",
+     "input": "153\n",
+     "inputNote": "153",
+     "output": "সংখ্যা দিন: 153 আর্মস্ট্রং সংখ্যা",
+     "flags": []
+    },
+    {
+     "id": "2-8",
+     "no": "২.৮",
+     "name": "Palindrome Number",
+     "tip": "সংখ্যাটি উল্টিয়ে (reverse) মূল সংখ্যার সাথে মিলিয়ে দেখো।",
+     "code": "#include <iostream>\nusing namespace std;\nint main() {\n    int n, original, reversed = 0, remainder;\n    cout << \"সংখ্যা দিন: \";\n    cin >> n;\n    original = n;\n    while (n != 0) {\n        remainder = n % 10;\n        reversed = reversed * 10 + remainder;\n        n /= 10;\n    }\n    if (original == reversed)\n        cout << original << \" প্যালিনড্রোম\" << endl;\n    else\n        cout << original << \" প্যালিনড্রোম নয়\" << endl;\n    return 0;\n}",
+     "input": "121\n",
+     "inputNote": "121",
+     "output": "সংখ্যা দিন: 121 প্যালিনড্রোম",
+     "flags": []
+    },
+    {
+     "id": "2-9",
+     "no": "২.৯",
+     "name": "Reverse Number",
+     "tip": "while লুপে শেষ অংক বের করে (n%10) নতুন সংখ্যায় বসাও, তারপর n কমাও (n/=10)।",
+     "code": "#include <iostream>\nusing namespace std;\nint main() {\n    int n, reversed = 0;\n    cout << \"সংখ্যা দিন: \";\n    cin >> n;\n    while (n != 0) {\n        reversed = reversed * 10 + n % 10;\n        n /= 10;\n    }\n    cout << \"উল্টানো সংখ্যা = \" << reversed << endl;\n    return 0;\n}",
+     "input": "12345\n",
+     "inputNote": "12345",
+     "output": "সংখ্যা দিন: উল্টানো সংখ্যা = 54321",
+     "flags": []
+    },
+    {
+     "id": "2-10",
+     "no": "২.১০",
+     "name": "Sum of Digits",
+     "tip": "প্রতিবার n%10 যোগ করো এবং n/=10 করে ছোট করো।",
+     "code": "#include <iostream>\nusing namespace std;\nint main() {\n    int n, sum = 0;\n    cout << \"সংখ্যা দিন: \";\n    cin >> n;\n    while (n != 0) {\n        sum += n % 10;\n        n /= 10;\n    }\n    cout << \"অংকের যোগফল = \" << sum << endl;\n    return 0;\n}",
+     "input": "12345\n",
+     "inputNote": "12345",
+     "output": "সংখ্যা দিন: অংকের যোগফল = 15",
+     "flags": []
+    },
+    {
+     "id": "2-11",
+     "no": "২.১১",
+     "name": "Count Digits",
+     "tip": "প্রতিবার n/=10 করে একটা কাউন্টার বাড়াও, n শূন্য না হওয়া পর্যন্ত।",
+     "code": "#include <iostream>\nusing namespace std;\nint main() {\n    int n, count = 0;\n    cout << \"সংখ্যা দিন: \";\n    cin >> n;\n    while (n != 0) {\n        n /= 10;\n        count++;\n    }\n    cout << \"অংকের সংখ্যা = \" << count << endl;\n    return 0;\n}",
+     "input": "12345\n",
+     "inputNote": "12345",
+     "output": "সংখ্যা দিন: অংকের সংখ্যা = 5",
+     "flags": []
+    },
+    {
+     "id": "2-12",
+     "no": "২.১২",
+     "name": "GCD & LCM",
+     "tip": "ইউক্লিডের অ্যালগরিদম — while(y) { t=y; y=x%y; x=t; } দিয়ে GCD, তারপর LCM = (a*b)/GCD।",
+     "code": "#include <iostream>\nusing namespace std;\nint main() {\n    int a, b, x, y, temp, gcdVal, lcmVal;\n    cout << \"দুইটি সংখ্যা দিন: \";\n    cin >> a >> b;\n    x = a; y = b;\n    while (y != 0) { // ইউক্লিডের অ্যালগরিদম\n        temp = y;\n        y = x % y;\n        x = temp;\n    }\n    gcdVal = x;\n    lcmVal = (a * b) / gcdVal;\n    cout << \"GCD = \" << gcdVal << endl;\n    cout << \"LCM = \" << lcmVal << endl;\n    return 0;\n}",
+     "input": "48 18\n",
+     "inputNote": "48 18",
+     "output": "দুইটি সংখ্যা দিন: GCD = 6\nLCM = 144",
+     "flags": []
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "no": "৩",
+   "title": "প্যাটার্ন প্রোগ্রাম (Pattern Programs)",
+   "items": [
+    {
+     "id": "3-1",
+     "no": "৩.১",
+     "name": "Right Triangle (*)",
+     "tip": "বাইরের লুপ সারি (row), ভিতরের লুপ কলাম — সারি নাম্বার অনুযায়ী * প্রিন্ট করো।",
+     "code": "#include <iostream>\nusing namespace std;\nint main() {\n    int n = 5;\n    for (int i = 1; i <= n; i++) {\n        for (int j = 1; j <= i; j++)\n            cout << \"* \";\n        cout << endl;\n    }\n    return 0;\n}",
+     "input": "",
+     "inputNote": "",
+     "output": "* \n* * \n* * * \n* * * * \n* * * * * ",
+     "flags": []
+    },
+    {
+     "id": "3-2",
+     "no": "৩.২",
+     "name": "Inverted Triangle",
+     "tip": "বাইরের লুপ n থেকে 1 পর্যন্ত কমতে থাকবে।",
+     "code": "#include <iostream>\nusing namespace std;\nint main() {\n    int n = 5;\n    for (int i = n; i >= 1; i--) {\n        for (int j = 1; j <= i; j++)\n            cout << \"* \";\n        cout << endl;\n    }\n    return 0;\n}",
+     "input": "",
+     "inputNote": "",
+     "output": "* * * * * \n* * * * \n* * * \n* * \n* ",
+     "flags": []
+    },
+    {
+     "id": "3-3",
+     "no": "৩.৩",
+     "name": "Pyramid",
+     "tip": "প্রথমে স্পেস প্রিন্ট করো (n-i বার), তারপর স্টার প্রিন্ট করো (2*i-1 বার)।",
+     "code": "#include <iostream>\nusing namespace std;\nint main() {\n    int n = 5;\n    for (int i = 1; i <= n; i++) {\n        for (int s = 1; s <= n - i; s++) cout << \" \";\n        for (int j = 1; j <= 2 * i - 1; j++) cout << \"*\";\n        cout << endl;\n    }\n    return 0;\n}",
+     "input": "",
+     "inputNote": "",
+     "output": "    *\n   ***\n  *****\n *******\n*********",
+     "flags": []
+    },
+    {
+     "id": "3-4",
+     "no": "৩.৪",
+     "name": "Floyd's Triangle",
+     "tip": "একটি কাউন্টার (num) রাখো যেটা প্রতিটি প্রিন্টে ১ করে বাড়বে, সারি অনুযায়ী সংখ্যা বসবে।",
+     "code": "#include <iostream>\nusing namespace std;\nint main() {\n    int n = 5, num = 1;\n    for (int i = 1; i <= n; i++) {\n        for (int j = 1; j <= i; j++)\n            cout << num++ << \" \";\n        cout << endl;\n    }\n    return 0;\n}",
+     "input": "",
+     "inputNote": "",
+     "output": "1 \n2 3 \n4 5 6 \n7 8 9 10 \n11 12 13 14 15 ",
+     "flags": []
+    },
+    {
+     "id": "3-5",
+     "no": "৩.৫",
+     "name": "Pascal's Triangle",
+     "tip": "প্রতিটি সংখ্যা = উপরের দুইটা সংখ্যার যোগফল। সূত্র: C(i,j) = i! / (j!*(i-j)!)",
+     "code": "#include <iostream>\nusing namespace std;\nint main() {\n    int n = 5;\n    for (int i = 0; i < n; i++) {\n        int val = 1;\n        for (int s = 0; s < n - i - 1; s++) cout << \" \";\n        for (int j = 0; j <= i; j++) {\n            cout << val << \" \";\n            val = val * (i - j) / (j + 1); // পরের বাইনমিয়াল কোএফিশিয়েন্ট বের করা\n        }\n        cout << endl;\n    }\n    return 0;\n}",
+     "input": "",
+     "inputNote": "",
+     "output": "    1 \n   1 1 \n  1 2 1 \n 1 3 3 1 \n1 4 6 4 1 ",
+     "flags": []
+    },
+    {
+     "id": "3-6",
+     "no": "৩.৬",
+     "name": "Number Pattern",
+     "tip": "ভিতরের লুপে j নিজেই প্রিন্ট হয় (1,2,3...i)।",
+     "code": "#include <iostream>\nusing namespace std;\nint main() {\n    int n = 5;\n    for (int i = 1; i <= n; i++) {\n        for (int j = 1; j <= i; j++)\n            cout << j << \" \";\n        cout << endl;\n    }\n    return 0;\n}",
+     "input": "",
+     "inputNote": "",
+     "output": "1 \n1 2 \n1 2 3 \n1 2 3 4 \n1 2 3 4 5 ",
+     "flags": []
+    },
+    {
+     "id": "3-7",
+     "no": "৩.৭",
+     "name": "Alphabet Pattern",
+     "tip": "'A' + j করলে অক্ষর পাওয়া যায় (ASCII এর সাহায্যে)।",
+     "code": "#include <iostream>\nusing namespace std;\nint main() {\n    int n = 5;\n    for (int i = 0; i < n; i++) {\n        for (int j = 0; j <= i; j++)\n            cout << (char)('A' + j) << \" \"; // ASCII ভিত্তিতে অক্ষর\n        cout << endl;\n    }\n    return 0;\n}",
+     "input": "",
+     "inputNote": "",
+     "output": "A \nA B \nA B C \nA B C D \nA B C D E ",
+     "flags": []
+    }
+   ]
+  },
+  {
+   "id": "s4",
+   "no": "৪",
+   "title": "অ্যারে প্রোগ্রাম (Array Programs)",
+   "items": [
+    {
+     "id": "4-1",
+     "no": "৪.১",
+     "name": "Largest & Smallest Element",
+     "tip": "প্রথম এলিমেন্টকে max/min ধরে বাকি সবগুলোর সাথে তুলনা করো। (ভ্যারিয়েবলের নাম mx/mn রাখা হলো যাতে <algorithm> এর max/min ফাংশনের সাথে না মেলে)।",
+     "code": "#include <iostream>\nusing namespace std;\nint main() {\n    int arr[] = {12, 45, 2, 41, 31, 10};\n    int n = sizeof(arr) / sizeof(arr[0]);\n    int mx = arr[0], mn = arr[0];\n    for (int i = 1; i < n; i++) {\n        if (arr[i] > mx) mx = arr[i];\n        if (arr[i] < mn) mn = arr[i];\n    }\n    cout << \"সবচেয়ে বড়: \" << mx << \", সবচেয়ে ছোট: \" << mn << endl;\n    return 0;\n}",
+     "input": "",
+     "inputNote": "",
+     "output": "সবচেয়ে বড়: 45, সবচেয়ে ছোট: 2",
+     "flags": []
+    },
+    {
+     "id": "4-2",
+     "no": "৪.২",
+     "name": "Second Largest",
+     "tip": "একবারে max ও second দুটোই আপডেট করো — max ভাঙলে পুরনো max হবে second।",
+     "code": "#include <iostream>\nusing namespace std;\nint main() {\n    int arr[] = {12, 45, 2, 41, 31, 10};\n    int n = sizeof(arr) / sizeof(arr[0]);\n    int mx = arr[0], second = -1;\n    for (int i = 1; i < n; i++) {\n        if (arr[i] > mx) {\n            second = mx;\n            mx = arr[i];\n        } else if (arr[i] > second && arr[i] != mx) {\n            second = arr[i];\n        }\n    }\n    cout << \"দ্বিতীয় বৃহত্তম: \" << second << endl;\n    return 0;\n}",
+     "input": "",
+     "inputNote": "",
+     "output": "দ্বিতীয় বৃহত্তম: 41",
+     "flags": []
+    },
+    {
+     "id": "4-3",
+     "no": "৪.৩",
+     "name": "Reverse Array",
+     "tip": "দুটি ইনডেক্স (start, end) দিয়ে swap করো, মাঝখানে গিয়ে থামবে।",
+     "code": "#include <iostream>\nusing namespace std;\nint main() {\n    int arr[] = {1, 2, 3, 4, 5};\n    int n = sizeof(arr) / sizeof(arr[0]);\n    for (int i = 0, j = n - 1; i < j; i++, j--) {\n        int temp = arr[i];\n        arr[i] = arr[j];\n        arr[j] = temp;\n    }\n    for (int i = 0; i < n; i++) cout << arr[i] << \" \";\n    cout << endl;\n    return 0;\n}",
+     "input": "",
+     "inputNote": "",
+     "output": "5 4 3 2 1 ",
+     "flags": []
+    },
+    {
+     "id": "4-4",
+     "no": "৪.৪",
+     "name": "Array Sorting (Bubble Sort)",
+     "tip": "পাশাপাশি দুইটা এলিমেন্ট তুলনা করে বড়টাকে পিছনে ঠেলে দাও (বুদবুদের মতো ভাসে বড়টা)।",
+     "code": "#include <iostream>\nusing namespace std;\nint main() {\n    int arr[] = {5, 2, 9, 1, 5, 6};\n    int n = sizeof(arr) / sizeof(arr[0]);\n    for (int i = 0; i < n - 1; i++)\n        for (int j = 0; j < n - i - 1; j++)\n            if (arr[j] > arr[j + 1]) {\n                int t = arr[j];\n                arr[j] = arr[j + 1];\n                arr[j + 1] = t;\n            }\n    for (int i = 0; i < n; i++) cout << arr[i] << \" \";\n    cout << endl;\n    return 0;\n}",
+     "input": "",
+     "inputNote": "",
+     "output": "1 2 5 5 6 9 ",
+     "flags": []
+    },
+    {
+     "id": "4-5",
+     "no": "৪.৫",
+     "name": "Selection Sort",
+     "tip": "প্রতি ধাপে বাকি অংশ থেকে সবচেয়ে ছোট এলিমেন্টের index খুঁজে current position-এর সাথে swap করো।",
+     "code": "#include <iostream>\nusing namespace std;\nint main() {\n    int arr[] = {5, 2, 9, 1, 5, 6};\n    int n = sizeof(arr) / sizeof(arr[0]);\n    for (int i = 0; i < n - 1; i++) {\n        int minIdx = i;\n        for (int j = i + 1; j < n; j++)\n            if (arr[j] < arr[minIdx]) minIdx = j;\n        int t = arr[minIdx];\n        arr[minIdx] = arr[i];\n        arr[i] = t;\n    }\n    for (int i = 0; i < n; i++) cout << arr[i] << \" \";\n    cout << endl;\n    return 0;\n}",
+     "input": "",
+     "inputNote": "",
+     "output": "1 2 5 5 6 9 ",
+     "flags": []
+    },
+    {
+     "id": "4-6",
+     "no": "৪.৬",
+     "name": "Linear Search",
+     "tip": "শুরু থেকে শেষ পর্যন্ত প্রতিটি এলিমেন্ট এক এক করে চেক করো — সহজ কিন্তু ধীর (O(n))।",
+     "code": "#include <iostream>\nusing namespace std;\nint main() {\n    int arr[] = {5, 2, 9, 1, 5, 6};\n    int n = sizeof(arr) / sizeof(arr[0]), key = 9, found = -1;\n    for (int i = 0; i < n; i++)\n        if (arr[i] == key) { found = i; break; }\n    if (found != -1) cout << key << \" পাওয়া গেছে index \" << found << \" এ\" << endl;\n    else cout << \"পাওয়া যায়নি\" << endl;\n    return 0;\n}",
+     "input": "",
+     "inputNote": "",
+     "output": "9 পাওয়া গেছে index 2 এ",
+     "flags": []
+    },
+    {
+     "id": "4-7",
+     "no": "৪.৭",
+     "name": "Binary Search",
+     "tip": "অ্যারে sorted থাকতে হবে। মাঝের এলিমেন্টের সাথে তুলনা করে অর্ধেক অংশ বাদ দাও (O(log n))।",
+     "code": "#include <iostream>\nusing namespace std;\nint main() {\n    int arr[] = {1, 3, 5, 7, 9, 11, 13};\n    int n = sizeof(arr) / sizeof(arr[0]), key = 7;\n    int low = 0, high = n - 1, found = -1;\n    while (low <= high) {\n        int mid = (low + high) / 2;\n        if (arr[mid] == key) { found = mid; break; }\n        else if (arr[mid] < key) low = mid + 1; // ডান দিকে খোঁজো\n        else high = mid - 1; // বাম দিকে খোঁজো\n    }\n    if (found != -1) cout << key << \" পাওয়া গেছে index \" << found << \" এ\" << endl;\n    else cout << \"পাওয়া যায়নি\" << endl;\n    return 0;\n}",
+     "input": "",
+     "inputNote": "",
+     "output": "7 পাওয়া গেছে index 3 এ",
+     "flags": []
+    },
+    {
+     "id": "4-8",
+     "no": "৪.৮",
+     "name": "Merge Two Arrays",
+     "tip": "নতুন অ্যারেতে প্রথম অ্যারের সব উপাদান, তারপর দ্বিতীয় অ্যারের সব উপাদান কপি করো।",
+     "code": "#include <iostream>\nusing namespace std;\nint main() {\n    int a[] = {1, 2, 3}, b[] = {4, 5, 6};\n    int n1 = 3, n2 = 3;\n    int merged[6], k = 0;\n    for (int i = 0; i < n1; i++) merged[k++] = a[i];\n    for (int i = 0; i < n2; i++) merged[k++] = b[i];\n    for (int i = 0; i < k; i++) cout << merged[i] << \" \";\n    cout << endl;\n    return 0;\n}",
+     "input": "",
+     "inputNote": "",
+     "output": "1 2 3 4 5 6 ",
+     "flags": []
+    },
+    {
+     "id": "4-9",
+     "no": "৪.৯",
+     "name": "Matrix Addition",
+     "tip": "একই position-এর (i,j) দুইটা এলিমেন্ট যোগ করো।",
+     "code": "#include <iostream>\nusing namespace std;\nint main() {\n    int a[2][2] = {{1,2},{3,4}}, b[2][2] = {{5,6},{7,8}}, c[2][2];\n    for (int i = 0; i < 2; i++)\n        for (int j = 0; j < 2; j++)\n            c[i][j] = a[i][j] + b[i][j];\n    for (int i = 0; i < 2; i++) {\n        for (int j = 0; j < 2; j++) cout << c[i][j] << \" \";\n        cout << endl;\n    }\n    return 0;\n}",
+     "input": "",
+     "inputNote": "",
+     "output": "6 8 \n10 12 ",
+     "flags": []
+    },
+    {
+     "id": "4-10",
+     "no": "৪.১০",
+     "name": "Matrix Multiplication",
+     "tip": "তিনটা লুপ লাগবে (i,j,k) — প্রথম ম্যাট্রিক্সের row × দ্বিতীয় ম্যাট্রিক্সের column, ভিতরে sum যোগ হবে।",
+     "code": "#include <iostream>\nusing namespace std;\nint main() {\n    int a[2][2] = {{1,2},{3,4}}, b[2][2] = {{5,6},{7,8}}, c[2][2] = {0};\n    for (int i = 0; i < 2; i++)\n        for (int j = 0; j < 2; j++)\n            for (int k = 0; k < 2; k++)\n                c[i][j] += a[i][k] * b[k][j];\n    for (int i = 0; i < 2; i++) {\n        for (int j = 0; j < 2; j++) cout << c[i][j] << \" \";\n        cout << endl;\n    }\n    return 0;\n}",
+     "input": "",
+     "inputNote": "",
+     "output": "19 22 \n43 50 ",
+     "flags": []
+    },
+    {
+     "id": "4-11",
+     "no": "৪.১১",
+     "name": "Matrix Transpose",
+     "tip": "row আর column অদল-বদল করো — transpose[j][i] = matrix[i][j]।",
+     "code": "#include <iostream>\nusing namespace std;\nint main() {\n    int a[2][3] = {{1,2,3},{4,5,6}};\n    int t[3][2];\n    for (int i = 0; i < 2; i++)\n        for (int j = 0; j < 3; j++)\n            t[j][i] = a[i][j];\n    for (int i = 0; i < 3; i++) {\n        for (int j = 0; j < 2; j++) cout << t[i][j] << \" \";\n        cout << endl;\n    }\n    return 0;\n}",
+     "input": "",
+     "inputNote": "",
+     "output": "1 4 \n2 5 \n3 6 ",
+     "flags": []
+    }
+   ]
+  },
+  {
+   "id": "s5",
+   "no": "৫",
+   "title": "স্ট্রিং প্রোগ্রাম (String Programs)",
+   "items": [
+    {
+     "id": "5-1",
+     "no": "৫.১",
+     "name": "String Length (C++ std::string দিয়ে, .length() ছাড়াই ম্যানুয়াল কাউন্ট)",
+     "tip": "range-based for লুপে প্রতিটি অক্ষরের জন্য কাউন্ট বাড়াও। C++ এ char অ্যারের বদলে string ক্লাস ব্যবহার করা যায়, যা মেমরি নিজে ম্যানেজ করে।",
+     "code": "#include <iostream>\n#include <string>\nusing namespace std;\nint main() {\n    string str = \"Bangladesh\";\n    int len = 0;\n    for (char c : str) len++; // প্রতিটি অক্ষরের জন্য কাউন্ট বাড়াও\n    cout << \"দৈর্ঘ্য = \" << len << endl;\n    return 0;\n}",
+     "input": "",
+     "inputNote": "",
+     "output": "দৈর্ঘ্য = 10",
+     "flags": []
+    },
+    {
+     "id": "5-2",
+     "no": "৫.২",
+     "name": "String Copy",
+     "tip": "C++ এ string ক্লাসের জন্য = অপারেটর দিয়েই সরাসরি কপি করা যায়, ক্যারেক্টার বাই ক্যারেক্টার লুপ লাগে না।",
+     "code": "#include <iostream>\n#include <string>\nusing namespace std;\nint main() {\n    string src = \"Hello\";\n    string dest = src; // C++ এ = অপারেটর দিয়ে সরাসরি কপি করা যায়\n    cout << \"কপি করা স্ট্রিং: \" << dest << endl;\n    return 0;\n}",
+     "input": "",
+     "inputNote": "",
+     "output": "কপি করা স্ট্রিং: Hello",
+     "flags": []
+    },
+    {
+     "id": "5-3",
+     "no": "৫.৩",
+     "name": "String Compare",
+     "tip": "C++ std::string এ == অপারেটর দিয়ে সরাসরি তুলনা করা যায়, strcmp() লাগে না।",
+     "code": "#include <iostream>\n#include <string>\nusing namespace std;\nint main() {\n    string s1 = \"abc\", s2 = \"abd\";\n    bool isEqual = (s1 == s2); // == দিয়ে সরাসরি তুলনা\n    cout << (isEqual ? \"স্ট্রিং সমান\" : \"স্ট্রিং ভিন্ন\") << endl;\n    return 0;\n}",
+     "input": "",
+     "inputNote": "",
+     "output": "স্ট্রিং ভিন্ন",
+     "flags": []
+    },
+    {
+     "id": "5-4",
+     "no": "৫.৪",
+     "name": "String Reverse",
+     "tip": "শুরু (start) ও শেষ (end) index থেকে অক্ষর swap করো, মাঝে গিয়ে থামো। std::string ইনডেক্স [] দিয়ে অক্ষরে অ্যাক্সেস দেয়।",
+     "code": "#include <iostream>\n#include <string>\nusing namespace std;\nint main() {\n    string str = \"Bangladesh\";\n    int len = str.length();\n    for (int i = 0, j = len - 1; i < j; i++, j--) {\n        char t = str[i];\n        str[i] = str[j];\n        str[j] = t;\n    }\n    cout << \"উল্টানো স্ট্রিং: \" << str << endl;\n    return 0;\n}",
+     "input": "",
+     "inputNote": "",
+     "output": "উল্টানো স্ট্রিং: hsedalgnaB",
+     "flags": []
+    },
+    {
+     "id": "5-5",
+     "no": "৫.৫",
+     "name": "Palindrome String",
+     "tip": "স্ট্রিং উল্টিয়ে মূল স্ট্রিংয়ের সাথে মিলিয়ে দেখো, অথবা দুই প্রান্ত থেকে তুলনা করো।",
+     "code": "#include <iostream>\n#include <string>\nusing namespace std;\nint main() {\n    string str = \"madam\";\n    int len = str.length();\n    bool isPalindrome = true;\n    for (int i = 0; i < len / 2; i++)\n        if (str[i] != str[len - 1 - i]) { isPalindrome = false; break; }\n    cout << (isPalindrome ? \"প্যালিনড্রোম\" : \"প্যালিনড্রোম নয়\") << endl;\n    return 0;\n}",
+     "input": "",
+     "inputNote": "",
+     "output": "প্যালিনড্রোম",
+     "flags": []
+    },
+    {
+     "id": "5-6",
+     "no": "৫.৬",
+     "name": "Count Vowels/Consonants",
+     "tip": "প্রতিটি অক্ষর চেক করো — vowel হলে vowel কাউন্টার, letter হয়েও vowel না হলে consonant কাউন্টার বাড়াও।",
+     "code": "#include <iostream>\n#include <string>\n#include <cctype>\nusing namespace std;\nint main() {\n    string str = \"Bangladesh\";\n    int vowels = 0, consonants = 0;\n    for (char ch : str) {\n        ch = tolower(ch);\n        if (ch=='a'||ch=='e'||ch=='i'||ch=='o'||ch=='u') vowels++;\n        else if (ch >= 'a' && ch <= 'z') consonants++;\n    }\n    cout << \"স্বরবর্ণ = \" << vowels << \", ব্যঞ্জনবর্ণ = \" << consonants << endl;\n    return 0;\n}",
+     "input": "",
+     "inputNote": "",
+     "output": "স্বরবর্ণ = 3, ব্যঞ্জনবর্ণ = 7",
+     "flags": []
+    },
+    {
+     "id": "5-7",
+     "no": "৫.৭",
+     "name": "Count Words",
+     "tip": "স্পেস থেকে non-space এ ট্রানজিশন হলেই একটা নতুন শব্দ শুরু ধরে কাউন্ট বাড়াও।",
+     "code": "#include <iostream>\n#include <string>\nusing namespace std;\nint main() {\n    string str = \"I love Bangladesh\";\n    int count = 0;\n    for (size_t i = 0; i < str.length(); i++)\n        if (str[i] != ' ' && (i == 0 || str[i-1] == ' '))\n            count++; // নতুন শব্দ শুরু\n    cout << \"শব্দ সংখ্যা = \" << count << endl;\n    return 0;\n}",
+     "input": "",
+     "inputNote": "",
+     "output": "শব্দ সংখ্যা = 3",
+     "flags": []
+    },
+    {
+     "id": "5-8",
+     "no": "৫.৮",
+     "name": "Character Frequency",
+     "tip": "২৬টা অক্ষরের জন্য একটা freq[26] অ্যারে রাখো, প্রতিটা অক্ষরের index এ কাউন্ট বাড়াও।",
+     "code": "#include <iostream>\n#include <string>\n#include <cctype>\nusing namespace std;\nint main() {\n    string str = \"programming\";\n    int freq[26] = {0};\n    for (char ch : str)\n        freq[tolower(ch) - 'a']++;\n    for (int i = 0; i < 26; i++)\n        if (freq[i] > 0)\n            cout << (char)('a' + i) << \": \" << freq[i] << \" বার\" << endl;\n    return 0;\n}",
+     "input": "",
+     "inputNote": "",
+     "output": "a: 1 বার\ng: 2 বার\ni: 1 বার\nm: 2 বার\nn: 1 বার\no: 1 বার\np: 1 বার\nr: 2 বার",
+     "flags": []
+    }
+   ]
+  },
+  {
+   "id": "s6",
+   "no": "৬",
+   "title": "ফাংশন প্রোগ্রাম (Function Programs)",
+   "items": [
+    {
+     "id": "6-1",
+     "no": "৬.১",
+     "name": "Recursive Factorial",
+     "tip": "বেস কেস n==0 বা 1 হলে return 1, নাহলে n * fact(n-1)।",
+     "code": "#include <iostream>\nusing namespace std;\nlong long fact(int n) {\n    if (n <= 1) return 1; // বেস কেস\n    return n * fact(n - 1); // রিকার্সিভ কল\n}\nint main() {\n    int n = 5;\n    cout << n << \"! = \" << fact(n) << endl;\n    return 0;\n}",
+     "input": "",
+     "inputNote": "",
+     "output": "5! = 120",
+     "flags": []
+    },
+    {
+     "id": "6-2",
+     "no": "৬.২",
+     "name": "Recursive Fibonacci",
+     "tip": "বেস কেস n==0 বা n==1, নাহলে fib(n-1) + fib(n-2)।",
+     "code": "#include <iostream>\nusing namespace std;\nint fib(int n) {\n    if (n == 0) return 0;\n    if (n == 1) return 1;\n    return fib(n - 1) + fib(n - 2);\n}\nint main() {\n    int n = 8;\n    for (int i = 0; i < n; i++)\n        cout << fib(i) << \" \";\n    cout << endl;\n    return 0;\n}",
+     "input": "",
+     "inputNote": "",
+     "output": "0 1 1 2 3 5 8 13 ",
+     "flags": []
+    },
+    {
+     "id": "6-3",
+     "no": "৬.৩",
+     "name": "Recursive GCD",
+     "tip": "ইউক্লিডের সূত্র রিকার্সিভভাবে — gcd(a,b) = gcd(b, a%b), b==0 হলে a ই উত্তর।",
+     "code": "#include <iostream>\nusing namespace std;\nint gcd(int a, int b) {\n    if (b == 0) return a; // বেস কেস\n    return gcd(b, a % b);\n}\nint main() {\n    int a = 48, b = 18;\n    cout << \"GCD = \" << gcd(a, b) << endl;\n    return 0;\n}",
+     "input": "",
+     "inputNote": "",
+     "output": "GCD = 6",
+     "flags": []
+    },
+    {
+     "id": "6-4",
+     "no": "৬.৪",
+     "name": "Call by Value vs Call by Reference",
+     "tip": "Call by value → কপি পাস হয় (মূল ভ্যারিয়েবল বদলায় না)। C++ এ Call by reference করতে পয়েন্টার লাগে না — & দিয়ে সরাসরি reference parameter লেখা যায়, যা C এ সম্ভব না।",
+     "code": "#include <iostream>\nusing namespace std;\nvoid byValue(int x) {\n    x = x + 10; // শুধু কপি বদলায়\n}\nvoid byReference(int &x) { // C++ এ পয়েন্টার ছাড়াই রেফারেন্স ব্যবহার করা যায়\n    x = x + 10; // মূল ভ্যারিয়েবল বদলায়\n}\nint main() {\n    int a = 5;\n    byValue(a);\n    cout << \"byValue এর পর a = \" << a << \" (অপরিবর্তিত)\" << endl;\n\n    byReference(a);\n    cout << \"byReference এর পর a = \" << a << \" (পরিবর্তিত)\" << endl;\n    return 0;\n}",
+     "input": "",
+     "inputNote": "",
+     "output": "byValue এর পর a = 5 (অপরিবর্তিত)\nbyReference এর পর a = 15 (পরিবর্তিত)",
+     "flags": []
+    }
+   ]
+  },
+  {
+   "id": "s7",
+   "no": "৭",
+   "title": "পয়েন্টার প্রোগ্রাম (Pointer Programs)",
+   "items": [
+    {
+     "id": "7-1",
+     "no": "৭.১",
+     "name": "Pointer Basics",
+     "tip": "& মানে address নাও, * মানে সেই address এর মান নাও (dereference)। C++ এ pointer print করার সময় (void*) cast লাগে না।",
+     "code": "#include <iostream>\nusing namespace std;\nint main() {\n    int a = 10;\n    int *p = &a; // p এখন a এর address ধারণ করছে\n    cout << \"a এর মান = \" << a << endl;\n    cout << \"a এর address = \" << &a << endl;\n    cout << \"p এর মান (address) = \" << p << endl;\n    cout << \"*p (dereference) = \" << *p << endl;\n    return 0;\n}",
+     "input": "",
+     "inputNote": "",
+     "output": "a এর মান = 10\na এর address = 0x7ffe9d2015fc\np এর মান (address) = 0x7ffe9d2015fc\n*p (dereference) = 10",
+     "flags": [
+      "address"
+     ]
+    },
+    {
+     "id": "7-2",
+     "no": "৭.২",
+     "name": "Swap using Pointers",
+     "tip": "ফাংশনে address পাঠাও (&a, &b), ফাংশনের ভিতরে * দিয়ে মূল মান বদলাও। (ফাংশনের নাম swapVals রাখা হলো যাতে std::swap এর সাথে না মেলে)।",
+     "code": "#include <iostream>\nusing namespace std;\nvoid swapVals(int *x, int *y) {\n    int temp = *x;\n    *x = *y;\n    *y = temp;\n}\nint main() {\n    int a = 5, b = 10;\n    swapVals(&a, &b);\n    cout << \"a=\" << a << \", b=\" << b << endl;\n    return 0;\n}",
+     "input": "",
+     "inputNote": "",
+     "output": "a=10, b=5",
+     "flags": []
+    },
+    {
+     "id": "7-3",
+     "no": "৭.৩",
+     "name": "Array using Pointer",
+     "tip": "অ্যারের নাম নিজেই প্রথম এলিমেন্টের address — *(arr+i) মানে arr[i]।",
+     "code": "#include <iostream>\nusing namespace std;\nint main() {\n    int arr[] = {10, 20, 30, 40};\n    int *p = arr; // অ্যারের নাম = প্রথম এলিমেন্টের address\n    for (int i = 0; i < 4; i++)\n        cout << *(p + i) << \" \"; // pointer arithmetic\n    cout << endl;\n    return 0;\n}",
+     "input": "",
+     "inputNote": "",
+     "output": "10 20 30 40 ",
+     "flags": []
+    },
+    {
+     "id": "7-4",
+     "no": "৭.৪",
+     "name": "String using Pointer",
+     "tip": "char *p দিয়ে স্ট্রিং এর উপর দিয়ে হাঁটো, \\0 না পাওয়া পর্যন্ত p++ করো। (এখানে C-স্টাইল char অ্যারেই রাখা হলো, কারণ পয়েন্টার অ্যারিথমেটিক বোঝানোই মূল উদ্দেশ্য — std::string এ raw pointer walk করা যায় না)।",
+     "code": "#include <iostream>\nusing namespace std;\nint main() {\n    const char str[] = \"Hello\";\n    const char *p = str;\n    while (*p != '\\0') {\n        cout << *p;\n        p++;\n    }\n    cout << endl;\n    return 0;\n}",
+     "input": "",
+     "inputNote": "",
+     "output": "Hello",
+     "flags": []
+    }
+   ]
+  },
+  {
+   "id": "s8",
+   "no": "৮",
+   "title": "স্ট্রাকচার ও ইউনিয়ন (Structure & Union)",
+   "items": [
+    {
+     "id": "8-1",
+     "no": "৮.১",
+     "name": "Student Information",
+     "tip": "struct দিয়ে ভিন্ন ভিন্ন টাইপের ডেটা একসাথে গ্রুপ করা যায় — . (dot) দিয়ে মেম্বার অ্যাক্সেস করো। C++ এ ভ্যারিয়েবল ডিক্লেয়ার করতে 'struct' কীওয়ার্ড বারবার লিখতে হয় না।",
+     "code": "#include <iostream>\n#include <string>\nusing namespace std;\nstruct Student {\n    string name;\n    int roll;\n    float gpa;\n};\nint main() {\n    Student s1 = {\"Mugdho\", 101, 3.85};\n    cout << \"নাম: \" << s1.name << \", রোল: \" << s1.roll << \", GPA: \" << s1.gpa << endl;\n    return 0;\n}",
+     "input": "",
+     "inputNote": "",
+     "output": "নাম: Mugdho, রোল: 101, GPA: 3.85",
+     "flags": []
+    },
+    {
+     "id": "8-2",
+     "no": "৮.২",
+     "name": "Employee Record",
+     "tip": "একাধিক স্ট্রাকচার ভ্যারিয়েবল অ্যারে আকারে রাখা যায় — Employee emp[10] (struct কীওয়ার্ড ছাড়াই)।",
+     "code": "#include <iostream>\n#include <string>\nusing namespace std;\nstruct Employee {\n    string name;\n    int id;\n    float salary;\n};\nint main() {\n    Employee e[2] = {\n        {\"Karim\", 1, 30000},\n        {\"Rahim\", 2, 35000}\n    };\n    for (int i = 0; i < 2; i++)\n        cout << \"ID: \" << e[i].id << \", নাম: \" << e[i].name << \", বেতন: \" << e[i].salary << endl;\n    return 0;\n}",
+     "input": "",
+     "inputNote": "",
+     "output": "ID: 1, নাম: Karim, বেতন: 30000\nID: 2, নাম: Rahim, বেতন: 35000",
+     "flags": []
+    },
+    {
+     "id": "8-3",
+     "no": "৮.৩",
+     "name": "Nested Structure",
+     "tip": "একটা struct আরেকটা struct এর ভিতরে রাখা যায় — অ্যাক্সেস করতে . দুইবার লাগে।",
+     "code": "#include <iostream>\n#include <string>\nusing namespace std;\nstruct Date {\n    int day, month, year;\n};\nstruct Employee {\n    string name;\n    Date joiningDate; // নেস্টেড স্ট্রাকচার\n};\nint main() {\n    Employee e1 = {\"Karim\", {15, 8, 2023}};\n    cout << \"নাম: \" << e1.name << \", যোগদান: \" << e1.joiningDate.day << \"/\"\n         << e1.joiningDate.month << \"/\" << e1.joiningDate.year << endl;\n    return 0;\n}",
+     "input": "",
+     "inputNote": "",
+     "output": "নাম: Karim, যোগদান: 15/8/2023",
+     "flags": []
+    },
+    {
+     "id": "8-4",
+     "no": "৮.৪",
+     "name": "Union Example",
+     "tip": "union এর সব মেম্বার একই memory ভাগাভাগি করে — একসাথে একটাই মেম্বারের মান ঠিক থাকে (struct এর মতো আলাদা মেমরি না)।",
+     "code": "#include <iostream>\nusing namespace std;\nunion Data {\n    int i;\n    float f;\n    char str[20];\n};\nint main() {\n    Data data;\n    data.i = 10;\n    cout << \"i = \" << data.i << endl;\n\n    data.f = 3.14; // এখন data.i এর মান আর ঠিক থাকবে না, একই মেমরি শেয়ার করে\n    cout << \"f = \" << data.f << endl;\n\n    cout << \"union এর আকার (sizeof) = \" << sizeof(data) << \" bytes (সবচেয়ে বড় মেম্বারের সমান)\" << endl;\n    return 0;\n}",
+     "input": "",
+     "inputNote": "",
+     "output": "i = 10\nf = 3.14\nunion এর আকার (sizeof) = 20 bytes (সবচেয়ে বড় মেম্বারের সমান)",
+     "flags": []
+    }
+   ]
+  },
+  {
+   "id": "s9",
+   "no": "৯",
+   "title": "ফাইল হ্যান্ডলিং (File Handling)",
+   "items": [
+    {
+     "id": "9-1",
+     "no": "৯.১",
+     "name": "Write to File",
+     "tip": "C++ এ FILE* এর বদলে fstream লাইব্রেরির ofstream ক্লাস ব্যবহার হয়। ofstream ওপেন করলেই write mode এ ওপেন হয় (আগের ডেটা মুছে যায়)।",
+     "code": "#include <iostream>\n#include <fstream>\nusing namespace std;\nint main() {\n    ofstream fout(\"data.txt\"); // \"w\" এর সমতুল্য — write mode\n    if (!fout) {\n        cout << \"ফাইল খোলা যায়নি\" << endl;\n        return 1;\n    }\n    fout << \"Hello, this is a test file.\" << endl;\n    fout.close();\n    cout << \"ফাইলে লেখা হয়েছে\" << endl;\n    return 0;\n}",
+     "input": "",
+     "inputNote": "",
+     "output": "ফাইলে লেখা হয়েছে",
+     "flags": []
+    },
+    {
+     "id": "9-2",
+     "no": "৯.২",
+     "name": "Read from File",
+     "tip": "ifstream দিয়ে ফাইল ওপেন করো ('r' মোডের সমতুল্য), getline() দিয়ে লাইন পড়ো।",
+     "code": "#include <iostream>\n#include <fstream>\n#include <string>\nusing namespace std;\nint main() {\n    ifstream fin(\"data.txt\"); // \"r\" এর সমতুল্য\n    if (!fin) {\n        cout << \"ফাইল খোলা যায়নি\" << endl;\n        return 1;\n    }\n    string line;\n    while (getline(fin, line))\n        cout << line << endl;\n    fin.close();\n    return 0;\n}",
+     "input": "",
+     "inputNote": "",
+     "output": "Hello, this is a test file.",
+     "flags": [
+      "needsFile"
+     ]
+    },
+    {
+     "id": "9-3",
+     "no": "৯.৩",
+     "name": "Append File",
+     "tip": "ofstream ওপেন করার সময় ios::app ফ্ল্যাগ দিলে ফাইলের শেষে নতুন ডেটা যোগ হয় (আগেরটা মুছে যায় না)।",
+     "code": "#include <iostream>\n#include <fstream>\nusing namespace std;\nint main() {\n    ofstream fout(\"data.txt\", ios::app); // append mode\n    if (!fout) {\n        cout << \"ফাইল খোলা যায়নি\" << endl;\n        return 1;\n    }\n    fout << \"নতুন লাইন যোগ করা হলো।\" << endl;\n    fout.close();\n    cout << \"ফাইলে যোগ করা হয়েছে\" << endl;\n    return 0;\n}",
+     "input": "",
+     "inputNote": "",
+     "output": "ফাইলে যোগ করা হয়েছে",
+     "flags": []
+    },
+    {
+     "id": "9-4",
+     "no": "৯.৪",
+     "name": "Copy File",
+     "tip": "একটা ফাইল ifstream দিয়ে খুলে অক্ষর পড়ো, আরেকটা ofstream দিয়ে খুলে লিখে দাও।",
+     "code": "#include <iostream>\n#include <fstream>\nusing namespace std;\nint main() {\n    ifstream src(\"data.txt\");\n    ofstream dest(\"copy.txt\");\n    if (!src || !dest) {\n        cout << \"ফাইল খোলা যায়নি\" << endl;\n        return 1;\n    }\n    char ch;\n    while (src.get(ch))\n        dest.put(ch);\n    src.close();\n    dest.close();\n    cout << \"ফাইল কপি সম্পন্ন\" << endl;\n    return 0;\n}",
+     "input": "",
+     "inputNote": "",
+     "output": "ফাইল কপি সম্পন্ন",
+     "flags": [
+      "needsFile"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "s10",
+   "no": "১০",
+   "title": "ডাইনামিক মেমরি (Dynamic Memory)",
+   "items": [
+    {
+     "id": "10-1",
+     "no": "১০.১",
+     "name": "malloc() এর C++ সমতুল্য — new",
+     "tip": "C++ এ malloc() এর বদলে new[] অপারেটর ব্যবহার হয় — টাইপ cast করার দরকার হয় না, এবং ব্যর্থ হলে exception থ্রো করে (এখানে সহজবোধ্যতার জন্য nullptr চেক দেখানো হলো)।",
+     "code": "#include <iostream>\nusing namespace std;\nint main() {\n    int n = 5;\n    int *arr = new int[n]; // new — মেমরি বরাদ্দ করে কিন্তু initialize করে না\n    if (arr == nullptr) {\n        cout << \"মেমরি বরাদ্দ ব্যর্থ\" << endl;\n        return 1;\n    }\n    for (int i = 0; i < n; i++) arr[i] = i + 1;\n    for (int i = 0; i < n; i++) cout << arr[i] << \" \";\n    cout << endl;\n    delete[] arr;\n    return 0;\n}",
+     "input": "",
+     "inputNote": "",
+     "output": "1 2 3 4 5 ",
+     "flags": []
+    },
+    {
+     "id": "10-2",
+     "no": "১০.২",
+     "name": "calloc() এর C++ সমতুল্য",
+     "tip": "new int[n]() লিখলে (শেষে ব্র্যাকেট দিলে) সব উপাদান 0 দিয়ে initialize হয় — এটাই calloc() এর C++ পদ্ধতি।",
+     "code": "#include <iostream>\nusing namespace std;\nint main() {\n    int n = 5;\n    int *arr = new int[n](); // () দিলে সব 0 দিয়ে initialize হয় (calloc এর মতো)\n    for (int i = 0; i < n; i++) cout << arr[i] << \" \"; // সব 0 দেখাবে\n    cout << endl;\n    delete[] arr;\n    return 0;\n}",
+     "input": "",
+     "inputNote": "",
+     "output": "0 0 0 0 0 ",
+     "flags": []
+    },
+    {
+     "id": "10-3",
+     "no": "১০.৩",
+     "name": "realloc() এর C++ ভালো বিকল্প — vector",
+     "tip": "C++ এ realloc() এর সরাসরি সমতুল্য নেই। এর বদলে std::vector ব্যবহার করা ভালো অভ্যাস — push_back() করলে ভেক্টর নিজে থেকেই প্রয়োজনে আকার বাড়িয়ে নেয় (realloc এর কাজ automatic ও নিরাপদ)।",
+     "code": "#include <iostream>\n#include <vector>\nusing namespace std;\nint main() {\n    vector<int> arr = {1, 2, 3};\n    arr.push_back(4); // ভেক্টর নিজে থেকেই আকার বাড়ায় (realloc এর কাজ automatic)\n    arr.push_back(5);\n\n    for (int x : arr) cout << x << \" \";\n    cout << endl;\n    return 0;\n}",
+     "input": "",
+     "inputNote": "",
+     "output": "1 2 3 4 5 ",
+     "flags": []
+    },
+    {
+     "id": "10-4",
+     "no": "১০.৪",
+     "name": "free() এর C++ সমতুল্য — delete",
+     "tip": "যে মেমরি new দিয়ে নেওয়া হয়েছে, ব্যবহার শেষে অবশ্যই delete (single) বা delete[] (array) করতে হয় — নাহলে memory leak হয়। free() এর বদলে delete, malloc() এর বদলে new।",
+     "code": "#include <iostream>\nusing namespace std;\nint main() {\n    int *p = new int; // malloc(sizeof(int)) এর সমতুল্য\n    *p = 100;\n    cout << \"মান = \" << *p << endl;\n    delete p; // মেমরি ছেড়ে দেওয়া হলো\n    p = nullptr; // dangling pointer এড়ানোর জন্য ভালো অভ্যাস\n    cout << \"মেমরি ফ্রি করা হয়েছে\" << endl;\n    return 0;\n}",
+     "input": "",
+     "inputNote": "",
+     "output": "মান = 100\nমেমরি ফ্রি করা হয়েছে",
+     "flags": []
+    }
+   ]
+  },
+  {
+   "id": "s11",
+   "no": "১১",
+   "title": "ডেটা স্ট্রাকচার (C++ তে ইমপ্লিমেন্টেশন)",
+   "items": [
+    {
+     "id": "11-1",
+     "no": "১১.১",
+     "name": "Stack (Array)",
+     "tip": "LIFO (Last In First Out) — top ভ্যারিয়েবল দিয়ে শেষ এলিমেন্ট ট্র্যাক করো। push এ top++, pop এ top--।",
+     "code": "#include <iostream>\nusing namespace std;\n#define MAX 5\nint stackArr[MAX], top = -1;\n\nvoid push(int val) {\n    if (top == MAX - 1) { cout << \"Stack Overflow\" << endl; return; }\n    stackArr[++top] = val;\n}\nint pop() {\n    if (top == -1) { cout << \"Stack Underflow\" << endl; return -1; }\n    return stackArr[top--];\n}\nint main() {\n    push(10); push(20); push(30);\n    cout << \"Pop: \" << pop() << endl;\n    cout << \"Pop: \" << pop() << endl;\n    return 0;\n}",
+     "input": "",
+     "inputNote": "",
+     "output": "Pop: 30\nPop: 20",
+     "flags": []
+    },
+    {
+     "id": "11-2",
+     "no": "১১.২",
+     "name": "Stack (Linked List)",
+     "tip": "নতুন নোড সবসময় head এর সামনে (top এ) যোগ হয় (push), head সরিয়ে remove হয় (pop)। C++ এ struct এর ভিতরে নাম লেখার সময় 'struct' কীওয়ার্ড লাগে না, malloc এর বদলে new ব্যবহার হলো।",
+     "code": "#include <iostream>\nusing namespace std;\nstruct Node {\n    int data;\n    Node *next;\n};\nNode *top = nullptr;\n\nvoid push(int val) {\n    Node *newNode = new Node();\n    newNode->data = val;\n    newNode->next = top; // নতুন নোড আগেরটার আগে বসবে\n    top = newNode;\n}\nint pop() {\n    if (top == nullptr) { cout << \"Stack Empty\" << endl; return -1; }\n    int val = top->data;\n    Node *temp = top;\n    top = top->next;\n    delete temp;\n    return val;\n}\nint main() {\n    push(10); push(20); push(30);\n    cout << \"Pop: \" << pop() << endl;\n    cout << \"Pop: \" << pop() << endl;\n    return 0;\n}",
+     "input": "",
+     "inputNote": "",
+     "output": "Pop: 30\nPop: 20",
+     "flags": []
+    },
+    {
+     "id": "11-3",
+     "no": "১১.৩",
+     "name": "Queue (Array)",
+     "tip": "FIFO (First In First Out) — front থেকে বের হয়, rear এ ঢুকে। (অ্যারের নাম queueArr রাখা হলো যাতে std::queue এর সাথে না মেলে)।",
+     "code": "#include <iostream>\nusing namespace std;\n#define MAX 5\nint queueArr[MAX], front = -1, rear = -1;\n\nvoid enqueue(int val) {\n    if (rear == MAX - 1) { cout << \"Queue Full\" << endl; return; }\n    if (front == -1) front = 0;\n    queueArr[++rear] = val;\n}\nint dequeue() {\n    if (front == -1 || front > rear) { cout << \"Queue Empty\" << endl; return -1; }\n    return queueArr[front++];\n}\nint main() {\n    enqueue(10); enqueue(20); enqueue(30);\n    cout << \"Dequeue: \" << dequeue() << endl;\n    cout << \"Dequeue: \" << dequeue() << endl;\n    return 0;\n}",
+     "input": "",
+     "inputNote": "",
+     "output": "Dequeue: 10\nDequeue: 20",
+     "flags": []
+    },
+    {
+     "id": "11-4",
+     "no": "১১.৪",
+     "name": "Circular Queue",
+     "tip": "rear শেষে পৌঁছালে আবার 0 তে ফিরে যায় — (rear+1) % MAX সূত্র ব্যবহার করো।",
+     "code": "#include <iostream>\nusing namespace std;\n#define MAX 5\nint cqueue[MAX], front = -1, rear = -1;\n\nvoid enqueue(int val) {\n    if ((rear + 1) % MAX == front) { cout << \"Queue Full\" << endl; return; }\n    if (front == -1) front = 0;\n    rear = (rear + 1) % MAX;\n    cqueue[rear] = val;\n}\nint dequeue() {\n    if (front == -1) { cout << \"Queue Empty\" << endl; return -1; }\n    int val = cqueue[front];\n    if (front == rear) front = rear = -1; // শেষ এলিমেন্ট\n    else front = (front + 1) % MAX;\n    return val;\n}\nint main() {\n    enqueue(1); enqueue(2); enqueue(3);\n    cout << \"Dequeue: \" << dequeue() << endl;\n    enqueue(4);\n    cout << \"Dequeue: \" << dequeue() << endl;\n    return 0;\n}",
+     "input": "",
+     "inputNote": "",
+     "output": "Dequeue: 1\nDequeue: 2",
+     "flags": []
+    },
+    {
+     "id": "11-5",
+     "no": "১১.৫",
+     "name": "Linked List",
+     "tip": "প্রতিটি নোডে data + next pointer থাকে। শেষে নতুন নোড যোগ করতে হলে শেষ নোড পর্যন্ত হাঁটতে হয়।",
+     "code": "#include <iostream>\nusing namespace std;\nstruct Node {\n    int data;\n    Node *next;\n};\nNode *head = nullptr;\n\nvoid insert(int val) {\n    Node *newNode = new Node();\n    newNode->data = val;\n    newNode->next = nullptr;\n    if (head == nullptr) { head = newNode; return; }\n    Node *temp = head;\n    while (temp->next != nullptr) temp = temp->next; // শেষ পর্যন্ত যাওয়া\n    temp->next = newNode;\n}\nvoid display() {\n    Node *temp = head;\n    while (temp != nullptr) {\n        cout << temp->data << \" -> \";\n        temp = temp->next;\n    }\n    cout << \"NULL\" << endl;\n}\nint main() {\n    insert(10); insert(20); insert(30);\n    display();\n    return 0;\n}",
+     "input": "",
+     "inputNote": "",
+     "output": "10 -> 20 -> 30 -> NULL",
+     "flags": []
+    },
+    {
+     "id": "11-6",
+     "no": "১১.৬",
+     "name": "Doubly Linked List",
+     "tip": "প্রতিটি নোডে দুইটা pointer — prev (আগের নোড) ও next (পরের নোড), তাই দুই দিকেই যাওয়া যায়।",
+     "code": "#include <iostream>\nusing namespace std;\nstruct Node {\n    int data;\n    Node *prev, *next;\n};\nNode *head = nullptr;\n\nvoid insert(int val) {\n    Node *newNode = new Node();\n    newNode->data = val;\n    newNode->prev = nullptr;\n    newNode->next = head;\n    if (head != nullptr) head->prev = newNode;\n    head = newNode;\n}\nvoid display() {\n    Node *temp = head;\n    while (temp != nullptr) {\n        cout << temp->data << \" <-> \";\n        temp = temp->next;\n    }\n    cout << \"NULL\" << endl;\n}\nint main() {\n    insert(30); insert(20); insert(10);\n    display();\n    return 0;\n}",
+     "input": "",
+     "inputNote": "",
+     "output": "10 <-> 20 <-> 30 <-> NULL",
+     "flags": []
+    },
+    {
+     "id": "11-7",
+     "no": "১১.৭",
+     "name": "Circular Linked List",
+     "tip": "শেষ নোডের next হেড (head) কে নির্দেশ করে, তাই কোনো NULL থাকে না — চক্রাকারে ঘোরে।",
+     "code": "#include <iostream>\nusing namespace std;\nstruct Node {\n    int data;\n    Node *next;\n};\nNode *head = nullptr;\n\nvoid insert(int val) {\n    Node *newNode = new Node();\n    newNode->data = val;\n    if (head == nullptr) {\n        head = newNode;\n        newNode->next = head; // নিজের দিকে নির্দেশ করে\n        return;\n    }\n    Node *temp = head;\n    while (temp->next != head) temp = temp->next;\n    temp->next = newNode;\n    newNode->next = head; // চক্র সম্পূর্ণ করা\n}\nvoid display() {\n    if (head == nullptr) return;\n    Node *temp = head;\n    do {\n        cout << temp->data << \" -> \";\n        temp = temp->next;\n    } while (temp != head);\n    cout << \"(head)\" << endl;\n}\nint main() {\n    insert(10); insert(20); insert(30);\n    display();\n    return 0;\n}",
+     "input": "",
+     "inputNote": "",
+     "output": "10 -> 20 -> 30 -> (head)",
+     "flags": []
+    },
+    {
+     "id": "11-8",
+     "no": "১১.৮",
+     "name": "Binary Search Tree (BST)",
+     "tip": "বামের সব নোড ছোট, ডানের সব নোড বড় — insert এ তুলনা করে বাম/ডানে যাও।",
+     "code": "#include <iostream>\nusing namespace std;\nstruct Node {\n    int data;\n    Node *left, *right;\n};\nNode* newNode(int val) {\n    Node *node = new Node();\n    node->data = val;\n    node->left = node->right = nullptr;\n    return node;\n}\nNode* insert(Node *root, int val) {\n    if (root == nullptr) return newNode(val);\n    if (val < root->data) root->left = insert(root->left, val);\n    else root->right = insert(root->right, val);\n    return root;\n}\nvoid inorder(Node *root) { // ছোট থেকে বড় ক্রমে প্রিন্ট করে\n    if (root == nullptr) return;\n    inorder(root->left);\n    cout << root->data << \" \";\n    inorder(root->right);\n}\nint main() {\n    Node *root = nullptr;\n    int vals[] = {50, 30, 70, 20, 40, 60, 80};\n    for (int i = 0; i < 7; i++) root = insert(root, vals[i]);\n    inorder(root);\n    cout << endl;\n    return 0;\n}",
+     "input": "",
+     "inputNote": "",
+     "output": "20 30 40 50 60 70 80 ",
+     "flags": []
+    },
+    {
+     "id": "11-9",
+     "no": "১১.৯",
+     "name": "Tree Traversal (Preorder, Inorder, Postorder)",
+     "tip": "- Preorder: রুট-বাম-ডান (Root → Left → Right)- Inorder: বাম-রুট-ডান (Left → Root → Right)- Postorder: বাম-ডান-রুট (Left → Right → Root)",
+     "code": "#include <iostream>\nusing namespace std;\nstruct Node {\n    int data;\n    Node *left, *right;\n};\nNode* newNode(int val) {\n    Node *n = new Node();\n    n->data = val; n->left = n->right = nullptr;\n    return n;\n}\nvoid preorder(Node *r) {\n    if (!r) return;\n    cout << r->data << \" \"; // রুট আগে\n    preorder(r->left);\n    preorder(r->right);\n}\nvoid inorder(Node *r) {\n    if (!r) return;\n    inorder(r->left);\n    cout << r->data << \" \"; // রুট মাঝে\n    inorder(r->right);\n}\nvoid postorder(Node *r) {\n    if (!r) return;\n    postorder(r->left);\n    postorder(r->right);\n    cout << r->data << \" \"; // রুট শেষে\n}\nint main() {\n    Node *root = newNode(1);\n    root->left = newNode(2);\n    root->right = newNode(3);\n    root->left->left = newNode(4);\n    root->left->right = newNode(5);\n\n    cout << \"Preorder: \"; preorder(root); cout << endl;\n    cout << \"Inorder: \"; inorder(root); cout << endl;\n    cout << \"Postorder: \"; postorder(root); cout << endl;\n    return 0;\n}",
+     "input": "",
+     "inputNote": "",
+     "output": "Preorder: 1 2 4 5 3 \nInorder: 4 2 5 1 3 \nPostorder: 4 5 2 3 1 ",
+     "flags": []
+    },
+    {
+     "id": "11-10",
+     "no": "১১.১০",
+     "name": "BFS (Breadth First Search)",
+     "tip": "Queue ব্যবহার করে লেভেল বাই লেভেল ঘোরে — visited অ্যারে রাখতে হয় যাতে একই নোড দুইবার ভিজিট না হয়।",
+     "code": "#include <iostream>\nusing namespace std;\n#define V 5\nint adj[V][V] = { // অ্যাডজেসেন্সি ম্যাট্রিক্স (গ্রাফ)\n    {0,1,1,0,0},\n    {1,0,0,1,0},\n    {1,0,0,0,1},\n    {0,1,0,0,1},\n    {0,0,1,1,0}\n};\nbool visited[V] = {false};\nint q[V], front = -1, rear = -1;\n\nvoid enqueue(int x) { q[++rear] = x; }\nint dequeue() { return q[++front]; }\nbool isEmpty() { return front == rear; }\n\nvoid bfs(int start) {\n    enqueue(start);\n    visited[start] = true;\n    while (!isEmpty()) {\n        int node = dequeue();\n        cout << node << \" \";\n        for (int i = 0; i < V; i++) {\n            if (adj[node][i] == 1 && !visited[i]) {\n                enqueue(i);\n                visited[i] = true; // ভিজিট করা হয়ে গেছে চিহ্নিত করা\n            }\n        }\n    }\n}\nint main() {\n    cout << \"BFS: \";\n    bfs(0);\n    cout << endl;\n    return 0;\n}",
+     "input": "",
+     "inputNote": "",
+     "output": "BFS: 0 1 2 3 4 ",
+     "flags": []
+    },
+    {
+     "id": "11-11",
+     "no": "১১.১১",
+     "name": "DFS (Depth First Search)",
+     "tip": "রিকার্সন (বা stack) ব্যবহার করে একটা পথ ধরে যতদূর সম্ভব যাও, তারপর ফিরে এসে অন্য পথ ধরো।",
+     "code": "#include <iostream>\nusing namespace std;\n#define V 5\nint adj[V][V] = {\n    {0,1,1,0,0},\n    {1,0,0,1,0},\n    {1,0,0,0,1},\n    {0,1,0,0,1},\n    {0,0,1,1,0}\n};\nbool visited[V] = {false};\n\nvoid dfs(int node) {\n    visited[node] = true;\n    cout << node << \" \";\n    for (int i = 0; i < V; i++)\n        if (adj[node][i] == 1 && !visited[i])\n            dfs(i); // রিকার্সিভভাবে গভীরে যাওয়া\n}\nint main() {\n    cout << \"DFS: \";\n    dfs(0);\n    cout << endl;\n    return 0;\n}",
+     "input": "",
+     "inputNote": "",
+     "output": "DFS: 0 1 3 4 2 ",
+     "flags": []
+    }
+   ]
+  },
+  {
+   "id": "s12",
+   "no": "১২",
+   "title": "পরীক্ষায় প্রায়ই আসা প্রোগ্রাম (Frequently Asked Exam Programs)",
+   "items": [
+    {
+     "id": "12-1",
+     "no": "১২.১",
+     "name": "Decimal to Binary",
+     "tip": "সংখ্যাটিকে বারবার ২ দিয়ে ভাগ করো, ভাগশেষগুলো উল্টো ক্রমে বসাও।",
+     "code": "#include <iostream>\nusing namespace std;\nint main() {\n    int n, binary[32], i = 0;\n    cout << \"দশমিক সংখ্যা দিন: \";\n    cin >> n;\n    if (n == 0) { cout << 0 << endl; return 0; }\n    while (n > 0) {\n        binary[i++] = n % 2;\n        n /= 2;\n    }\n    cout << \"বাইনারি = \";\n    for (int j = i - 1; j >= 0; j--) cout << binary[j]; // উল্টো ক্রমে প্রিন্ট\n    cout << endl;\n    return 0;\n}",
+     "input": "22\n",
+     "inputNote": "22",
+     "output": "দশমিক সংখ্যা দিন: বাইনারি = 10110",
+     "flags": []
+    },
+    {
+     "id": "12-2",
+     "no": "১২.২",
+     "name": "Binary to Decimal",
+     "tip": "প্রতিটি অংককে ২ এর পাওয়ারে গুণ করে যোগ করো (ডান থেকে বাম, পাওয়ার ০,১,২...)।",
+     "code": "#include <iostream>\n#include <cmath>\nusing namespace std;\nint main() {\n    long long binary;\n    int decimalVal = 0, i = 0, rem;\n    cout << \"বাইনারি সংখ্যা দিন: \";\n    cin >> binary;\n    while (binary != 0) {\n        rem = binary % 10;\n        decimalVal += rem * pow(2, i);\n        binary /= 10;\n        i++;\n    }\n    cout << \"দশমিক = \" << decimalVal << endl;\n    return 0;\n}",
+     "input": "10110\n",
+     "inputNote": "10110",
+     "output": "বাইনারি সংখ্যা দিন: দশমিক = 22",
+     "flags": []
+    },
+    {
+     "id": "12-3",
+     "no": "১২.৩",
+     "name": "Decimal to Octal/Hexadecimal",
+     "tip": "cout এর সাথে hex ও oct ম্যানিপুলেটর ব্যবহার করলে সরাসরি অক্টাল/হেক্স ফরম্যাটে প্রিন্ট হয় (C এর %o, %x এর সমতুল্য)। এরপর ম্যানুয়ালি হেক্স বের করার পদ্ধতিও দেখানো হলো।",
+     "code": "#include <iostream>\n#include <string>\nusing namespace std;\nint main() {\n    int n;\n    cout << \"সংখ্যা দিন: \";\n    cin >> n;\n    cout << \"অক্টাল (Octal) = \" << oct << n << dec << endl; // stream manipulator\n    cout << \"হেক্সাডেসিমাল (Hex) = \" << hex << n << dec << endl;\n\n    // ম্যানুয়ালি হেক্সাডেসিমাল বের করা\n    int num = n, hexArr[32], i = 0;\n    string hexDigits = \"0123456789ABCDEF\";\n    if (num == 0) hexArr[i++] = 0;\n    while (num > 0) {\n        hexArr[i++] = num % 16;\n        num /= 16;\n    }\n    cout << \"ম্যানুয়াল হেক্স = \";\n    for (int j = i - 1; j >= 0; j--) cout << hexDigits[hexArr[j]];\n    cout << endl;\n    return 0;\n}",
+     "input": "255\n",
+     "inputNote": "255",
+     "output": "সংখ্যা দিন: অক্টাল (Octal) = 377\nহেক্সাডেসিমাল (Hex) = ff\nম্যানুয়াল হেক্স = FF",
+     "flags": []
+    },
+    {
+     "id": "12-4",
+     "no": "১২.৪",
+     "name": "Power using Recursion",
+     "tip": "বেস কেস exp==0 হলে return 1, নাহলে base * power(base, exp-1)।",
+     "code": "#include <iostream>\nusing namespace std;\nlong long power(int base, int exp) {\n    if (exp == 0) return 1; // বেস কেস\n    return base * power(base, exp - 1);\n}\nint main() {\n    cout << \"2^10 = \" << power(2, 10) << endl;\n    return 0;\n}",
+     "input": "",
+     "inputNote": "",
+     "output": "2^10 = 1024",
+     "flags": []
+    },
+    {
+     "id": "12-5",
+     "no": "১২.৫",
+     "name": "Check Anagram",
+     "tip": "দুইটা স্ট্রিং sort করে ফেলো, sort করার পর একই হলে anagram (একই অক্ষর, ভিন্ন সাজানো)। C++ এ <algorithm> এর built-in sort() ব্যবহার করা যায়, নিজে বাবল সর্ট লিখতে হয় না।",
+     "code": "#include <iostream>\n#include <string>\n#include <algorithm>\nusing namespace std;\nint main() {\n    string s1 = \"listen\", s2 = \"silent\";\n    string a = s1, b = s2;\n    sort(a.begin(), a.end()); // C++ এ built-in sort() ব্যবহার করা যায়\n    sort(b.begin(), b.end());\n    if (a == b)\n        cout << \"অ্যানাগ্রাম (Anagram)\" << endl;\n    else\n        cout << \"অ্যানাগ্রাম নয়\" << endl;\n    return 0;\n}",
+     "input": "",
+     "inputNote": "",
+     "output": "অ্যানাগ্রাম (Anagram)",
+     "flags": []
+    },
+    {
+     "id": "12-6",
+     "no": "১২.৬",
+     "name": "Remove Duplicate from Array",
+     "tip": "আগে array sort করো, তারপর পাশাপাশি এলিমেন্ট ভিন্ন হলেই নতুন অ্যারেতে রাখো।",
+     "code": "#include <iostream>\nusing namespace std;\nint main() {\n    int arr[] = {1, 2, 2, 3, 4, 4, 5};\n    int n = sizeof(arr) / sizeof(arr[0]);\n    // sort করা আছে ধরে নিলাম\n    int result[10], k = 0;\n    for (int i = 0; i < n; i++) {\n        if (i == 0 || arr[i] != arr[i - 1]) // আগেরটার থেকে ভিন্ন হলে\n            result[k++] = arr[i];\n    }\n    cout << \"ডুপ্লিকেট বাদে: \";\n    for (int i = 0; i < k; i++) cout << result[i] << \" \";\n    cout << endl;\n    return 0;\n}",
+     "input": "",
+     "inputNote": "",
+     "output": "ডুপ্লিকেট বাদে: 1 2 3 4 5 ",
+     "flags": []
+    },
+    {
+     "id": "12-7",
+     "no": "১২.৭",
+     "name": "Merge & Sort Arrays",
+     "tip": "দুইটা অ্যারে একসাথে মার্জ করে তারপর sort() ফাংশন প্রয়োগ করো। C++ এ <algorithm>::sort() ব্যবহার করলে নিজে sorting algorithm লিখতে হয় না।",
+     "code": "#include <iostream>\n#include <algorithm>\nusing namespace std;\nint main() {\n    int a[] = {5, 1, 4}, b[] = {2, 6, 3};\n    int n1 = 3, n2 = 3;\n    int merged[6], k = 0;\n    for (int i = 0; i < n1; i++) merged[k++] = a[i];\n    for (int i = 0; i < n2; i++) merged[k++] = b[i];\n\n    sort(merged, merged + k); // C++ এর built-in sort() ব্যবহার করা হলো\n\n    for (int i = 0; i < k; i++) cout << merged[i] << \" \";\n    cout << endl;\n    return 0;\n}",
+     "input": "",
+     "inputNote": "",
+     "output": "1 2 3 4 5 6 ",
+     "flags": []
+    },
+    {
+     "id": "12-8",
+     "no": "১২.৮",
+     "name": "Frequency of Array Elements",
+     "tip": "প্রতিটি এলিমেন্টের জন্য visited চেক করো (আগে গোনা হয়ে থাকলে স্কিপ করো), নাহলে পুরো অ্যারেতে গুনে ফেলো।",
+     "code": "#include <iostream>\nusing namespace std;\nint main() {\n    int arr[] = {1, 2, 2, 3, 1, 4, 2};\n    int n = sizeof(arr) / sizeof(arr[0]);\n    bool visited[100] = {false};\n    for (int i = 0; i < n; i++) {\n        if (visited[i]) continue; // আগেই গোনা হয়ে গেছে\n        int count = 1;\n        for (int j = i + 1; j < n; j++) {\n            if (arr[i] == arr[j]) { count++; visited[j] = true; }\n        }\n        cout << arr[i] << \" এর ফ্রিকোয়েন্সি = \" << count << endl;\n    }\n    return 0;\n}",
+     "input": "",
+     "inputNote": "",
+     "output": "1 এর ফ্রিকোয়েন্সি = 2\n2 এর ফ্রিকোয়েন্সি = 3\n3 এর ফ্রিকোয়েন্সি = 1\n4 এর ফ্রিকোয়েন্সি = 1",
+     "flags": []
+    },
+    {
+     "id": "12-9",
+     "no": "১২.৯",
+     "name": "Menu-driven Calculator",
+     "tip": "switch-case দিয়ে অপশন অনুযায়ী কাজ করো, লুপে রাখলে বারবার চালানো যায়।",
+     "code": "#include <iostream>\nusing namespace std;\nint main() {\n    int choice;\n    float a, b;\n    do {\n        cout << \"\\n১.যোগ ২.বিয়োগ ৩.গুণ ৪.ভাগ ৫.প্রস্থান\\nপছন্দ দিন: \";\n        cin >> choice;\n        if (choice == 5) break;\n        cout << \"দুইটি সংখ্যা দিন: \";\n        cin >> a >> b;\n        switch (choice) {\n            case 1: cout << \"যোগফল = \" << a + b << endl; break;\n            case 2: cout << \"বিয়োগফল = \" << a - b << endl; break;\n            case 3: cout << \"গুণফল = \" << a * b << endl; break;\n            case 4:\n                if (b != 0) cout << \"ভাগফল = \" << a / b << endl;\n                else cout << \"শূন্য দিয়ে ভাগ করা যায় না\" << endl;\n                break;\n            default: cout << \"ভুল অপশন\" << endl;\n        }\n    } while (choice != 5);\n    return 0;\n}",
+     "input": "1\n10 3\n5\n",
+     "inputNote": "1  →  10 3  →  5",
+     "output": "\n১.যোগ ২.বিয়োগ ৩.গুণ ৪.ভাগ ৫.প্রস্থান\nপছন্দ দিন: দুইটি সংখ্যা দিন: যোগফল = 13\n\n১.যোগ ২.বিয়োগ ৩.গুণ ৪.ভাগ ৫.প্রস্থান\nপছন্দ দিন: ",
+     "flags": []
+    },
+    {
+     "id": "12-10",
+     "no": "১২.১০",
+     "name": "Simple Banking System",
+     "tip": "balance ভ্যারিয়েবলে টাকা জমা রাখো, deposit এ যোগ, withdraw এ বিয়োগ (balance যথেষ্ট আছে কিনা চেক করে)।",
+     "code": "#include <iostream>\nusing namespace std;\nint main() {\n    float balance = 1000;\n    int choice;\n    float amount;\n    do {\n        cout << \"\\n১.জমা ২.উত্তোলন ৩.ব্যালেন্স দেখুন ৪.প্রস্থান\\nপছন্দ: \";\n        cin >> choice;\n        switch (choice) {\n            case 1:\n                cout << \"জমার পরিমাণ: \";\n                cin >> amount;\n                balance += amount;\n                cout << \"নতুন ব্যালেন্স = \" << balance << endl;\n                break;\n            case 2:\n                cout << \"উত্তোলনের পরিমাণ: \";\n                cin >> amount;\n                if (amount > balance) cout << \"অপর্যাপ্ত ব্যালেন্স!\" << endl;\n                else { balance -= amount; cout << \"নতুন ব্যালেন্স = \" << balance << endl; }\n                break;\n            case 3:\n                cout << \"বর্তমান ব্যালেন্স = \" << balance << endl;\n                break;\n        }\n    } while (choice != 4);\n    return 0;\n}",
+     "input": "1\n500\n3\n4\n",
+     "inputNote": "1  →  500  →  3  →  4",
+     "output": "\n১.জমা ২.উত্তোলন ৩.ব্যালেন্স দেখুন ৪.প্রস্থান\nপছন্দ: জমার পরিমাণ: নতুন ব্যালেন্স = 1500\n\n১.জমা ২.উত্তোলন ৩.ব্যালেন্স দেখুন ৪.প্রস্থান\nপছন্দ: বর্তমান ব্যালেন্স = 1500\n\n১.জমা ২.উত্তোলন ৩.ব্যালেন্স দেখুন ৪.প্রস্থান\nপছন্দ: ",
+     "flags": []
+    },
+    {
+     "id": "12-11",
+     "no": "১২.১১",
+     "name": "Student Result Management",
+     "tip": "struct দিয়ে ছাত্রের তথ্য রাখো, নাম্বার থেকে গড় (average) ও গ্রেড বের করো।",
+     "code": "#include <iostream>\n#include <string>\nusing namespace std;\nstruct Student {\n    string name;\n    int marks[3];\n    float average;\n    char grade;\n};\nint main() {\n    Student s;\n    cout << \"নাম দিন: \";\n    cin >> s.name;\n    int total = 0;\n    for (int i = 0; i < 3; i++) {\n        cout << \"বিষয় \" << i + 1 << \" এর নম্বর: \";\n        cin >> s.marks[i];\n        total += s.marks[i];\n    }\n    s.average = total / 3.0;\n    if (s.average >= 80) s.grade = 'A';\n    else if (s.average >= 60) s.grade = 'B';\n    else if (s.average >= 40) s.grade = 'C';\n    else s.grade = 'F';\n\n    cout << \"\\nনাম: \" << s.name << \", গড়: \" << s.average << \", গ্রেড: \" << s.grade << endl;\n    return 0;\n}",
+     "input": "Mugdho\n80 75 90\n",
+     "inputNote": "Mugdho  →  80 75 90",
+     "output": "নাম দিন: বিষয় 1 এর নম্বর: বিষয় 2 এর নম্বর: বিষয় 3 এর নম্বর: \nনাম: Mugdho, গড়: 81.6667, গ্রেড: A",
+     "flags": []
+    },
+    {
+     "id": "12-12",
+     "no": "১২.১২",
+     "name": "Library Management (Mini Project)",
+     "tip": "struct দিয়ে বই এর তথ্য (id, নাম, স্ট্যাটাস) রাখো, menu-driven সিস্টেমে add/search/issue করো। C++ এ bool ব্যবহার করে isIssued flag রাখা যায়।",
+     "code": "#include <iostream>\n#include <string>\nusing namespace std;\nstruct Book {\n    int id;\n    string title;\n    bool isIssued; // false = আছে, true = ইস্যু হয়েছে\n};\nint main() {\n    Book books[10];\n    int count = 0, choice;\n    do {\n        cout << \"\\n১.বই যোগ ২.বই দেখুন ৩.বই ইস্যু ৪.প্রস্থান\\nপছন্দ: \";\n        cin >> choice;\n        switch (choice) {\n            case 1:\n                cout << \"বই আইডি ও নাম দিন: \";\n                cin >> books[count].id >> books[count].title;\n                books[count].isIssued = false;\n                count++;\n                break;\n            case 2:\n                for (int i = 0; i < count; i++)\n                    cout << \"ID:\" << books[i].id << \", নাম:\" << books[i].title\n                         << \", স্ট্যাটাস: \" << (books[i].isIssued ? \"ইস্যুকৃত\" : \"উপলব্ধ\") << endl;\n                break;\n            case 3: {\n                int id;\n                cout << \"ইস্যু করার বই এর আইডি দিন: \";\n                cin >> id;\n                for (int i = 0; i < count; i++)\n                    if (books[i].id == id) { books[i].isIssued = true; cout << \"ইস্যু সম্পন্ন\" << endl; }\n                break;\n            }\n        }\n    } while (choice != 4);\n    return 0;\n}",
+     "input": "1\n101 CProgramming\n2\n4\n",
+     "inputNote": "1  →  101 CProgramming  →  2  →  4",
+     "output": "\n১.বই যোগ ২.বই দেখুন ৩.বই ইস্যু ৪.প্রস্থান\nপছন্দ: বই আইডি ও নাম দিন: \n১.বই যোগ ২.বই দেখুন ৩.বই ইস্যু ৪.প্রস্থান\nপছন্দ: ID:101, নাম:CProgramming, স্ট্যাটাস: উপলব্ধ\n\n১.বই যোগ ২.বই দেখুন ৩.বই ইস্যু ৪.প্রস্থান\nপছন্দ: ",
+     "flags": []
+    }
+   ]
+  }
+ ],
+ "cheat": {
+  "c": [
+   {
+    "title": "কুইক রিভিশন — শেষ মুহূর্তের টিপস",
+    "blocks": [
+     {
+      "type": "table",
+      "rows": [
+       [
+        "ধরন",
+        "মূল কৌশল"
+       ],
+       [
+        "Prime",
+        "2 থেকে √n পর্যন্ত ভাগ চেক"
+       ],
+       [
+        "Palindrome (সংখ্যা/স্ট্রিং)",
+        "উল্টিয়ে বা দুই প্রান্ত থেকে তুলনা"
+       ],
+       [
+        "Factorial/Power",
+        "গুণের identity = 1 দিয়ে শুরু, লুপ বা রিকার্সন"
+       ],
+       [
+        "GCD",
+        "ইউক্লিড: while(b){t=b;b=a%b;a=t;}"
+       ],
+       [
+        "Sorting",
+        "Bubble = পাশাপাশি swap; Selection = min খুঁজে swap"
+       ],
+       [
+        "Searching",
+        "Linear = O(n), Binary = sorted হলে O(log n)"
+       ],
+       [
+        "Recursion",
+        "সবসময় বেস কেস আগে লেখো"
+       ],
+       [
+        "Pointer",
+        "&=address নাও, *=মান নাও (dereference)"
+       ],
+       [
+        "Stack",
+        "LIFO — top দিয়ে push/pop"
+       ],
+       [
+        "Queue",
+        "FIFO — front দিয়ে বের, rear দিয়ে ঢোকা"
+       ],
+       [
+        "Tree Traversal",
+        "Pre=Root-L-R, In=L-Root-R, Post=L-R-Root"
+       ],
+       [
+        "BFS/DFS",
+        "BFS=Queue (লেভেল ধরে), DFS=Recursion/Stack (গভীরে যাওয়া)"
+       ]
+      ]
+     },
+     {
+      "type": "p",
+      "text": "পরীক্ষায় দ্রুত মনে রাখার নিয়ম: যেকোনো লুপ প্রোগ্রামে প্রথমে ভাবো — “আমি কী জমা করছি (sum/product/count) আর কীসের উপর লুপ চালাচ্ছি?” — এই দুইটা প্রশ্নের উত্তর পেলেই প্রায় সব লুপ প্রোগ্রাম লেখা সহজ হয়ে যায়।"
+     }
+    ]
+   }
+  ],
+  "cpp": [
+   {
+    "title": "C ↔ C++ কনভার্সন নোট",
+    "blocks": [
+     {
+      "type": "p",
+      "text": "এই টেবিলে C আর C++ এর মূল পার্থক্যগুলো সংক্ষেপে দেওয়া হলো — পরীক্ষার আগে দ্রুত রিভিশনের জন্য।"
+     },
+     {
+      "type": "table",
+      "rows": [
+       [
+        "বিষয়",
+        "C এ যেভাবে হতো",
+        "C++ এ যেভাবে হয়"
+       ],
+       [
+        "হেডার ফাইল",
+        "#include <stdio.h>, <string.h>, <stdlib.h>",
+        "#include <iostream>, <string>, <fstream>, <vector>, <algorithm>"
+       ],
+       [
+        "ইনপুট/আউটপুট",
+        "printf(), scanf() — ফরম্যাট স্পেসিফায়ার (%d, %s...) লাগে",
+        "cout <<, cin >> — টাইপ নিজে থেকেই বোঝা যায়, ফরম্যাট স্পেসিফায়ার লাগে না"
+       ],
+       [
+        "স্ট্রিং",
+        "char অ্যারে + null terminator ('\\0'), strlen/strcpy/strcmp ফাংশন",
+        "std::string ক্লাস — নিজেই মেমরি ম্যানেজ করে, =, ==, + অপারেটর সরাসরি কাজ করে"
+       ],
+       [
+        "struct ব্যবহার",
+        "ভ্যারিয়েবল ডিক্লেয়ার করতে 'struct' কীওয়ার্ড বারবার লিখতে হয় (struct Node *p;)",
+        "'struct' কীওয়ার্ড ছাড়াই সরাসরি টাইপের নাম লেখা যায় (Node *p;)"
+       ],
+       [
+        "ডাইনামিক মেমরি",
+        "malloc(), calloc(), realloc(), free() — টাইপ cast লাগে",
+        "new, new[], delete, delete[] — টাইপ cast লাগে না; realloc() এর বদলে std::vector ব্যবহার করাই ভালো অভ্যাস"
+       ],
+       [
+        "NULL পয়েন্টার",
+        "NULL",
+        "nullptr (টাইপ-সেফ, আধুনিক C++ স্ট্যান্ডার্ড)"
+       ],
+       [
+        "বুলিয়ান মান",
+        "int দিয়ে 0/1 হিসেবে বোঝাতে হয় (stdbool.h ছাড়া)",
+        "bool টাইপ, true/false সরাসরি ব্যবহারযোগ্য"
+       ],
+       [
+        "Call by Reference",
+        "শুধু পয়েন্টার (*) দিয়ে সম্ভব — void f(int *x)",
+        "পয়েন্টার ছাড়াই reference (&) দিয়ে সম্ভব — void f(int &x)"
+       ],
+       [
+        "ফাইল হ্যান্ডলিং",
+        "FILE*, fopen(), fprintf(), fgets(), fclose()",
+        "ifstream, ofstream, fstream — <<, >>, getline() অপারেটর/ফাংশন"
+       ],
+       [
+        "সর্টিং/সার্চিং",
+        "নিজে বাবল সর্ট, লিনিয়ার সার্চ ইত্যাদি লিখতে হয়",
+        "<algorithm> লাইব্রেরির sort(), find() ইত্যাদি built-in ফাংশন সরাসরি ব্যবহারযোগ্য (তবে অ্যালগরিদম শেখার জন্য ম্যানুয়াল কোডও এই নোটে রাখা হয়েছে)"
+       ],
+       [
+        "ডেটা স্ট্রাকচার (Stack/Queue)",
+        "নিজে অ্যারে/লিঙ্কড লিস্ট দিয়ে ইমপ্লিমেন্ট করতে হয়",
+        "নিজে ইমপ্লিমেন্ট করা যায় (এই নোটে যেভাবে দেখানো হয়েছে), অথবা STL এর std::stack, std::queue সরাসরি ব্যবহারযোগ্য"
+       ],
+       [
+        "ভ্যারিয়েবল ডিক্লেয়ারেশন",
+        "সাধারণত ফাংশনের শুরুতে সব ভ্যারিয়েবল ডিক্লেয়ার করার রীতি",
+        "যেকোনো জায়গায় প্রয়োজনমতো ডিক্লেয়ার করা যায় (for লুপের ভিতরেও)"
+       ],
+       [
+        "ফাংশন ওভারলোডিং",
+        "সম্ভব না — একই নামে দুইটা ফাংশন থাকতে পারে না",
+        "সম্ভব — প্যারামিটার ভিন্ন হলে একই নামে একাধিক ফাংশন লেখা যায়"
+       ],
+       [
+        "namespace",
+        "নেই",
+        "using namespace std; — স্ট্যান্ডার্ড লাইব্রেরির নাম (cout, cin, string...) সরাসরি ব্যবহারযোগ্য করে"
+       ]
+      ]
+     },
+     {
+      "type": "h",
+      "text": "সংক্ষেপে মনে রাখার নিয়ম"
+     },
+     {
+      "type": "p",
+      "text": "C প্রোগ্রাম C++ এ কনভার্ট করতে হলে প্রথমে ভাবো — headers (stdio.h → iostream), I/O (printf/scanf → cout/cin), string (char[] → string), memory (malloc/free → new/delete), আর struct/NULL/bool এর ছোট পার্থক্যগুলো। যুক্তি ও অ্যালগরিদম একই থাকে, শুধু সিনট্যাক্স ও লাইব্রেরি বদলায়।"
+     },
+     {
+      "type": "h",
+      "text": "বিস্তারিত পার্থক্য"
+     },
+     {
+      "type": "p",
+      "text": "উপরের প্রতিটি প্রোগ্রাম C থেকে C++ এ কনভার্ট করার সময় যে সাধারণ পরিবর্তনগুলো বারবার এসেছে, সেগুলো এক জায়গায় সংক্ষেপে দেওয়া হলো — পরীক্ষার আগে দ্রুত রিভিশনের জন্য।"
+     },
+     {
+      "type": "h",
+      "text": "ইনপুট/আউটপুট (I/O)"
+     },
+     {
+      "type": "table",
+      "rows": [
+       [
+        "C",
+        "C++"
+       ],
+       [
+        "#include <stdio.h>",
+        "#include <iostream>  (এবং using namespace std;)"
+       ],
+       [
+        "printf(\"...\", var)",
+        "cout << \"...\" << var  (কোনো format specifier লাগে না)"
+       ],
+       [
+        "scanf(\"%d\", &n)",
+        "cin >> n  (& লাগে না, cin নিজেই address ধরে নেয়)"
+       ],
+       [
+        "%d, %f, %c, %s ফরম্যাট স্পেসিফায়ার",
+        "লাগে না — cout/cin টাইপ নিজে থেকেই বুঝে নেয় (type-safe)"
+       ],
+       [
+        "\\n দিয়ে নতুন লাইন",
+        "endl বা \"\\n\" দুটোই চলে; endl বাফারও flush করে"
+       ]
+      ]
+     },
+     {
+      "type": "h",
+      "text": "মেমরি ব্যবস্থাপনা (Dynamic Memory)"
+     },
+     {
+      "type": "table",
+      "rows": [
+       [
+        "C",
+        "C++"
+       ],
+       [
+        "malloc(n * sizeof(type))",
+        "new type[n]  (কাস্ট লাগে না, টাইপ-সেফ)"
+       ],
+       [
+        "calloc(n, sizeof(type))",
+        "new type[n]()  ( () দিলে সব 0 দিয়ে initialize হয়)"
+       ],
+       [
+        "realloc(ptr, newSize)",
+        "সরাসরি কোনো বিকল্প নেই — নতুন array বানিয়ে কপি করতে হয়, অথবা std::vector ব্যবহার করাই ভালো"
+       ],
+       [
+        "free(ptr)",
+        "delete ptr;  (single) অথবা delete[] ptr;  (array)"
+       ],
+       [
+        "NULL",
+        "nullptr  (টাইপ-সেফ, C++11 থেকে প্রস্তাবিত)"
+       ]
+      ]
+     },
+     {
+      "type": "h",
+      "text": "স্ট্রাকচার ও টাইপ"
+     },
+     {
+      "type": "table",
+      "rows": [
+       [
+        "C",
+        "C++"
+       ],
+       [
+        "struct Student s1; (struct কীওয়ার্ড বাধ্যতামূলক)",
+        "Student s1;  (struct কীওয়ার্ড ছাড়াই সরাসরি টাইপের নাম লেখা যায়)"
+       ],
+       [
+        "struct Node* (পয়েন্টার ডিক্লেয়ারেশনেও struct লাগে)",
+        "Node*  (আলাদা করে struct লেখা লাগে না)"
+       ],
+       [
+        "char name[50]; (ফিক্সড সাইজ char array)",
+        "string name;  (#include <string>, ডাইনামিক সাইজ, ==, + অপারেটর সাপোর্ট করে)"
+       ],
+       [
+        "int isValid; (বুলিয়ানের বদলে int 0/1)",
+        "bool isValid;  (সত্যিকারের বুলিয়ান টাইপ, true/false)"
+       ]
+      ]
+     },
+     {
+      "type": "h",
+      "text": "ফাংশন ও প্যারামিটার"
+     },
+     {
+      "type": "table",
+      "rows": [
+       [
+        "C",
+        "C++"
+       ],
+       [
+        "void f(int *x) { *x = ...; }  (Call by reference করতে পয়েন্টার লাগে)",
+        "void f(int &x) { x = ...; }  (রেফারেন্স প্যারামিটার — পয়েন্টার সিনট্যাক্স ছাড়াই মূল ভ্যারিয়েবল বদলানো যায়)"
+       ],
+       [
+        "ফাংশন ওভারলোডিং সাপোর্ট করে না (একই নামে ভিন্ন প্যারামিটারের একাধিক ফাংশন)",
+        "ফাংশন ওভারলোডিং সাপোর্ট করে"
+       ],
+       [
+        "ডিফল্ট আর্গুমেন্ট সাপোর্ট করে না",
+        "ডিফল্ট আর্গুমেন্ট সাপোর্ট করে (যেমন void f(int x = 0))"
+       ]
+      ]
+     },
+     {
+      "type": "h",
+      "text": "ফাইল হ্যান্ডলিং"
+     },
+     {
+      "type": "table",
+      "rows": [
+       [
+        "C",
+        "C++"
+       ],
+       [
+        "FILE *fp = fopen(\"file.txt\", \"w\");",
+        "ofstream fp(\"file.txt\");  (লেখার জন্য) / ifstream (পড়ার জন্য)"
+       ],
+       [
+        "fprintf(fp, \"...\"), fscanf(fp, \"...\")",
+        "fp << \"...\";  /  fp >> var;  (স্ট্রিম অপারেটর)"
+       ],
+       [
+        "fgets(buffer, size, fp)",
+        "getline(fp, line)  (std::string এ সরাসরি সম্পূর্ণ লাইন পড়া যায়)"
+       ],
+       [
+        "fclose(fp)",
+        "fp.close();  (আর ডেস্ট্রাক্টর নিজে থেকেই বন্ধ করে দেয় স্কোপ শেষ হলে)"
+       ]
+      ]
+     },
+     {
+      "type": "h",
+      "text": "অন্যান্য গুরুত্বপূর্ণ পার্থক্য"
+     },
+     {
+      "type": "table",
+      "rows": [
+       [
+        "C",
+        "C++"
+       ],
+       [
+        "ভ্যারিয়েবলের নাম যেমন max, min, queue, hex ইচ্ছেমতো ব্যবহার করা যায়",
+        "সতর্ক থাকতে হয় — std::max, std::min, std::queue, std::hex ইত্যাদি স্ট্যান্ডার্ড লাইব্রেরির নামের সাথে সংঘর্ষ এড়াতে ভিন্ন নাম (যেমন mx, queueArr, hexArr) ব্যবহার করা ভালো অভ্যাস"
+       ],
+       [
+        "ম্যানুয়ালি সব ডেটা স্ট্রাকচার (stack, queue, linked list) লিখতে হয়",
+        "চাইলে <stack>, <queue>, <vector>, <list>, <map> এর ready-made STL কন্টেইনার সরাসরি ব্যবহার করা যায় — তবে এই নোটে এক্সাম প্রস্তুতির জন্য মূল অ্যালগরিদম হাতে-কলমে লেখা রাখা হয়েছে"
+       ],
+       [
+        "ভ্যারিয়েবল যেকোনো জায়গায় ডিক্লেয়ার করা যেত না (পুরনো C স্ট্যান্ডার্ডে ব্লকের শুরুতে লাগত)",
+        "for (int i = 0; ...) এর মতো লুপের ভিতরেই ভ্যারিয়েবল ডিক্লেয়ার করা যায় (আধুনিক C এও এখন চলে, তবে C++ এ এটাই স্বাভাবিক রীতি)"
+       ],
+       [
+        "কম্পাইল করতে gcc file.c -o file",
+        "কম্পাইল করতে g++ file.cpp -o file"
+       ]
+      ]
+     }
+    ]
+   }
+  ]
+ }
+}
